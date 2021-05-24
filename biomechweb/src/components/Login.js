@@ -24,7 +24,7 @@ const Login = (props) => {
                 .then(res=>{
                     dispatch(setUser(res.data))
                     // console.log("Registered!")
-                    // props.history.push("/profile")
+                    props.history.push("/profile")
                 }).catch(err=>console.log(err))
             }else{
                 alert("Passwords do not match")
@@ -40,7 +40,7 @@ const Login = (props) => {
         .then(res=>{
             dispatch(setUser(res.data))
             // console.log("login success!")
-            // props.history.push("/profile")
+            props.history.push("/profile")
         }).catch(err=>console.log(err))
     }
 
@@ -55,7 +55,7 @@ const Login = (props) => {
         }else{
             return(
                 <div>
-                    <h5>Retype Password: <input value={password2} onChange={e=>setPassword2(e.target.value)}/></h5>
+                    <h5>Retype Password: <input type="password" value={password2} onChange={e=>setPassword2(e.target.value)}/></h5>
                     <h5>First Name: <input value={firstName} onChange={e=>setFirstName(e.target.value)}/></h5>
                     <h5>Last Name: <input value={lastName} onChange={e=>setLastName(e.target.value)}/></h5>
                     <h5>Institution: <input value={institution} onChange={e=>setInstitution(e.target.value)}/></h5>
@@ -69,7 +69,7 @@ const Login = (props) => {
     return(
         <div>
             <h5>Email: <input value={email} onChange={e=>setEmail(e.target.value)}/></h5>
-            <h5>Password: <input value={password} onChange={e=>setPassword(e.target.value)}/></h5>
+            <h5>Password: <input type="password" value={password} onChange={e=>setPassword(e.target.value)}/></h5>
             {renderSignup()}
         </div>
     )

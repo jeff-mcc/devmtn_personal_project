@@ -1,6 +1,7 @@
 import {Switch,Route} from 'react-router-dom'
 import Login from './components/Login'
 import Home from './components/Home'
+import Profile from './components/Profile'
 
 export default (
     <Switch>
@@ -9,5 +10,6 @@ export default (
         {/* <Route path="/about" component={About} /> */}
         {/* <Route path="/contact" component={Contact} /> */}
         <Route path="/login" component={Login} />
+        <Route path="/profile" component={Profile} />
     </Switch>
 )
