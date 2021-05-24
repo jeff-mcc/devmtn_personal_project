@@ -33,18 +33,18 @@ massive({
 
 //endpoints needed:  Authentication, Data, Project, User
 //Authentication:
-app.post('/auth/signup',authCtrl.signup)
-app.post('/auth/login',authCtrl.login)
-app.get('/auth/logout',authCtrl.logout)
-app.get('/auth/user',authCtrl.getUser)
+app.post('/login/signup',authCtrl.signup)
+app.post('/login/login',authCtrl.login)
+app.get('/login/logout',authCtrl.logout)
+app.get('/login/user',authCtrl.getUser)
 
 //Data:
-// '/project/:project_id/:data_id'  get
-// '/project/:project_id'  put
+// '/data/folders/:project_id/:data_id'  get
+// '/data/folders/:project_id'  put
 
 //Project:
-// '/folders'  get
-// '/folders?query=query'  get
+// '/data/folders'  get
+// '/data/folders?query=query'  get
 
 //User:
 // '/user/profile'  get
