@@ -6,6 +6,10 @@ const session = require('express-session')
 const {CONNECTION_STRING,SESSION_SECRET,SERVER_PORT} = process.env;
 
 //controllers needed: authController, dataController, projectController, userController
+const authCtrl = require('./controllers/authController')
+// const dataCtrl = require('./controllers/dataController')
+// const projCtrl = require('./controllers/projectController')
+// const userCtrl = require('./controllers/userController')
 
 const app = express()
 
@@ -29,10 +33,10 @@ massive({
 
 //endpoints needed:  Authentication, Data, Project, User
 //Authentication:
-// '/auth/signup'  post
-// '/auth/login'  post
-// '/auth/logout'  get
-// '/auth/user'  get
+app.post('/auth/signup',authCtrl.signup)
+app.post('/auth/login',authCtrl.login)
+app.get('/auth/logout',authCtrl.logout)
+app.get('/auth/user',authCtrl.getUser)
 
 //Data:
 // '/project/:project_id/:data_id'  get
