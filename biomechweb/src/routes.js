@@ -2,6 +2,7 @@ import {Switch,Route} from 'react-router-dom'
 import Login from './components/Login'
 import Home from './components/Home'
 import Profile from './components/Profile'
+import ProjectData from './components/ProjectData'
 
 export default (
     <Switch>
@@ -11,5 +12,6 @@ export default (
         {/* <Route path="/contact" component={Contact} /> */}
         <Route path="/login" component={Login} />
         <Route path="/profile" component={Profile} />
+        <Route path="/projectdata" component={ProjectData} />
     </Switch>
 )

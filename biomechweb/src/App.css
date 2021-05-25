@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +35,14 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.createNew{
+  font-size:2em;
+}
+
+.folderButton{
+  border: none;
+  background-color: white;
+  cursor: pointer;
 }
