@@ -1,0 +1,2 @@
+INSERT INTO biomechweb_project_info (title,description,category1,category2,owner_id)
+VALUES ('Rearfoot Angle Running','Running took place on a treadmill at 3.5m/s with two markers placed on the back of the right leg, and two markers placecd on the back of the right shoe','Running','Sports & Exercise',2);
