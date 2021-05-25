@@ -8,7 +8,7 @@ const {CONNECTION_STRING,SESSION_SECRET,SERVER_PORT} = process.env;
 //controllers needed: authController, dataController, projectController, userController
 const authCtrl = require('./controllers/authController')
 // const dataCtrl = require('./controllers/dataController')
-// const projCtrl = require('./controllers/projectController')
+const projCtrl = require('./controllers/projectController')
 // const userCtrl = require('./controllers/userController')
 
 const app = express()
@@ -44,6 +44,8 @@ app.get('/login/user',authCtrl.getUser)
 
 //Project:
 // '/data/folders'  get
+// '/data/folders/:user_id'  get
+app.get('/data/folders/:user_id',projCtrl.getUserProjects)
 // '/data/folders?query=query'  get
 
 //User:

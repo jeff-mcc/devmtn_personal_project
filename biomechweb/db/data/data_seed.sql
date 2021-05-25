@@ -93,3 +93,8 @@ VALUES (1,-0.225,0.331,-0.243,0.228,-0.261,0.161,-0.274,0.119);
 
 INSERT INTO biomechweb_data (data_id,leg_x_p,leg_y_p,leg_x_d,leg_y_d,calc_x_p,calc_y_p,calc_x_d,calc_y_d)
 VALUES (1,-0.224,0.340,-0.241,0.236,-0.259,0.173,-0.272,0.132);
+
+-- everything above this line has already been inserted into the database
+INSERT INTO biomechweb_data (data_id,leg_x_p,leg_y_p,leg_x_d,leg_y_d,calc_x_p,calc_y_p,calc_x_d,calc_y_d)
+VALUES (2,-0.185,0.308,-0.201,0.189,-0.213,0.121,-0.233,0.067),
+    (2,-0.188,0.304,-0.204,0.185,-0.217,0.117,-0.236,0.063);
