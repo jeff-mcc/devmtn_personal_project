@@ -12,6 +12,6 @@ export default (
         {/* <Route path="/contact" component={Contact} /> */}
         <Route path="/login" component={Login} />
         <Route path="/profile" component={Profile} />
-        <Route path="/projectdata" component={ProjectData} />
+        <Route path="/projectdata/:project_id" component={ProjectData} />
     </Switch>
 )

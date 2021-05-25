@@ -9,7 +9,7 @@ const {CONNECTION_STRING,SESSION_SECRET,SERVER_PORT} = process.env;
 const authCtrl = require('./controllers/authController')
 const dataCtrl = require('./controllers/dataController')
 const projCtrl = require('./controllers/projectController')
-// const userCtrl = require('./controllers/userController')
+const userCtrl = require('./controllers/userController')
 
 const app = express()
 
@@ -39,7 +39,8 @@ app.get('/login/logout',authCtrl.logout)
 app.get('/login/user',authCtrl.getUser)
 
 //Data:
-// '/data/folders/:project_id/:data_id'  get
+// '/data/folders/data/:project_id'  get
+app.get('/data/folders/data/:project_id',dataCtrl.getProjectData)
 app.get('/data/folders/projects/:project_id',dataCtrl.getProject)
 // '/data/folders/:project_id'  put
 
@@ -50,4 +51,4 @@ app.get('/data/folders/:user_id',projCtrl.getUserProjects)
 
 //User:
 // '/user/profile'  get
-// '/user/edit'  put
+app.put('/user/edit',userCtrl.editUser)

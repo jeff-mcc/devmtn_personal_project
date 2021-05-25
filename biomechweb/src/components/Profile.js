@@ -26,7 +26,7 @@ const Profile = (props) => {
             // console.log(project)
             dispatch(setProjectInfo(project))
             dispatch(setDataInfo(res.data))
-            props.history.push("/projectdata")
+            props.history.push(`/projectdata/${project.project_id}`)
         }).catch(err=>console.log(err))
     }
     
