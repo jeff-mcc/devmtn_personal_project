@@ -46,6 +46,7 @@ app.get('/data/folders/projects/:project_id',dataCtrl.getProject)
 
 //Project:
 // '/data/folders'  get
+app.get('/data/folders',projCtrl.getProjects)
 app.get('/data/folders/:user_id',projCtrl.getUserProjects)
 // '/data/folders?query=query'  get
 

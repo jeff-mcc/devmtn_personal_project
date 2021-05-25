@@ -1,15 +1,26 @@
 module.exports = {
-    // getProjects: (req,res) => {
-    //     const {query} = req.query;
-    //     const db = req.app.get('db')
-    //     db.project.get_projects(query)
-    //     .then(projects=>{
-    //         res.status(200).send(projects)
-    //     }).catch(err=>{
-    //         console.log(err)
-    //         res.status(500).send(err)
-    //     })
-    // },
+    getProjects: (req,res) => {
+        const db = req.app.get('db')
+        let {query} = req.query;
+        if(query!==undefined){
+            query = query.toLowerCase()
+            db.project.get_query_projects(query)
+            .then(projects=>{
+                res.status(200).send(projects)
+            }).catch(err=>{
+                console.log(err)
+                res.status(500).send(err)
+            })
+        }else{
+            db.project.get_projects()
+            .then(projects=>{
+                res.status(200).send(projects)
+            }).catch(err=>{
+                console.log(err)
+                res.status(500).send(err)
+            })
+        }
+    },
     getUserProjects: (req,res)=>{
         const db = req.app.get('db')
         const {user_id} = req.params;
