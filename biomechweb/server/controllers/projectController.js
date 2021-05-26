@@ -1,10 +1,10 @@
 module.exports = {
     getProjects: (req,res) => {
         const db = req.app.get('db')
-        let {query} = req.query;
-        if(query!==undefined){
+        let {query,filter} = req.query;
+        if(query!==undefined || filter!==undefined){
             query = query.toLowerCase()
-            db.project.get_query_projects(query)
+            db.project.get_query_projects(query,filter)
             .then(projects=>{
                 res.status(200).send(projects)
             }).catch(err=>{

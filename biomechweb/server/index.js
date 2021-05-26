@@ -39,16 +39,14 @@ app.get('/login/logout',authCtrl.logout)
 app.get('/login/user',authCtrl.getUser)
 
 //Data:
-// '/data/folders/data/:project_id'  get
 app.get('/data/folders/data/:project_id',dataCtrl.getProjectData)
 app.get('/data/folders/projects/:project_id',dataCtrl.getProject)
 // '/data/folders/:project_id'  put
 
 //Project:
-// '/data/folders'  get
 app.get('/data/folders',projCtrl.getProjects)
 app.get('/data/folders/:user_id',projCtrl.getUserProjects)
-// '/data/folders?query=query'  get
+// '/data/folders?query=query'  endpoint completed for search and for filtering categories, but have not completed connecting on the front end
 
 //User:
 // '/user/profile'  get
