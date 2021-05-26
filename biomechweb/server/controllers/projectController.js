@@ -2,15 +2,36 @@ module.exports = {
     getProjects: (req,res) => {
         const db = req.app.get('db')
         let {query,filter} = req.query;
-        if(query!==undefined || filter!==undefined){
-            query = query.toLowerCase()
-            db.project.get_query_projects(query,filter)
-            .then(projects=>{
-                res.status(200).send(projects)
-            }).catch(err=>{
-                console.log(err)
-                res.status(500).send(err)
-            })
+        // console.log(query)
+        // console.log(filter)
+        if(query!=='' || filter!==''){
+            if(query){
+                let newFilter = '';
+                if(filter){
+                    newFilter = filter.replace(/\*/,"&")
+                }
+                query = query.toLowerCase()
+                db.project.get_query_projects(query,newFilter)
+                .then(projects=>{
+                    res.status(200).send(projects)
+                }).catch(err=>{
+                    console.log(err)
+                    res.status(500).send(err)
+                })
+            }else{
+                query = '';
+                let newFilter = '';
+                if(filter){
+                    newFilter = filter.replace(/\*/,"&")
+                }
+                db.project.get_query_projects(query,newFilter)
+                .then(projects=>{
+                    res.status(200).send(projects)
+                }).catch(err=>{
+                    console.log(err)
+                    res.status(500).send(err)
+                })
+            }
         }else{
             db.project.get_projects()
             .then(projects=>{

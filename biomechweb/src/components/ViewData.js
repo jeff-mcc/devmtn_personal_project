@@ -28,7 +28,7 @@ const ViewData = (props) => {
     }
 
     const handleSearch = (search,filter) => {
-        axios.get(`/data/folders?query=${search}?filter=${filter}`)
+        axios.get(`/data/folders?query=${search}&filter=${filter}`)
         .then(res=>{
             setData(res.data)
         }).catch(err=>console.log(err))
@@ -36,6 +36,13 @@ const ViewData = (props) => {
 
     const handleChange = (value) => {
         setFilter(value)
+        let fixValue = value.replace(/\s+/g,"+")
+        fixValue = fixValue.replace(/&/,"*")
+        // console.log(fixValue)
+        axios.get(`/data/folders?filter=${fixValue}`)
+        .then(res=>{
+            setData(res.data)
+        }).catch(err=>console.log(err))
     }
 
     return(
