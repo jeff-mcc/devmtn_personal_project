@@ -1,18 +1,26 @@
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import Header2 from './Header2'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
+import {setProjectInfo} from '../redux/projectReducer'
 
 const ProjectData = () => {
     const {projectInfo,dataInfo} = useSelector(store=>store.projectInfo)
+    const {user} = useSelector(store=>store.auth)
     let viewArray = [];
     if(dataInfo){
         for (let i=0;i<dataInfo.length;i++){
             viewArray.push(false)
         }
     }
+    const [editBool,setEditBool] = useState(false)
     const [view,setView] = useState(viewArray)
     const [data,setData] = useState([])
+    const [category1,setCat1] = useState(projectInfo.category1)
+    const [category2,setCat2] = useState(projectInfo.category2)
+    const [title,setTitle] = useState(projectInfo.title)
+    const [description,setDesc] = useState(projectInfo.description)
+    const dispatch = useDispatch()
     // console.log(projectInfo)
     // console.log(dataInfo)
     // console.log(data)
@@ -24,12 +32,95 @@ const ProjectData = () => {
         }).catch(err=>console.log(err))
     },[projectInfo.project_id])
 
+    const renderEdit = () => {
+        if(user){
+            if(user.user_id===projectInfo.owner_id){
+                return(
+                    <button onClick={()=>setEditBool(!editBool)}>Edit Project Details</button>
+                )
+            }
+        }
+    }
+
+    const renderAddData = () => {
+        if(user){
+            if(user.user_id===projectInfo.owner_id){
+                return(
+                    <button>Add Data</button>
+                )
+            }
+        }
+    }
+
+    const submitEdit = () => {
+        const {project_id} = projectInfo;
+        axios.put(`/data/folders/projects/${project_id}`,{title,description,category1,category2})
+        .then(res=>{
+            dispatch(setProjectInfo(res.data))
+            setEditBool(!editBool)
+        }).catch(err=>console.log(err))
+    }
+
+    const editProjectInfo = () => {
+        if(editBool){
+            return(
+                <div>
+                    <p>Title: <input value={title} onChange={e=>setTitle(e.target.value)}/></p>
+                    <p>Description:</p>
+                    <textarea rows="3" cols="40" value={description} onChange={e=>setDesc(e.target.value)}></textarea>
+                    <p>Categories: <select value={category1} onChange={e=>setCat1(e.target.value)}>
+                        <option value=''>--Category 1--</option>
+                        <option value='Running'>Running</option>
+                        <option value='Sports &#38; Exercise'>Sports &#38; Exercise</option>
+                        <option value='Injuries'>Injuries</option>
+                        <option value='Upper Extremity'>Upper Extremity</option>
+                        <option value='Lower Extremity'>Lower Extremity</option>
+                        <option value='Ankle'>Ankle</option>
+                        <option value='Knee'>Knee</option>
+                        <option value='Hip'>Hip</option>
+                        <option value='Spine'>Spine</option>
+                        <option value='Neck'>Neck</option>
+                        <option value='Shoulder'>Shoulder</option>
+                        <option value='Arm &#38; Hand'>Arm &#38; Hand</option>
+                    </select><select value={category2} onChange={e=>setCat2(e.target.value)}>
+                        <option value=''>--Category 2--</option>
+                        <option value='Running'>Running</option>
+                        <option value='Sports &#38; Exercise'>Sports &#38; Exercise</option>
+                        <option value='Injuries'>Injuries</option>
+                        <option value='Upper Extremity'>Upper Extremity</option>
+                        <option value='Lower Extremity'>Lower Extremity</option>
+                        <option value='Ankle'>Ankle</option>
+                        <option value='Knee'>Knee</option>
+                        <option value='Hip'>Hip</option>
+                        <option value='Spine'>Spine</option>
+                        <option value='Neck'>Neck</option>
+                        <option value='Shoulder'>Shoulder</option>
+                        <option value='Arm &#38; Hand'>Arm &#38; Hand</option>
+                    </select></p>
+                    <button onClick={()=>setEditBool(!editBool)}>Cancel</button>
+                    <button onClick={()=>submitEdit()}>Submit</button>
+                </div>
+            )
+        }else{
+            return(
+                <div>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                    <h6>Categories: {category1}, {category2}</h6>
+                    {renderEdit()}
+                </div>
+            )
+        }
+    }
+
     return (
         <div>
             <Header2 />
-            <h3>{projectInfo.title}</h3>
+            {editProjectInfo()}
+            {/* <h3>{projectInfo.title}</h3>
             <p>{projectInfo.description}</p>
             <h6>Categories: {projectInfo.category1}, {projectInfo.category2}</h6>
+            {renderEdit()} */}
             {dataInfo.map((info,idx)=>{
                 const renderView = () => {
                     if(view[idx]){
@@ -59,7 +150,8 @@ const ProjectData = () => {
                     </div>
                 )
             })}
-            <button>Add Data</button>
+            {renderAddData()}
+            {/* <button>Add Data</button> */}
         </div>
     )
 }

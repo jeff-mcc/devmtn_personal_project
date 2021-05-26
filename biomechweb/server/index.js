@@ -41,13 +41,13 @@ app.get('/login/user',authCtrl.getUser)
 //Data:
 app.get('/data/folders/data/:project_id',dataCtrl.getProjectData)
 app.get('/data/folders/projects/:project_id',dataCtrl.getProject)
-// '/data/folders/:project_id'  put
+app.put('/data/folders/projects/:project_id',dataCtrl.editProject)
 
 //Project:
 app.get('/data/folders',projCtrl.getProjects)
 app.get('/data/folders/:user_id',projCtrl.getUserProjects)
-// '/data/folders?query=query'  endpoint completed for search and for filtering categories, but have not completed connecting on the front end
+// '/data/folders?query=query'  endpoint completed for search and for filtering categories, and connected on the front end
 
 //User:
-// '/user/profile'  get
+// '/user/profile'  get was unnecessary because profile info retrieved from database during login
 app.put('/user/edit',userCtrl.editUser)

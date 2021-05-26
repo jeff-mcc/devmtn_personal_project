@@ -8,7 +8,7 @@ const ViewData = (props) => {
     const [filter,setFilter] = useState('')
     const [data,setData] = useState([])
     const dispatch = useDispatch()
-    // console.log(filter)
+    // console.log(data)
 
     useEffect(()=>{
         axios.get('/data/folders')
@@ -41,8 +41,29 @@ const ViewData = (props) => {
         // console.log(fixValue)
         axios.get(`/data/folders?filter=${fixValue}`)
         .then(res=>{
+            // console.log(res.data)
             setData(res.data)
         }).catch(err=>console.log(err))
+    }
+
+    const handleMap = () => {
+        if(data.length===0){
+            return(
+                <p>No Results Available</p>
+            )
+        }else{
+            return(
+                <div>
+                    {data.map((d)=>{
+                        return(
+                            <div className="folder" key={d.project_id}>
+                                <button className="folderButton" onClick={()=>clickFolder(d)}>{d.title}</button>
+                            </div>
+                        )
+                    })}
+                </div>
+            )
+        }
     }
 
     return(
@@ -68,13 +89,14 @@ const ViewData = (props) => {
                     <option value='Shoulder'>Shoulder</option>
                     <option value='Arm &#38; Hand'>Arm &#38; Hand</option>
             </select></p>
-            {data.map(d=>{
+            {handleMap()}
+            {/* {data.map((d)=>{
                 return(
                     <div className="folder" key={d.project_id}>
                         <button className="folderButton" onClick={()=>clickFolder(d)}>{d.title}</button>
                     </div>
                 )
-            })}
+            })} */}
         </div>
     )
 }
