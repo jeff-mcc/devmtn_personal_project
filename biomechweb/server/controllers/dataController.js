@@ -31,7 +31,7 @@ module.exports = {
         const {title,description,category1,category2} = req.body;
         db.data.edit_project(p_id,title,description,category1,category2)
         .then(info=>{
-            res.status(200).send(info)
+            res.status(200).send(info[0])
         }).catch(err=>{
             console.log(err)
             res.status(500).send(err)

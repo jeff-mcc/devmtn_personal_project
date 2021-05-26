@@ -4,7 +4,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 import {setProjectInfo} from '../redux/projectReducer'
 
-const ProjectData = () => {
+const ProjectData = (props) => {
     const {projectInfo,dataInfo} = useSelector(store=>store.projectInfo)
     const {user} = useSelector(store=>store.auth)
     let viewArray = [];
@@ -23,7 +23,7 @@ const ProjectData = () => {
     const dispatch = useDispatch()
     // console.log(projectInfo)
     // console.log(dataInfo)
-    // console.log(data)
+    // console.log(props)
 
     useEffect(()=>{
         axios.get(`/data/folders/data/${projectInfo.project_id}`)
@@ -33,6 +33,7 @@ const ProjectData = () => {
     },[projectInfo.project_id])
 
     const renderEdit = () => {
+        // console.log(user)
         if(user){
             if(user.user_id===projectInfo.owner_id){
                 return(
@@ -56,6 +57,7 @@ const ProjectData = () => {
         const {project_id} = projectInfo;
         axios.put(`/data/folders/projects/${project_id}`,{title,description,category1,category2})
         .then(res=>{
+            // console.log(res.data)
             dispatch(setProjectInfo(res.data))
             setEditBool(!editBool)
         }).catch(err=>console.log(err))
