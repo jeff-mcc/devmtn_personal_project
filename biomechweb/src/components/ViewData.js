@@ -8,11 +8,12 @@ const ViewData = (props) => {
     const [filter,setFilter] = useState('')
     const [data,setData] = useState([])
     const dispatch = useDispatch()
+    // console.log(filter)
 
     useEffect(()=>{
         axios.get('/data/folders')
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             setData(res.data)
         }).catch(err=>console.log(err))
     },[])
@@ -26,6 +27,13 @@ const ViewData = (props) => {
         }).catch(err=>console.log(err))
     }
 
+    const handleSearch = (search,filter) => {
+        axios.get(`/data/folders?query=${search}?filter=${filter}`)
+        .then(res=>{
+            setData(res.data)
+        }).catch(err=>console.log(err))
+    }
+
     const handleChange = (value) => {
         setFilter(value)
     }
@@ -36,7 +44,7 @@ const ViewData = (props) => {
                 {/* <img />  //website icon that routes the user to the home screen */}
                 <h2>BiomechWeb</h2>
                 <input placeholder="Search project title" onChange={e=>setSearch(e.target.value)}/>
-                <button>S</button>
+                <button onClick={()=>handleSearch(search,filter)}>S</button>
             </header>
             <p>Filter by Category: <select value={filter} onChange={e=>handleChange(e.target.value)}>
                     <option value=''>--No Filter Selected--</option>
