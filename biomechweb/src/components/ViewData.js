@@ -2,6 +2,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 import {useDispatch} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const ViewData = (props) => {
     const [search,setSearch] = useState('')
@@ -70,7 +71,7 @@ const ViewData = (props) => {
         <div>
             <header>
                 {/* <img />  //website icon that routes the user to the home screen */}
-                <h2>BiomechWeb</h2>
+                <Link to="/"><h2>BiomechWeb</h2></Link>
                 <input placeholder="Search project title" onChange={e=>setSearch(e.target.value)}/>
                 <button onClick={()=>handleSearch(search,filter)}>S</button>
             </header>

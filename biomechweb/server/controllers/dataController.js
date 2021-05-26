@@ -36,5 +36,18 @@ module.exports = {
             console.log(err)
             res.status(500).send(err)
         })
+    },
+    deleteData: (req,res)=>{
+        const db = req.app.get('db')
+        let {data_id,project_id} = req.params;
+        data_id = +data_id;
+        project_id = +project_id;
+        db.data.delete_project_data(data_id,project_id)
+        .then(data=>{
+            res.status(200).send(data)
+        }).catch(err=>{
+            console.log(err)
+            res.status(500).send(err)
+        })
     }
 }

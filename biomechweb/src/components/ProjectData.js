@@ -2,7 +2,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import Header2 from './Header2'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
-import {setProjectInfo} from '../redux/projectReducer'
+import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 
 const ProjectData = (props) => {
     const {projectInfo,dataInfo} = useSelector(store=>store.projectInfo)
@@ -43,11 +43,15 @@ const ProjectData = (props) => {
         }
     }
 
+    const handleAddData = () => {
+        props.history.push("/add/data")
+    }
+
     const renderAddData = () => {
         if(user){
             if(user.user_id===projectInfo.owner_id){
                 return(
-                    <button>Add Data</button>
+                    <button onClick={handleAddData}>Add Data</button>
                 )
             }
         }
@@ -60,6 +64,19 @@ const ProjectData = (props) => {
             // console.log(res.data)
             dispatch(setProjectInfo(res.data))
             setEditBool(!editBool)
+        }).catch(err=>console.log(err))
+    }
+
+    const deleteData = (data_id) => {
+        const {project_id} = projectInfo;
+        axios.delete(`/data/folders/data/${data_id}/${project_id}`)
+        .then(res=>{
+            // dispatch(setDataInfo())
+            setData(res.data)
+        }).catch(err=>console.log(err))
+        axios.get(`/data/folders/projects/${project_id}`)
+        .then(res=>{
+            dispatch(setDataInfo(res.data))
         }).catch(err=>console.log(err))
     }
 
@@ -129,10 +146,20 @@ const ProjectData = (props) => {
                         const trialData = data.filter(e=>{
                             return e.data_id === info.data_id
                         })
+                        const renderDelete = () => {
+                            if(user){
+                                if(user.user_id===projectInfo.owner_id){
+                                    return (
+                                        <button onClick={()=>deleteData(info.data_id)}>Delete Data</button>
+                                    )
+                                }
+                            }
+                        }
                         return(
                             <div>
                                 {/* <p>visible data output</p> */}
                                 <p>{trialData[0].leg_x_p}</p>
+                                {renderDelete()}
                             </div>
                         )
                     }

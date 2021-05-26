@@ -1,0 +1,1 @@
+SELECT max(data_id) FROM biomechweb_data_info;

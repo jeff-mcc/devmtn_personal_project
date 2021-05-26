@@ -42,6 +42,7 @@ app.get('/login/user',authCtrl.getUser)
 app.get('/data/folders/data/:project_id',dataCtrl.getProjectData)
 app.get('/data/folders/projects/:project_id',dataCtrl.getProject)
 app.put('/data/folders/projects/:project_id',dataCtrl.editProject)
+app.delete('/data/folders/data/:data_id/:project_id',dataCtrl.deleteData)
 
 //Project:
 app.get('/data/folders',projCtrl.getProjects)
