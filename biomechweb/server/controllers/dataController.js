@@ -49,5 +49,30 @@ module.exports = {
             console.log(err)
             res.status(500).send(err)
         })
+    },
+    addDataInfo: (req,res)=>{
+        const db = req.app.get('db')
+        let {project_id} = req.params;
+        project_id = +project_id;
+        const {data_name} = req.body;
+        db.data.auto_add_data_info(project_id,data_name)
+        .then(maxval=>{
+            res.status(200).send(maxval)
+        }).catch(err=>{
+            console.log(err)
+            res.status(500).send(err)
+        })
+    },
+    autoAddData: (req,res)=>{
+        const db = req.app.get('db')
+        let {data_id} = req.params;
+        data_id = +data_id;
+        db.data.auto_add_data(data_id)
+        .then(()=>{
+            res.sendStatus(200)
+        }).catch(err=>{
+            console.log(err)
+            res.status(500).send(err)
+        })
     }
 }

@@ -43,6 +43,8 @@ app.get('/data/folders/data/:project_id',dataCtrl.getProjectData)
 app.get('/data/folders/projects/:project_id',dataCtrl.getProject)
 app.put('/data/folders/projects/:project_id',dataCtrl.editProject)
 app.delete('/data/folders/data/:data_id/:project_id',dataCtrl.deleteData)
+app.post('/data/folders/data/info/:project_id',dataCtrl.addDataInfo)
+app.post('/data/folders/data/:data_id',dataCtrl.autoAddData)
 
 //Project:
 app.get('/data/folders',projCtrl.getProjects)
