@@ -32,6 +32,13 @@ const ProjectData = (props) => {
         }).catch(err=>console.log(err))
     },[projectInfo.project_id])
 
+    const updateView = (idx) => {
+        let newView = [...view];
+        newView[idx] = !newView[idx]
+        setView(newView)
+        // console.log(view)
+    }
+
     const renderEdit = () => {
         // console.log(user)
         if(user){
@@ -67,16 +74,16 @@ const ProjectData = (props) => {
         }).catch(err=>console.log(err))
     }
 
-    const deleteData = (data_id) => {
+    const deleteData = (data_id,idx) => {
         const {project_id} = projectInfo;
         axios.delete(`/data/folders/data/${data_id}/${project_id}`)
         .then(res=>{
-            // dispatch(setDataInfo())
+            updateView(idx)
             setData(res.data)
-        }).catch(err=>console.log(err))
-        axios.get(`/data/folders/projects/${project_id}`)
-        .then(res=>{
-            dispatch(setDataInfo(res.data))
+            axios.get(`/data/folders/projects/${project_id}`)
+            .then(res=>{
+                dispatch(setDataInfo(res.data))
+            }).catch(err=>console.log(err))
         }).catch(err=>console.log(err))
     }
 
@@ -150,7 +157,7 @@ const ProjectData = (props) => {
                             if(user){
                                 if(user.user_id===projectInfo.owner_id){
                                     return (
-                                        <button onClick={()=>deleteData(info.data_id)}>Delete Data</button>
+                                        <button onClick={()=>deleteData(info.data_id,idx)}>Delete Data</button>
                                     )
                                 }
                             }
@@ -165,16 +172,16 @@ const ProjectData = (props) => {
                     }
                 }
 
-                const updateView = () => {
-                    let newView = [...view];
-                    newView[idx] = !newView[idx]
-                    setView(newView)
-                    // console.log(view)
-                }
+                // const updateView = () => {
+                //     let newView = [...view];
+                //     newView[idx] = !newView[idx]
+                //     setView(newView)
+                //     // console.log(view)
+                // }
 
                 return (
                     <div key={info.data_id}>
-                        <div><h5>{info.data_name}</h5><button onClick={updateView}>{">"}</button></div>
+                        <div><h5>{info.data_name}</h5><button onClick={()=>updateView(idx)}>{">"}</button></div>
                         {renderView()}
                     </div>
                 )

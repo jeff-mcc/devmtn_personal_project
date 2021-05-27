@@ -52,11 +52,23 @@ module.exports = {
             return res.status(511).send("Please log in")
         }
         db.project.get_user_projects(owner)
-        .then(products=>{
-            res.status(200).send(products)
+        .then(projects=>{
+            res.status(200).send(projects)
         }).catch(err=>{
             console.log(err)
             res.status(500).send(err)
         })
-    }
+    },
+    // addProject: (req,res)=>{
+    //     const db = req.app,get('db')
+    //     const {variables needed} = req.body;
+    //     possibly need user_id param or user object from req.session
+    //     db.project.add_project(variables being added)
+    //     .then(projects=>{
+    //         res.status(200).send(projects)
+    //     }).catch(err=>{
+    //         console.log(err)
+    //         res.status(500).send(err)
+    //     })
+    // }
 }

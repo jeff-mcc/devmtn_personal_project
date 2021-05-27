@@ -57,7 +57,8 @@ module.exports = {
         const {data_name} = req.body;
         db.data.auto_add_data_info(project_id,data_name)
         .then(maxval=>{
-            res.status(200).send(maxval)
+            // console.log(maxval)
+            res.status(200).send(maxval[0])
         }).catch(err=>{
             console.log(err)
             res.status(500).send(err)
@@ -65,11 +66,12 @@ module.exports = {
     },
     autoAddData: (req,res)=>{
         const db = req.app.get('db')
-        let {data_id} = req.params;
+        let {data_id,project_id} = req.params;
         data_id = +data_id;
-        db.data.auto_add_data(data_id)
-        .then(()=>{
-            res.sendStatus(200)
+        project_id = +project_id;
+        db.data.auto_add_data(data_id,project_id)
+        .then(data=>{
+            res.status(200).send(data)
         }).catch(err=>{
             console.log(err)
             res.status(500).send(err)

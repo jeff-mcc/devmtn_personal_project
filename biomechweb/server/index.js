@@ -44,11 +44,12 @@ app.get('/data/folders/projects/:project_id',dataCtrl.getProject)
 app.put('/data/folders/projects/:project_id',dataCtrl.editProject)
 app.delete('/data/folders/data/:data_id/:project_id',dataCtrl.deleteData)
 app.post('/data/folders/data/info/:project_id',dataCtrl.addDataInfo)
-app.post('/data/folders/data/:data_id',dataCtrl.autoAddData)
+app.post('/data/folders/data/:data_id/:project_id',dataCtrl.autoAddData)
 
 //Project:
 app.get('/data/folders',projCtrl.getProjects)
 app.get('/data/folders/:user_id',projCtrl.getUserProjects)
+// app.post('data/folders',projCtrl.addProject) //last endpoint needed to complete basic functionality
 // '/data/folders?query=query'  endpoint completed for search and for filtering categories, and connected on the front end
 
 //User:
