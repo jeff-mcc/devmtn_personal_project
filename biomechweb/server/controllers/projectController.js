@@ -59,16 +59,17 @@ module.exports = {
             res.status(500).send(err)
         })
     },
-    // addProject: (req,res)=>{
-    //     const db = req.app,get('db')
-    //     const {variables needed} = req.body;
-    //     possibly need user_id param or user object from req.session
-    //     db.project.add_project(variables being added)
-    //     .then(projects=>{
-    //         res.status(200).send(projects)
-    //     }).catch(err=>{
-    //         console.log(err)
-    //         res.status(500).send(err)
-    //     })
-    // }
+    addProject: (req,res)=>{
+        const db = req.app.get('db')
+        const {title,description,category1,category2} = req.body;
+        const {user} = req.session;
+        const owner_id = user.user_id;
+        db.project.add_project(title,description,category1,category2,owner_id)
+        .then(projects=>{
+            res.status(200).send(projects[0])
+        }).catch(err=>{
+            console.log(err)
+            res.status(500).send(err)
+        })
+    }
 }

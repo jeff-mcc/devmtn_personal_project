@@ -5,6 +5,7 @@ import Profile from './components/Profile'
 import ProjectData from './components/ProjectData'
 import ViewData from './components/ViewData'
 import AddData from './components/AddData'
+import AddProject from './components/AddProject'
 
 export default (
     <Switch>
@@ -16,5 +17,6 @@ export default (
         <Route path="/profile" component={Profile} />
         <Route path="/projectdata/:project_id" component={ProjectData} />
         <Route path="/add/data" component={AddData} />
+        <Route path="/add/project" component={AddProject} />
     </Switch>
 )

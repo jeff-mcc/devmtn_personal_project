@@ -28,6 +28,7 @@ const AddData = (props) => {
     return (
         <div>
             <Header2 />
+            <h2>Add Data to Your Project</h2>
             <h4>Data Name:</h4>
             <input placeholder="i.e. condition 1 trial 1, c1t1, etc." value={name} onChange={(e)=>setName(e.target.value)}/>
             <button onClick={handleClick}>Add Data to Project</button>

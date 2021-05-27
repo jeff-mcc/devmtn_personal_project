@@ -139,55 +139,83 @@ const ProjectData = (props) => {
         }
     }
 
+    const mapData = () => {
+        if(dataInfo){
+            return (
+                dataInfo.map((info,idx)=>{
+                    const renderView = () => {
+                        if(view[idx]){
+                            const trialData = data.filter(e=>{
+                                return e.data_id === info.data_id
+                            })
+                            const renderDelete = () => {
+                                if(user){
+                                    if(user.user_id===projectInfo.owner_id){
+                                        return (
+                                            <button onClick={()=>deleteData(info.data_id,idx)}>Delete Data</button>
+                                        )
+                                    }
+                                }
+                            }
+                            return(
+                                <div>
+                                    {/* <p>visible data output</p> */}
+                                    <p>{trialData[0].leg_x_p}</p>
+                                    {renderDelete()}
+                                </div>
+                            )
+                        }
+                    }
+    
+                    return (
+                        <div key={info.data_id}>
+                            <div><h5>{info.data_name}</h5><button onClick={()=>updateView(idx)}>{">"}</button></div>
+                            {renderView()}
+                        </div>
+                    )
+                })
+            )
+        }
+    }
+
     return (
         <div>
             <Header2 />
             {editProjectInfo()}
-            {/* <h3>{projectInfo.title}</h3>
-            <p>{projectInfo.description}</p>
-            <h6>Categories: {projectInfo.category1}, {projectInfo.category2}</h6>
-            {renderEdit()} */}
-            {dataInfo.map((info,idx)=>{
-                const renderView = () => {
-                    if(view[idx]){
-                        const trialData = data.filter(e=>{
-                            return e.data_id === info.data_id
-                        })
-                        const renderDelete = () => {
-                            if(user){
-                                if(user.user_id===projectInfo.owner_id){
-                                    return (
-                                        <button onClick={()=>deleteData(info.data_id,idx)}>Delete Data</button>
-                                    )
-                                }
-                            }
-                        }
-                        return(
-                            <div>
+            {mapData()}
+            {/* {dataInfo.map((info,idx)=>{ */}
+                {/* const renderView = () => { */}
+                    {/* if(view[idx]){ */}
+                        {/* const trialData = data.filter(e=>{ */}
+                            {/* return e.data_id === info.data_id */}
+                        {/* }) */}
+                        {/* const renderDelete = () => { */}
+                            {/* if(user){ */}
+                                {/* if(user.user_id===projectInfo.owner_id){ */}
+                                    {/* return ( */}
+                                        {/* <button onClick={()=>deleteData(info.data_id,idx)}>Delete Data</button> */}
+                                    {/* ) */}
+                                {/* } */}
+                            {/* } */}
+                        {/* } */}
+                        {/* return( */}
+                            {/* <div> */}
                                 {/* <p>visible data output</p> */}
-                                <p>{trialData[0].leg_x_p}</p>
-                                {renderDelete()}
-                            </div>
-                        )
-                    }
-                }
+                                {/* <p>{trialData[0].leg_x_p}</p> */}
+                                {/* {renderDelete()} */}
+                            {/* </div> */}
+                        {/* ) */}
+                    {/* } */}
+                {/* } */}
 
-                // const updateView = () => {
-                //     let newView = [...view];
-                //     newView[idx] = !newView[idx]
-                //     setView(newView)
-                //     // console.log(view)
-                // }
-
-                return (
-                    <div key={info.data_id}>
-                        <div><h5>{info.data_name}</h5><button onClick={()=>updateView(idx)}>{">"}</button></div>
-                        {renderView()}
-                    </div>
-                )
-            })}
+                {/* return ( */}
+                    {/* <div key={info.data_id}> */}
+                        {/* <div><h5>{info.data_name}</h5><button onClick={()=>updateView(idx)}>{">"}</button></div> */}
+                        {/* {renderView()} */}
+                    {/* </div> */}
+                {/* ) */}
+            {/* })} */}
             {renderAddData()}
-            {/* <button>Add Data</button> */}
         </div>
     )
 }

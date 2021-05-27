@@ -52,6 +52,10 @@ const Profile = (props) => {
         }
     }
 
+    const createNew = () => {
+        props.history.push('/add/project')
+    }
+
     const editInfo = () => {
         if(editBool){
             return(
@@ -102,7 +106,7 @@ const Profile = (props) => {
                 )
             })}
             <div className="folder">
-                <button className="createNew folderButton">+</button>
+                <button className="createNew folderButton" onClick={createNew}>+</button>
             </div>
         </div>
     )

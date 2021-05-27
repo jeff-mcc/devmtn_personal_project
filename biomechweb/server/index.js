@@ -49,7 +49,7 @@ app.post('/data/folders/data/:data_id/:project_id',dataCtrl.autoAddData)
 //Project:
 app.get('/data/folders',projCtrl.getProjects)
 app.get('/data/folders/:user_id',projCtrl.getUserProjects)
-// app.post('data/folders',projCtrl.addProject) //last endpoint needed to complete basic functionality
+app.post('/data/folders',projCtrl.addProject)
 // '/data/folders?query=query'  endpoint completed for search and for filtering categories, and connected on the front end
 
 //User:
