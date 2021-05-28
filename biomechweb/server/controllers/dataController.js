@@ -76,5 +76,17 @@ module.exports = {
             console.log(err)
             res.status(500).send(err)
         })
+    },
+    getTrial: (req,res)=>{
+        const db = req.app.get('db')
+        let {data_id} = req.params;
+        data_id = +data_id;
+        db.data.get_trial(data_id)
+        .then(data=>{
+            res.status(200).send(data)
+        }).catch(err=>{
+            console.log(err)
+            res.status(500).send(err)
+        })
     }
 }

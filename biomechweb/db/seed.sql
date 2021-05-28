@@ -40,3 +40,12 @@ CREATE TABLE biomechweb_data (
     calc_x_d DECIMAL(4,3),
     calc_y_d DECIMAL(4,3)
 );
+
+ALTER TABLE biomechweb_data
+ADD COLUMN leg_ang DECIMAL(4,1);
+
+ALTER TABLE biomechweb_data
+ADD COLUMN calc_ang DECIMAL(4,1);
+
+ALTER TABLE biomechweb_data
+ADD COLUMN rf_ang DECIMAL(4,1);

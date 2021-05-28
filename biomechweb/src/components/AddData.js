@@ -20,6 +20,20 @@ const AddData = (props) => {
             axios.post(`/data/folders/data/${data_id}/${projectInfo.project_id}`)
             .then((res)=>{
                 dispatch(setDataInfo(res.data))
+                let legAngle = [];
+                let calcAngle = [];
+                let rfAngle = [];
+                for (let i = 0; i<res.data.length; i++){
+                    legAngle[i] = Math.atan2(res.data[i].leg_y_p-res.data[i].leg_y_d,res.data[i].leg_x_p-res.data[i].leg_x_d)*180/Math.PI
+                    calcAngle[i] = Math.atan2(res.data[i].calc_y_p-res.data[i].calc_y_d,res.data[i].calc_x_p-res.data[i].calc_x_d)*180/Math.PI
+                    if(res.data[i].leg_x_d>res.data[i].leg_x_p){
+                        legAngle[i] = 180+legAngle[i];
+                    }
+                    if(res.data[i].calc_x_d>res.data[i].calc_x_p){
+                        calcAngle[i] = 180+calcAngle[i];
+                    }
+                    rfAngle[i] = legAngle[i]-calcAngle[i];
+                }
                 props.history.push(`/projectdata/${projectInfo.project_id}`)
             }).catch(err=>console.log(err))
         }).catch(err=>console.log(err))
