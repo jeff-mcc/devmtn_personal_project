@@ -46,6 +46,7 @@ app.delete('/data/folders/data/:data_id/:project_id',dataCtrl.deleteData)
 app.post('/data/folders/data/info/:project_id',dataCtrl.addDataInfo)
 app.post('/data/folders/data/:data_id/:project_id',dataCtrl.autoAddData)
 app.get('/data/folders/data/trial/:data_id',dataCtrl.getTrial)
+app.put(`/data/folders/data/trial`,dataCtrl.updateTrial)
 
 //Project:
 app.get('/data/folders',projCtrl.getProjects)

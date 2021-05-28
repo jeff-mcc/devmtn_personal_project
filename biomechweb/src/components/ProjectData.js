@@ -148,7 +148,7 @@ const ProjectData = (props) => {
                             const trialData = data.filter(e=>{
                                 return e.data_id === info.data_id
                             })
-                            console.log(trialData)
+                            // console.log(trialData)
                             const renderDelete = () => {
                                 if(user){
                                     if(user.user_id===projectInfo.owner_id){
