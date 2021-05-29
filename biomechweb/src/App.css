@@ -44,5 +44,6 @@
 .folderButton{
   border: none;
   background-color: white;
+  /* background-color: ; */
   cursor: pointer;
 }

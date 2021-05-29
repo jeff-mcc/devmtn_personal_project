@@ -3,6 +3,7 @@ import Header2 from './Header2'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
 import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
+import GraphData from './GraphData'
 
 const ProjectData = (props) => {
     const {projectInfo,dataInfo} = useSelector(store=>store.projectInfo)
@@ -148,7 +149,7 @@ const ProjectData = (props) => {
                             const trialData = data.filter(e=>{
                                 return e.data_id === info.data_id
                             })
-                            console.log(trialData)
+                            // console.log(trialData)
                             const renderDelete = () => {
                                 if(user){
                                     if(user.user_id===projectInfo.owner_id){
@@ -161,7 +162,11 @@ const ProjectData = (props) => {
                             return(
                                 <div>
                                     {/* <p>visible data output</p> */}
-                                    <p>{trialData[0].leg_x_p}</p>
+                                    {/* <p>{trialData[0].leg_x_p}</p> */}
+                                    {/* render GraphData here */}
+                                    <GraphData data={trialData}/>
+                                    <p>Maximum: {trialData[0].leg_x_p} at {trialData[0].framerate} seconds</p>
+                                    <p>Minimum: {trialData[0].leg_x_d} at {trialData[0].framerate} seconds</p>
                                     {renderDelete()}
                                 </div>
                             )

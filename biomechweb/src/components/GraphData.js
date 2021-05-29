@@ -10,15 +10,27 @@ const GraphData = ({data}) => {
             const margin = {top: 15, right: 20, bottom: 25, left: 30}
 
             const x = d3
-            .scaleBand()
-            .domain(data.map((d)=>d.value_id))
-            .rangeRound([margin.left,width - margin.right])
-            .padding(0.1);
+            .scaleLinear()
+            .domain([0,d3.max(data, (d)=>(d.value_id-data[0].value_id)/data[0].framerate)])
+            // .domain(data.map((d)=>(d.value_id-data[0].value_id)/data[0].framerate))
+            .rangeRound([margin.left,width - margin.right]);
+            // .padding(0.1); //only needed for scaleBand to padd the bars in the chart
+
+            // .scaleLinear() //instead of scaleUtc or scaleBand
+            // .domain(d3.extent(data, d => (d.value_id-data[0].value_id)/data[0].framerate))
+            // .rangeRound([margin.left, width - margin.right])
+            // .padding(0.1);
 
             const y1 = d3
             .scaleLinear()
-            .domain([0,d3.max(data, (d)=>d.rf_ang)])
+            .domain([d3.min(data, (d)=>+d.rf_ang*1.15),d3.max(data, (d)=>+d.rf_ang*1.15)]) //d3.min(data, (d)=>d.rf_ang)
             .rangeRound([height - margin.bottom, margin.top]);
+
+            const line = d3
+            .line()
+            .defined(d => !isNaN(d.rf_ang))
+            .x(d => x((d.value_id-data[0].value_id)/data[0].framerate))
+            .y(d => y1(+d.rf_ang));
 
             const xAxis = (g) =>
             g.attr("transform", `translate(0,${height - margin.bottom})`).call(
@@ -26,7 +38,7 @@ const GraphData = ({data}) => {
                 .axisBottom(x)
                 .tickValues(
                     d3
-                    .ticks(...d3.extent(x.domain()),width/40)
+                    .ticks(...d3.extent(x.domain()),width/80)
                     .filter((v)=>x(v)!==undefined)
                 )
                 .tickSizeOuter(0)
@@ -51,16 +63,25 @@ const GraphData = ({data}) => {
             svg.select(".y-axis").call(y1Axis);
 
             svg
-            .select(".plot-area")
-            .attr("fill","steelblue")
-            .selectAll(".bar")
-            .data(data)
-            .join("rect")
-            .attr("class","bar")
-            .attr("x",(d)=>x(d.value_id))
-            .attr("width",x.bandwidth())
-            .attr("y",(d)=>y1(d.rf_ang))
-            .attr("height",(d)=>y1(0)-y1(d.rf_ang));
+            // .select(".plot-area")
+            // .attr("fill","mediumturquoise")
+            // .selectAll(".bar")
+            // .data(data)
+            // .join("rect")
+            // .attr("class","bar")
+            // .attr("x",(d)=>x((d.value_id-data[0].value_id)/data[0].framerate))
+            // .attr("width",x.bandwidth())
+            // .attr("y",(d)=>y1(d.rf_ang))
+            // .attr("height",(d)=>y1(0)-y1(d.rf_ang))
+
+            .append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "crimson")
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("stroke-linecap", "round")
+            .attr("d", line);
         },
         [data.length]
     );
@@ -68,6 +89,7 @@ const GraphData = ({data}) => {
 
     return(
         <svg
+            ref={ref}
             style={{
                 height: 200,
                 width: 350,
