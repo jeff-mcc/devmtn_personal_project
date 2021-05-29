@@ -165,8 +165,8 @@ const ProjectData = (props) => {
                                     {/* <p>{trialData[0].leg_x_p}</p> */}
                                     {/* render GraphData here */}
                                     <GraphData data={trialData}/>
-                                    <p>Maximum: {trialData[0].leg_x_p} at {trialData[0].framerate} seconds</p>
-                                    <p>Minimum: {trialData[0].leg_x_d} at {trialData[0].framerate} seconds</p>
+                                    {/* <p>Maximum: {trialData[0].leg_x_p} at {trialData[0].framerate} seconds</p>
+                                    <p>Minimum: {trialData[0].leg_x_d} at {trialData[0].framerate} seconds</p> */}
                                     {renderDelete()}
                                 </div>
                             )

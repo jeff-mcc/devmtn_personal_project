@@ -3,11 +3,16 @@ import React from 'react'
 import * as d3 from 'd3'
 
 const GraphData = ({data}) => {
+    const min = d3.min(data, (d)=>+d.rf_ang)
+    const max = d3.max(data, (d)=>+d.rf_ang)
+    const minTime = d3.minIndex(data, (d)=>+d.rf_ang)/data[0].framerate
+    const maxTime = d3.maxIndex(data, (d)=>+d.rf_ang)/data[0].framerate
+
     const ref = useD3(
         (svg)=>{
             const height = 200;
             const width = 350;
-            const margin = {top: 15, right: 20, bottom: 25, left: 30}
+            const margin = {top: 15, right: 20, bottom: 35, left: 40}
 
             const x = d3
             .scaleLinear()
@@ -82,25 +87,48 @@ const GraphData = ({data}) => {
             .attr("stroke-linejoin", "round")
             .attr("stroke-linecap", "round")
             .attr("d", line);
+
+            svg
+            .append("text")
+            .attr("class", "xlabel")
+            .attr("text-anchor", "middle")
+            .attr("x", width/2)
+            .attr("y", height)
+            .text("Time (s)");
+
+            svg
+            .append("text")
+            .attr("class", "ylabel")
+            .attr("text-anchor", "middle")
+            .attr("x", -height/2+10)
+            .attr("y", 0)
+            .attr("dy", ".75em")
+            .attr("transform", "rotate(-90)")
+            .text("Angle (deg)");
+
         },
         [data.length]
     );
 
 
     return(
-        <svg
-            ref={ref}
-            style={{
-                height: 200,
-                width: 350,
-                marginRight: "0px",
-                marginLeft: "0px",
-            }}
-        >
-            <g className="plot-area" />
-            <g className="x-axis" />
-            <g className="y-axis" />
-        </svg>
+        <div>
+            <svg
+                ref={ref}
+                style={{
+                    height: 200,
+                    width: 350,
+                    marginRight: "0px",
+                    marginLeft: "0px",
+                }}
+            >
+                <g className="plot-area" />
+                <g className="x-axis" />
+                <g className="y-axis" />
+            </svg>
+            <p>Maximum: {parseFloat(max).toFixed(1)}&#176; at {parseFloat(maxTime).toFixed(2)} seconds</p>
+            <p>Minimum: {parseFloat(min).toFixed(1)}&#176; at {parseFloat(minTime).toFixed(2)} seconds</p>
+        </div>
     )
 }
 
