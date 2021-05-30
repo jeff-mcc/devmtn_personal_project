@@ -3,6 +3,7 @@ import React from 'react'
 import * as d3 from 'd3'
 
 const GraphData = ({data}) => {
+    // console.log(data)
     const min = d3.min(data, (d)=>+d.rf_ang)
     const max = d3.max(data, (d)=>+d.rf_ang)
     const minTime = d3.minIndex(data, (d)=>+d.rf_ang)/data[0].framerate

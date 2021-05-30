@@ -6,7 +6,7 @@ import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 import GraphData from './GraphData'
 
 const ProjectData = (props) => {
-    const {projectInfo,dataInfo} = useSelector(store=>store.projectInfo)
+    const {projectInfo,dataInfo,finishedBool} = useSelector(store=>store.projectInfo)
     const {user} = useSelector(store=>store.auth)
     let viewArray = [];
     if(dataInfo){
@@ -24,14 +24,14 @@ const ProjectData = (props) => {
     const dispatch = useDispatch()
     // console.log(projectInfo)
     // console.log(dataInfo)
-    // console.log(props)
+    // console.log(data)
 
     useEffect(()=>{
         axios.get(`/data/folders/data/${projectInfo.project_id}`)
         .then(res=>{
             setData(res.data)
         }).catch(err=>console.log(err))
-    },[projectInfo.project_id])
+    },[projectInfo.project_id,finishedBool]) // ,dataInfo.length
 
     const updateView = (idx) => {
         let newView = [...view];

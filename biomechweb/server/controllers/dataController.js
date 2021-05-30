@@ -89,17 +89,20 @@ module.exports = {
             res.status(500).send(err)
         })
     },
-    updateTrial: (req,res)=>{
+    updateTrial: async (req,res)=>{
         const db = req.app.get('db')
         const {valueId,legAngle,calcAngle,rfAngle} = req.body
-        // console.log(legAngle)
-        // console.log(7)
-        db.data.update_trial(valueId,legAngle,calcAngle,rfAngle)
-        .then(()=>{
-            res.sendStatus(200)
-        }).catch(err=>{
-            console.log(err)
-            res.status(500).send(err)
-        })
+        let result = [];
+        for (let i = 0; i<valueId.length; i++){
+            await db.data.update_trial(valueId[i],legAngle[i],calcAngle[i],rfAngle[i])
+            // .then(()=>{
+            //     res.sendStatus(200)
+            // }).catch(err=>{
+            //     console.log(err)
+            //     res.status(500).send(err)
+            // })
+        }
+        // console.log(result)
+        return res.sendStatus(200)
     }
 }
