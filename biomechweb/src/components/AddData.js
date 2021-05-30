@@ -19,7 +19,7 @@ const AddData = (props) => {
             const data_id = res.data.max;
             axios.post(`/data/folders/data/${data_id}/${projectInfo.project_id}`)
             .then((res)=>{
-                dispatch(setDataInfo(res.data))
+                // dispatch(setDataInfo(res.data))
                 axios.get(`/data/folders/data/trial/${data_id}`).then(res=>{
                     // console.log(res.data.length)
                     let legAngle = [];
@@ -39,6 +39,7 @@ const AddData = (props) => {
                         dispatch(setFinished(!finishedBool))
                     }).catch(err=>console.log(err))
                 }).catch(err=>console.log(err))
+                dispatch(setDataInfo(res.data))
                 props.history.push(`/projectdata/${projectInfo.project_id}`)
             }).catch(err=>console.log(err))
         }).catch(err=>console.log(err))

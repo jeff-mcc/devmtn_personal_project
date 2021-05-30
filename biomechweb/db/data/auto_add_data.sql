@@ -32,4 +32,5 @@ VALUES ($1,-0.185,0.308,-0.201,0.189,-0.213,0.121,-0.233,0.067),
     ($1,-0.213,0.342,-0.230,0.237,-0.248,0.174,-0.260,0.134);
 
 SELECT * FROM biomechweb_data_info
-WHERE project_id = $2;
+WHERE project_id = $2
+ORDER BY data_id;
