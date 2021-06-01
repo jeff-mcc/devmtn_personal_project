@@ -50,7 +50,14 @@ $folder-size: 80px;
   padding: 10px;
   margin: 10px;
   margin-top: 0;
+  margin-bottom: 20px;
   background-color: rgba($primary-folder-color,0.6);
+}
+
+%display-properties{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body{
@@ -71,6 +78,12 @@ body{
   justify-content: space-evenly;
 }
 
+.arrangeTabs{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .poly{
   fill: $primary-color;
   // height: 12px;
@@ -80,7 +93,8 @@ body{
 .polySvg{
   height: 12px;
   width: 50px;
-  // text-align: left;
+  margin-left: 10px;
+  // border-left: 3px solid $primary-border-color;
 }
 
 .folder{
@@ -88,7 +102,12 @@ body{
 }
 
 .createNew{
-  font-size:2em;
+  font-size:5em;
+  color: rgba($primary-color,0.6);
+  @extend %display-properties;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 }
 
 .folderButton{
@@ -104,14 +123,29 @@ body{
   width: 120px;
 }
 
-.searchFilter{
-  text-align: right;
+@mixin secondaryTitle($alignText: right){
+  text-align: $alignText;
   margin-top: 0;
   height: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 10px;
   background-color: rgba($primary-color,0.9);
+}
+
+.searchFilter{
+  @include secondaryTitle;
+  // text-align: right;
+  // margin-top: 0;
+  // height: 20px;
+  // padding-top: 8px;
+  // padding-bottom: 8px;
+  // padding-right: 10px;
+  // background-color: rgba($primary-color,0.9);
+}
+
+.titleHead{
+  @include secondaryTitle($alignText: center)
 }
 
 .svg-container {

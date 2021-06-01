@@ -57,7 +57,7 @@ const ViewData = (props) => {
                 <div className="arrangeFolders">
                     {data.map((d)=>{
                         return(
-                            <div>
+                            <div className="arrangeTabs">
                                 <svg className="polySvg">
                                     <polygon className="poly" points="0,0 0,12 50,12 44,0"/>
                                 </svg>

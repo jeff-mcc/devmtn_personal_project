@@ -9,21 +9,29 @@ const Profile = (props) => {
     const [projects,setProjects] = useState([])
     const [editBool,setEditBool] = useState(false)
     const {user} = useSelector(store=>store.auth)
-    const [email,setEmail] = useState(user.email)
-    const [firstName,setFirstName] = useState(user.first_name)
-    const [lastName,setLastName] = useState(user.last_name)
-    const [institution,setInstitution] = useState(user.institution)
+    const [email,setEmail] = useState('')
+    const [firstName,setFirstName] = useState('')
+    const [lastName,setLastName] = useState('')
+    const [institution,setInstitution] = useState('')
     // const {projectInfo} = useSelector(store=>store.projectInfo)
     const dispatch = useDispatch()
     const register = new RegExp('^[^s@]+@[^s@]+$')
 
     useEffect(()=>{
-        axios.get(`/data/folders/${user.user_id}`)
-        .then(res=>{
-            setProjects(res.data)
-            // console.log(user.user_id)
-        }).catch(err=>console.log(err))
-    },[user.user_id])
+        if(user){
+            setEmail(user.email)
+            setFirstName(user.first_name)
+            setLastName(user.last_name)
+            setInstitution(user.institution)
+            axios.get(`/data/folders/${user.user_id}`)
+            .then(res=>{
+                setProjects(res.data)
+                // console.log(user.user_id)
+            }).catch(err=>console.log(err))
+        }else{
+            props.history.push('/login')
+        }
+    },[user]) //or user.user_id
 
     const clickFolder = (project) => {
         // console.log(project)
@@ -74,10 +82,10 @@ const Profile = (props) => {
             return(
                 <div>
                     <div>
-                        <p>Email: {user.email}</p>
-                        <p>First Name: {user.first_name}</p>
-                        <p>Last Name: {user.last_name}</p>
-                        <p>Institution: {user.institution}</p>
+                        <p>Email: {email}</p>
+                        <p>First Name: {firstName}</p>
+                        <p>Last Name: {lastName}</p>
+                        <p>Institution: {institution}</p>
                     </div>
                     <button onClick={()=>setEditBool(!editBool)}>Edit Information</button>
                 </div>
@@ -96,18 +104,28 @@ const Profile = (props) => {
                 <p>Institution: {user.institution}</p>
             </div>
             <button onClick={()=>setEditBool(!editBool)}>Edit Information</button> */}
-            <h3>My Projects</h3>
+            <h3 className="titleHead">My Projects</h3>
             <div className="arrangeFolders">
                 {projects.map(project=>{
                 // console.log(project)
                     return(
-                        <div className="folder" key={project.project_id}>
-                            <button className="folderButton" onClick={()=>clickFolder(project)}>{project.title}</button>
+                        <div className="arrangeTabs">
+                            <svg className="polySvg">
+                                <polygon className="poly" points="0,0 0,12 50,12 44,0"/>
+                            </svg>
+                            <div className="folder" key={project.project_id}>
+                                <button className="folderButton" onClick={()=>clickFolder(project)}>{project.title}</button>
+                            </div>
                         </div>
                     )
                 })}
-                <div className="folder">
-                    <button className="createNew folderButton" onClick={createNew}>+</button>
+                <div className="arrangeTabs">
+                    <svg className="polySvg">
+                        <polygon className="poly" points="0,0 0,12 50,12 44,0"/>
+                    </svg>
+                    <div className="folder addNew">
+                        <button className="createNew folderButton" onClick={createNew}>+</button>
+                    </div>
                 </div>
             </div>
         </div>

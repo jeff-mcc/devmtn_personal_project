@@ -11,7 +11,13 @@ h2 {
   padding: 10px;
   margin: 10px;
   margin-top: 0;
+  margin-bottom: 20px;
   background-color: rgba(181, 137, 129, 0.6); }
+
+.createNew {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 body {
   background-color: rgba(245, 220, 213, 0.8); }
@@ -39,15 +45,22 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly; }
 
+.arrangeTabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+
 .poly {
   fill: #9B2E45; }
 
 .polySvg {
   height: 12px;
-  width: 50px; }
+  width: 50px;
+  margin-left: 10px; }
 
 .createNew {
-  font-size: 2em; }
+  font-size: 5em;
+  color: rgba(155, 46, 69, 0.6); }
 
 .folderButton {
   border: none;
@@ -62,6 +75,15 @@ body {
 
 .searchFilter {
   text-align: right;
+  margin-top: 0;
+  height: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 10px;
+  background-color: rgba(155, 46, 69, 0.9); }
+
+.titleHead {
+  text-align: center;
   margin-top: 0;
   height: 20px;
   padding-top: 8px;
