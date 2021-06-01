@@ -97,16 +97,18 @@ const Profile = (props) => {
             </div>
             <button onClick={()=>setEditBool(!editBool)}>Edit Information</button> */}
             <h3>My Projects</h3>
-            {projects.map(project=>{
+            <div className="arrangeFolders">
+                {projects.map(project=>{
                 // console.log(project)
-                return(
-                    <div className="folder" key={project.project_id}>
-                        <button className="folderButton" onClick={()=>clickFolder(project)}>{project.title}</button>
-                    </div>
-                )
-            })}
-            <div className="folder">
-                <button className="createNew folderButton" onClick={createNew}>+</button>
+                    return(
+                        <div className="folder" key={project.project_id}>
+                            <button className="folderButton" onClick={()=>clickFolder(project)}>{project.title}</button>
+                        </div>
+                    )
+                })}
+                <div className="folder">
+                    <button className="createNew folderButton" onClick={createNew}>+</button>
+                </div>
             </div>
         </div>
     )

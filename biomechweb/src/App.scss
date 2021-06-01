@@ -2,40 +2,90 @@
   text-align: center;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2{
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+// @media (prefers-reduced-motion: no-preference) {
+//   .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+// @keyframes App-logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// } */
+
+//basic colors to use (HEX) 543133, 9B2E45, F5DCD5, B58981, 8C544C
+//I plan on changing the standard fonts used eventually, possibly Halant and/or Nunito Sans
+
+$font-stack: Helvetica,sans-serif;
+$primary-color: #9B2E45;
+$primary-background-color: #F5DCD5;
+$primary-border-color: #543133;
+$primary-menu-color: #8C544C;
+$primary-folder-color: #B58981;
+$folder-size: 80px;
+
+@mixin variedHeader($bottomborder: 0 3px 3px $primary-color){
+  height: 80px;
+  background-color: $primary-menu-color;
+  // color: $primary-background-color;
+  border-bottom: 2px solid $primary-border-color;
+  box-shadow: $bottomborder;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+%shared-properties{
+  border: 3px solid $primary-border-color;
+  height: $folder-size;
+  width: $folder-size*1.5;
+  padding: 10px;
+  margin: 10px;
+  margin-top: 0;
+  background-color: rgba($primary-folder-color,0.6);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+body{
+  background-color: rgba($primary-background-color,0.8);
+}
+
+.searchHead{
+  @include variedHeader($bottomborder: none);
+}
+
+.userHead{
+  @include variedHeader;
+}
+
+.arrangeFolders{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.poly{
+  fill: $primary-color;
+  // height: 12px;
+  // width: 50px;
+}
+
+.polySvg{
+  height: 12px;
+  width: 50px;
+  // text-align: left;
+}
+
+.folder{
+  @extend %shared-properties;
+}
 
 .createNew{
   font-size:2em;
@@ -43,9 +93,25 @@
 
 .folderButton{
   border: none;
-  background-color: white;
+  background-color: transparent;
   /* background-color: ; */
   cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.searchInput{
+  width: 120px;
+}
+
+.searchFilter{
+  text-align: right;
+  margin-top: 0;
+  height: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 10px;
+  background-color: rgba($primary-color,0.9);
 }
 
 .svg-container {
@@ -55,9 +121,7 @@
   /* flex-direction: column; */
   /* justify-content: flex-end; */
   position: relative;
-  /* height: 50vh; */
   width: 100%;
-  /* height: 40vh; */
   padding-bottom: 75%;
   vertical-align: top;
   overflow: hidden;
@@ -92,6 +156,11 @@ svg .rect {
 .detailText{
   margin-top: 0;
   margin-bottom: 5px;
+}
+
+.links{
+  // outline: none;
+  text-decoration: none;
 }
 
 @media (min-width: 500px) {

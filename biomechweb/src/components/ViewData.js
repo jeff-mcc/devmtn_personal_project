@@ -54,11 +54,16 @@ const ViewData = (props) => {
             )
         }else{
             return(
-                <div>
+                <div className="arrangeFolders">
                     {data.map((d)=>{
                         return(
-                            <div className="folder" key={d.project_id}>
-                                <button className="folderButton" onClick={()=>clickFolder(d)}>{d.title}</button>
+                            <div>
+                                <svg className="polySvg">
+                                    <polygon className="poly" points="0,0 0,12 50,12 44,0"/>
+                                </svg>
+                                <div className="folder" key={d.project_id}>
+                                    <button className="folderButton" onClick={()=>clickFolder(d)}>{d.title}</button>
+                                </div>
                             </div>
                         )
                     })}
@@ -69,13 +74,15 @@ const ViewData = (props) => {
 
     return(
         <div>
-            <header>
+            <header className="searchHead">
                 {/* <img />  //website icon that routes the user to the home screen */}
-                <Link to="/"><h2>BiomechWeb</h2></Link>
-                <input placeholder="Search project title" onChange={e=>setSearch(e.target.value)}/>
-                <button onClick={()=>handleSearch(search,filter)}>S</button>
+                <Link className="links" to="/"><h2>BiomechWeb</h2></Link>
+                <div>
+                    <input className="searchInput" placeholder="Search project title" onChange={e=>setSearch(e.target.value)}/>
+                    <button onClick={()=>handleSearch(search,filter)}>S</button>
+                </div>
             </header>
-            <p>Filter by Category: <select value={filter} onChange={e=>handleChange(e.target.value)}>
+            <p className="searchFilter">Filter by Category: <select value={filter} onChange={e=>handleChange(e.target.value)}>
                     <option value=''>--No Filter Selected--</option>
                     <option value='Running'>Running</option>
                     <option value='Sports &#38; Exercise'>Sports &#38; Exercise</option>
