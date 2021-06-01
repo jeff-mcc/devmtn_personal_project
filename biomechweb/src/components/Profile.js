@@ -67,12 +67,12 @@ const Profile = (props) => {
     const editInfo = () => {
         if(editBool){
             return(
-                <div>
-                    <div>
-                        <p>Email: <input value={email} onChange={(e)=>setEmail(e.target.value)}/></p>
-                        <p>First Name: <input value={firstName} onChange={(e)=>setFirstName(e.target.value)}/></p>
-                        <p>Last Name: <input value={lastName} onChange={(e)=>setLastName(e.target.value)}/></p>
-                        <p>Institution: <input value={institution} onChange={(e)=>setInstitution(e.target.value)}/></p>
+                <div className="userDetails">
+                    <div className="userBox">
+                        <p className="userInfo">Email: <input value={email} onChange={(e)=>setEmail(e.target.value)}/></p>
+                        <p className="userInfo">First Name: <input value={firstName} onChange={(e)=>setFirstName(e.target.value)}/></p>
+                        <p className="userInfo">Last Name: <input value={lastName} onChange={(e)=>setLastName(e.target.value)}/></p>
+                        <p className="userInfo institution">Institution: <input value={institution} onChange={(e)=>setInstitution(e.target.value)}/></p>
                     </div>
                     <button onClick={()=>setEditBool(!editBool)}>Cancel</button>
                     <button onClick={()=>submitEdit()}>Submit</button>
@@ -80,14 +80,14 @@ const Profile = (props) => {
             )
         }else{
             return(
-                <div>
-                    <div>
-                        <p>Email: {email}</p>
-                        <p>First Name: {firstName}</p>
-                        <p>Last Name: {lastName}</p>
-                        <p>Institution: {institution}</p>
+                <div className="userDetails">
+                    <div className="userBox">
+                        <p className="userInfo">Email: {email}</p>
+                        <p className="userInfo">First Name: {firstName}</p>
+                        <p className="userInfo">Last Name: {lastName}</p>
+                        <p className="userInfo institution">Institution: {institution}</p>
                     </div>
-                    <button onClick={()=>setEditBool(!editBool)}>Edit Information</button>
+                    <button className="userInfo editUser" onClick={()=>setEditBool(!editBool)}>Edit Information</button>
                 </div>
             )
         }

@@ -40,6 +40,28 @@ body {
   justify-content: space-between;
   align-items: center; }
 
+.userDetails {
+  padding-bottom: 16px; }
+
+.userBox {
+  padding-top: 26px;
+  padding-bottom: 16px;
+  margin-bottom: 26px;
+  background-color: #B58981; }
+
+.userInfo {
+  margin-top: 0;
+  height: 21px; }
+
+.institution {
+  margin-bottom: 0; }
+
+.editUser {
+  height: 30px;
+  border: 1px solid #543133;
+  background-color: #B58981;
+  margin-bottom: 10px; }
+
 .arrangeFolders {
   display: flex;
   flex-wrap: wrap;

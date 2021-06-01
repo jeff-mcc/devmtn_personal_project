@@ -72,6 +72,35 @@ body{
   @include variedHeader;
 }
 
+.userDetails{
+  // padding-top: 16px;
+  padding-bottom: 16px;
+  // height: ;
+}
+
+.userBox{
+  padding-top: 26px;
+  padding-bottom: 16px;
+  margin-bottom: 26px;
+  background-color: $primary-folder-color;
+}
+
+.userInfo{
+  margin-top: 0;
+  height: 21px;
+}
+
+.institution{
+  margin-bottom: 0;
+}
+
+.editUser{
+  height: 30px;
+  border: 1px solid $primary-border-color;
+  background-color: $primary-folder-color;
+  margin-bottom: 10px;
+}
+
 .arrangeFolders{
   display: flex;
   flex-wrap: wrap;
