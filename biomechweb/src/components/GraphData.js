@@ -9,11 +9,30 @@ const GraphData = ({data}) => {
     const minTime = d3.minIndex(data, (d)=>+d.rf_ang)/data[0].framerate
     const maxTime = d3.maxIndex(data, (d)=>+d.rf_ang)/data[0].framerate
 
+    const heightWidth = () => {
+        let height = window.innerHeight/7*2;  //200;
+        if(height<200){
+            height = 200;
+        }
+        let width = window.innerWidth/8*7;  //350;
+        if(width>800){
+            width = 800;
+        }
+        return [height,width]
+    }
+    // let [height,width] = heightWidth();
+
+    let [height,width] = window.onload = heightWidth();
+    // [height,width] = window.onresize = heightWidth();
+
+    // [height,width] = window.onresize();
+    // console.log(height)
+    // console.log(width)
+
     const ref = useD3(
         (svg)=>{
-            const height = 200;
-            const width = 350;
             const margin = {top: 15, right: 20, bottom: 35, left: 40}
+            // console.log(window)
 
             const x = d3
             .scaleLinear()
@@ -65,6 +84,18 @@ const GraphData = ({data}) => {
                             .attr("text-anchor", "start")
                             .text(data.y1)
                     );
+            // svg.select(".x-axis").call(xAxis);
+            // svg.select(".y-axis").call(y1Axis);
+            
+            svg
+            .attr("preserveAspectRatio","xMinYMin meet")
+            .attr("viewBox","0 0 350 200")
+            // .classed("svg-content-responsive",true)
+            .append("rect")
+            .classed("rect",true)
+            .attr("width",350)
+            .attr("height",200);
+            
             svg.select(".x-axis").call(xAxis);
             svg.select(".y-axis").call(y1Axis);
 
@@ -94,7 +125,7 @@ const GraphData = ({data}) => {
             .attr("class", "xlabel")
             .attr("text-anchor", "middle")
             .attr("x", width/2)
-            .attr("y", height)
+            .attr("y", height-3)
             .text("Time (s)");
 
             svg
@@ -102,10 +133,23 @@ const GraphData = ({data}) => {
             .attr("class", "ylabel")
             .attr("text-anchor", "middle")
             .attr("x", -height/2+10)
-            .attr("y", 0)
+            .attr("y", 3)
             .attr("dy", ".75em")
             .attr("transform", "rotate(-90)")
             .text("Angle (deg)");
+
+            // d3
+            // .select("div#chartId")
+            // .append("div")
+            // .classed("svg-container",true)
+            // .append("svg")
+            // .attr("preserveAspectRatio","xMinYMin meet")
+            // .attr("viewBox","0 0 350 200")
+            // .classed("svg-content-responsive",true)
+            // .append("rect")
+            // .classed("rect",true)
+            // .attr("width",350)
+            // .attr("height",200);
 
         },
         [data.length]
@@ -113,22 +157,24 @@ const GraphData = ({data}) => {
 
 
     return(
-        <div>
-            <svg
+        <div className="svg-container">
+            <svg className="svg-content-responsive"
                 ref={ref}
-                style={{
-                    height: 200,
-                    width: 350,
-                    marginRight: "0px",
-                    marginLeft: "0px",
-                }}
+                // style={{
+                    // height: height,
+                    // width: width,
+                    // marginRight: "0px",
+                    // marginLeft: "0px",
+                // }}
             >
                 <g className="plot-area" />
                 <g className="x-axis" />
                 <g className="y-axis" />
             </svg>
-            <p>Maximum: {parseFloat(max).toFixed(1)}&#176; at {parseFloat(maxTime).toFixed(2)} seconds</p>
-            <p>Minimum: {parseFloat(min).toFixed(1)}&#176; at {parseFloat(minTime).toFixed(2)} seconds</p>
+            <div className="graphDetails">
+                <p className="detailText">Maximum: {parseFloat(max).toFixed(1)}&#176; at {parseFloat(maxTime).toFixed(2)} seconds</p>
+                <p className="detailText">Minimum: {parseFloat(min).toFixed(1)}&#176; at {parseFloat(minTime).toFixed(2)} seconds</p>
+            </div>
         </div>
     )
 }

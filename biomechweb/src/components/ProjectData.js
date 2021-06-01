@@ -24,7 +24,7 @@ const ProjectData = (props) => {
     const dispatch = useDispatch()
     // console.log(projectInfo)
     // console.log(dataInfo)
-    // console.log(data)
+    // console.log(window)
 
     useEffect(()=>{
         axios.get(`/data/folders/data/${projectInfo.project_id}`)
@@ -161,12 +161,8 @@ const ProjectData = (props) => {
                             }
                             return(
                                 <div>
-                                    {/* <p>visible data output</p> */}
-                                    {/* <p>{trialData[0].leg_x_p}</p> */}
-                                    {/* render GraphData here */}
+                                    {/* GraphData graphs data using D3 that is presented visually to the user */}
                                     <GraphData data={trialData}/>
-                                    {/* <p>Maximum: {trialData[0].leg_x_p} at {trialData[0].framerate} seconds</p>
-                                    <p>Minimum: {trialData[0].leg_x_d} at {trialData[0].framerate} seconds</p> */}
                                     {renderDelete()}
                                 </div>
                             )

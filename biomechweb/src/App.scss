@@ -1,5 +1,6 @@
 .App {
-  text-align: center; }
+  text-align: center;
+}
 
 /* .App-logo {
   height: 40vmin;
@@ -35,14 +36,17 @@
     transform: rotate(360deg);
   }
 } */
-.createNew {
-  font-size: 2em; }
 
-.folderButton {
+.createNew{
+  font-size:2em;
+}
+
+.folderButton{
   border: none;
   background-color: white;
   /* background-color: ; */
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .svg-container {
   max-width: 800px;
@@ -56,22 +60,25 @@
   /* height: 40vh; */
   padding-bottom: 75%;
   vertical-align: top;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .svg-content-responsive {
   /* max-height: 450px; */
   display: inline-block;
   position: absolute;
   top: 0px;
-  left: 0; }
+  left: 0;
+}
 
 svg .rect {
   /* background-color: white; */
   fill: transparent;
   /* stroke: steelblue; */
-  /* stroke-width: 1px; */ }
+  /* stroke-width: 1px; */
+}
 
-.graphDetails {
+.graphDetails{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -79,21 +86,29 @@ svg .rect {
   /* align-items: center; */
   position: absolute;
   left: 0;
-  bottom: 5%; }
+  bottom: 5%;
+}
 
-.detailText {
+.detailText{
   margin-top: 0;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+}
 
 @media (min-width: 500px) {
-  .graphDetails {
-    bottom: 7%; } }
+  .graphDetails{
+    bottom: 7%;
+  }
+}
 
 @media (min-width: 650px) {
-  .graphDetails {
-    bottom: 9%; } }
+  .graphDetails{
+    bottom: 9%;
+  }
+}
 
 @media (min-width: 760px) {
   .svg-container {
     height: 570px;
-    padding-bottom: 0; } }
+    padding-bottom: 0;
+  }
+}
