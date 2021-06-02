@@ -74,8 +74,8 @@ const Profile = (props) => {
                         <p className="userInfo">Last Name: <input value={lastName} onChange={(e)=>setLastName(e.target.value)}/></p>
                         <p className="userInfo institution">Institution: <input value={institution} onChange={(e)=>setInstitution(e.target.value)}/></p>
                     </div>
-                    <button onClick={()=>setEditBool(!editBool)}>Cancel</button>
-                    <button onClick={()=>submitEdit()}>Submit</button>
+                    <button className="userInfo editUser" onClick={()=>setEditBool(!editBool)}>Cancel</button>
+                    <button className="userInfo editUser" onClick={()=>submitEdit()}>Submit</button>
                 </div>
             )
         }else{
@@ -109,11 +109,11 @@ const Profile = (props) => {
                 {projects.map(project=>{
                 // console.log(project)
                     return(
-                        <div className="arrangeTabs">
+                        <div className="arrangeTabs" key={project.project_id}>
                             <svg className="polySvg">
                                 <polygon className="poly" points="0,0 0,12 50,12 44,0"/>
                             </svg>
-                            <div className="folder" key={project.project_id}>
+                            <div className="folder">
                                 <button className="folderButton" onClick={()=>clickFolder(project)}>{project.title}</button>
                             </div>
                         </div>

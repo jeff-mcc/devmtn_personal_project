@@ -154,13 +154,13 @@ const ProjectData = (props) => {
                                 if(user){
                                     if(user.user_id===projectInfo.owner_id){
                                         return (
-                                            <button onClick={()=>deleteData(info.data_id,idx)}>Delete Data</button>
+                                            <button className="deleteBtn" onClick={()=>deleteData(info.data_id,idx)}>Delete {info.data_name}</button>
                                         )
                                     }
                                 }
                             }
                             return(
-                                <div>
+                                <div className="dropDownData">
                                     {/* GraphData graphs data using D3 that is presented visually to the user */}
                                     <GraphData data={trialData}/>
                                     {renderDelete()}
@@ -171,7 +171,7 @@ const ProjectData = (props) => {
     
                     return (
                         <div key={info.data_id}>
-                            <div><h5>{info.data_name}</h5><button onClick={()=>updateView(idx)}>{">"}</button></div>
+                            <div><h4>{info.data_name}</h4><button onClick={()=>updateView(idx)}>{">"}</button></div>
                             {renderView()}
                         </div>
                     )

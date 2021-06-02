@@ -10,14 +10,18 @@ const GraphData = ({data}) => {
     const maxTime = d3.maxIndex(data, (d)=>+d.rf_ang)/data[0].framerate
 
     const heightWidth = () => {
-        let height = window.innerHeight/7*2;  //200;
-        if(height<200){
-            height = 200;
-        }
-        let width = window.innerWidth/8*7;  //350;
+        let width = Math.round(window.innerWidth/8*7);  //350;
         if(width>800){
             width = 800;
         }
+        // let height = Math.round(window.innerHeight/7*2);  //200;
+        let height = width/1.75;
+        if(height<200){
+            height = 200;
+        }
+        // if(height>250){
+        //     height = 250;
+        // }
         return [height,width]
     }
     // let [height,width] = heightWidth();
@@ -26,6 +30,7 @@ const GraphData = ({data}) => {
     // [height,width] = window.onresize = heightWidth();
 
     // [height,width] = window.onresize();
+    // console.log(window)
     // console.log(height)
     // console.log(width)
 
@@ -33,6 +38,7 @@ const GraphData = ({data}) => {
         (svg)=>{
             const margin = {top: 15, right: 20, bottom: 35, left: 40}
             // console.log(window)
+            // console.log(height)
 
             const x = d3
             .scaleLinear()
@@ -84,20 +90,21 @@ const GraphData = ({data}) => {
                             .attr("text-anchor", "start")
                             .text(data.y1)
                     );
-            // svg.select(".x-axis").call(xAxis);
-            // svg.select(".y-axis").call(y1Axis);
+            svg.select(".x-axis").call(xAxis);
+            svg.select(".y-axis").call(y1Axis);
             
             svg
-            .attr("preserveAspectRatio","xMinYMin meet")
-            .attr("viewBox","0 0 350 200")
+            // .attr("preserveAspectRatio","xMinYMin meet")
+            .attr("viewBox",`0 0 ${width} ${height}`)
+            //${width} ${height}
             // .classed("svg-content-responsive",true)
             .append("rect")
             .classed("rect",true)
-            .attr("width",350)
-            .attr("height",200);
+            .attr("width",width)
+            .attr("height",height);
             
-            svg.select(".x-axis").call(xAxis);
-            svg.select(".y-axis").call(y1Axis);
+            // svg.select(".x-axis").call(xAxis);
+            // svg.select(".y-axis").call(y1Axis);
 
             svg
             // .select(".plot-area")

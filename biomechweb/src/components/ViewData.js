@@ -57,11 +57,11 @@ const ViewData = (props) => {
                 <div className="arrangeFolders">
                     {data.map((d)=>{
                         return(
-                            <div className="arrangeTabs">
+                            <div className="arrangeTabs" key={d.project_id}>
                                 <svg className="polySvg">
                                     <polygon className="poly" points="0,0 0,12 50,12 44,0"/>
                                 </svg>
-                                <div className="folder" key={d.project_id}>
+                                <div className="folder">
                                     <button className="folderButton" onClick={()=>clickFolder(d)}>{d.title}</button>
                                 </div>
                             </div>

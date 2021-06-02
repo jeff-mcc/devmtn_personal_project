@@ -47,7 +47,7 @@ body {
   padding-top: 26px;
   padding-bottom: 16px;
   margin-bottom: 26px;
-  background-color: #B58981; }
+  background-color: rgba(181, 137, 129, 0.9); }
 
 .userInfo {
   margin-top: 0;
@@ -60,6 +60,7 @@ body {
   height: 30px;
   border: 1px solid #543133;
   background-color: #B58981;
+  margin: 0 10px;
   margin-bottom: 10px; }
 
 .arrangeFolders {
@@ -67,7 +68,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly; }
 
-.arrangeTabs {
+.arrangeTabs, .dropDownData {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; }
@@ -113,6 +114,9 @@ body {
   padding-right: 10px;
   background-color: rgba(155, 46, 69, 0.9); }
 
+.dropDownData {
+  align-items: center; }
+
 .svg-container {
   max-width: 800px;
   /* max-height: 550px; */
@@ -153,7 +157,8 @@ svg .rect {
   margin-bottom: 5px; }
 
 .links {
-  text-decoration: none; }
+  text-decoration: none;
+  margin: 0 3vw; }
 
 @media (min-width: 500px) {
   .graphDetails {

@@ -9,7 +9,7 @@ const Header2 = () => {
     const loginCheck = () => {
         if(user){
             return(
-                <Link to="/profile"><p>{user.first_name} {user.last_name}</p></Link>
+                <Link className="links" to="/profile"><p>{user.first_name} {user.last_name}</p></Link>
             )
         }else{
             return(
