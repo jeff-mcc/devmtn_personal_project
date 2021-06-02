@@ -115,7 +115,8 @@ body {
   background-color: rgba(155, 46, 69, 0.9); }
 
 .dropDownData {
-  align-items: center; }
+  align-items: center;
+  margin: 0 10px; }
 
 .svg-container {
   max-width: 800px;
@@ -137,10 +138,7 @@ body {
   left: 0; }
 
 svg .rect {
-  /* background-color: white; */
-  fill: transparent;
-  /* stroke: steelblue; */
-  /* stroke-width: 1px; */ }
+  fill: transparent; }
 
 .graphDetails {
   width: 100%;

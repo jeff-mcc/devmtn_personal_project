@@ -16,29 +16,27 @@ const GraphData = ({data}) => {
         }
         // let height = Math.round(window.innerHeight/7*2);  //200;
         let height = width/1.75;
-        if(height<200){
-            height = 200;
-        }
+        // if(height<200){
+        //     height = 200;
+        // }
         // if(height>250){
         //     height = 250;
         // }
+        // console.log(height)
         return [height,width]
     }
-    // let [height,width] = heightWidth();
 
     let [height,width] = window.onload = heightWidth();
-    // [height,width] = window.onresize = heightWidth();
+    const origWidth = width;
+    // let [newHeight,newWidth] = window.onresize = heightWidth();
 
-    // [height,width] = window.onresize();
     // console.log(window)
-    // console.log(height)
-    // console.log(width)
 
     const ref = useD3(
         (svg)=>{
-            const margin = {top: 15, right: 20, bottom: 35, left: 40}
+            const margin = {top: 15, right: 20, bottom: 40, left: 45}
+            // const margin = {top: 15, right: 20, bottom: 45, left: 50}
             // console.log(window)
-            // console.log(height)
 
             const x = d3
             .scaleLinear()
@@ -64,7 +62,9 @@ const GraphData = ({data}) => {
             .y(d => y1(+d.rf_ang));
 
             const xAxis = (g) =>
-            g.attr("transform", `translate(0,${height - margin.bottom})`).call(
+            g.attr("transform", `translate(0,${height - margin.bottom-2})`)
+            // .attr("transform",`scale(${scale*1} ${scale*1})`)
+            .call(
                 d3
                 .axisBottom(x)
                 .tickValues(
@@ -77,8 +77,8 @@ const GraphData = ({data}) => {
 
             const y1Axis = (g) =>
                 g
-                    .attr("transform",`translate(${margin.left},0)`)
-                    .style("color","steelblue")
+                    .attr("transform",`translate(${margin.left+2},0)`)
+                    .style("color","#543133")
                     .call(d3.axisLeft(y1).ticks(null, "s"))
                     .call((g)=>g.select(".domain").remove())
                     .call((g)=>
@@ -90,8 +90,19 @@ const GraphData = ({data}) => {
                             .attr("text-anchor", "start")
                             .text(data.y1)
                     );
+
+            // const xLabel = (g) =>
+            //         g
+            //         .append("text")
+            //         .attr("class", "xlabel")
+            //         .attr("text-anchor", "middle")
+            //         .attr("x", width/2)
+            //         .attr("y", height)
+            //         .text("Time (s)");
+
             svg.select(".x-axis").call(xAxis);
             svg.select(".y-axis").call(y1Axis);
+            // svg.select(".xlabel").call(xLabel);
             
             svg
             // .attr("preserveAspectRatio","xMinYMin meet")
@@ -102,24 +113,11 @@ const GraphData = ({data}) => {
             .classed("rect",true)
             .attr("width",width)
             .attr("height",height);
-            
-            // svg.select(".x-axis").call(xAxis);
-            // svg.select(".y-axis").call(y1Axis);
 
             svg
-            // .select(".plot-area")
-            // .attr("fill","mediumturquoise")
-            // .selectAll(".bar")
-            // .data(data)
-            // .join("rect")
-            // .attr("class","bar")
-            // .attr("x",(d)=>x((d.value_id-data[0].value_id)/data[0].framerate))
-            // .attr("width",x.bandwidth())
-            // .attr("y",(d)=>y1(d.rf_ang))
-            // .attr("height",(d)=>y1(0)-y1(d.rf_ang))
-
             .append("path")
             .datum(data)
+            .attr("class","linePath")
             .attr("fill", "none")
             .attr("stroke", "crimson")
             .attr("stroke-width", 1.5)
@@ -132,7 +130,7 @@ const GraphData = ({data}) => {
             .attr("class", "xlabel")
             .attr("text-anchor", "middle")
             .attr("x", width/2)
-            .attr("y", height-3)
+            .attr("y", height)
             .text("Time (s)");
 
             svg
@@ -140,7 +138,7 @@ const GraphData = ({data}) => {
             .attr("class", "ylabel")
             .attr("text-anchor", "middle")
             .attr("x", -height/2+10)
-            .attr("y", 3)
+            .attr("y", 0)
             .attr("dy", ".75em")
             .attr("transform", "rotate(-90)")
             .text("Angle (deg)");
@@ -158,6 +156,62 @@ const GraphData = ({data}) => {
             // .attr("width",350)
             // .attr("height",200);
 
+            function scaleText(){
+                let [height,width] = heightWidth();
+
+                let scale = origWidth/width;
+
+                const margin = {top: 15*scale, right: 20*scale, bottom: 40*scale, left: 45*scale}
+                
+                x.rangeRound([margin.left,width*scale - margin.right]);
+                y1.rangeRound([height*scale - margin.bottom, margin.top]);
+
+                line
+                    .x(d => x((d.value_id-data[0].value_id)/data[0].framerate))
+                    .y(d => y1(+d.rf_ang));
+
+                // svg.select("svg-content-responsive")
+                //     .attr("viewBox",`0 0 ${width*scale} ${height*scale}`)
+
+                // svg.select("rect")
+                //     .attr("width",width*scale)
+                //     .attr("height",height*scale);
+
+                svg.select(".x-axis")
+                    .call(xAxis).attr("font-size",`${scale*0.7}em`)
+                    .attr("transform", `translate(0,${height*scale - margin.bottom-2*scale})`)
+                    .call(d3.axisBottom(x).tickValues(d3.ticks(...d3.extent(x.domain()),width*scale/80)))
+                
+                svg.select(".y-axis")
+                    .call(y1Axis)
+                    .attr("font-size",`${scale*0.7}em`)
+                    .attr("transform",`translate(${margin.left+2*scale},0)`)
+                    .call((g)=>g.attr("x",-margin.left))
+                
+                svg.select(".xlabel")
+                    .attr("font-size",`${scale*1}em`)
+                    .attr("x", width*scale/2)
+                    .attr("y", height*scale)
+                
+                svg.select(".ylabel")
+                    .attr("font-size",`${scale*1}em`)
+                    .attr("x", -height*scale/2+10)
+
+                d3.select(".linePath").remove();
+
+                svg
+                    .append("path")
+                    .datum(data)
+                    .attr("class","linePath")
+                    .attr("fill", "none")
+                    .attr("stroke", "crimson")
+                    .attr("stroke-width", 1.5*scale)
+                    .attr("stroke-linejoin", "round")
+                    .attr("stroke-linecap", "round")
+                    .attr("d", line);
+            }
+            // window.onresize = svg.select(".x-axis").call(scaleText);
+            d3.select(window).on('resize', scaleText);
         },
         [data.length]
     );
@@ -165,18 +219,13 @@ const GraphData = ({data}) => {
 
     return(
         <div className="svg-container">
-            <svg className="svg-content-responsive"
-                ref={ref}
-                // style={{
-                    // height: height,
-                    // width: width,
-                    // marginRight: "0px",
-                    // marginLeft: "0px",
-                // }}
-            >
+            {/* <p className="testLabel" >Angle (deg)</p> */}
+            <svg className="svg-content-responsive" ref={ref}>
+                {/* <svg className="svg-content-responsive" ref={ref}></svg> */}
                 <g className="plot-area" />
                 <g className="x-axis" />
                 <g className="y-axis" />
+                {/* <g className="xlabel" /> */}
             </svg>
             <div className="graphDetails">
                 <p className="detailText">Maximum: {parseFloat(max).toFixed(1)}&#176; at {parseFloat(maxTime).toFixed(2)} seconds</p>
@@ -187,3 +236,14 @@ const GraphData = ({data}) => {
 }
 
 export default GraphData
+
+                // style={{
+                    // height: height,
+                    // width: width,
+                    // marginRight: "0px",
+                    // marginLeft: "0px",
+                // }}
+
+                //     .attr("transform",`scale(${scale*1} ${scale*1})`)
+                // let scale = origWidth/d3.select("body").node().getBoundingClientRect().width;
+                // g.attr("transform",`scale(${scale*0.8})`)
