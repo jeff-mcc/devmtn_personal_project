@@ -4,6 +4,7 @@ import axios from 'axios'
 import {useState,useEffect} from 'react'
 import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 import {setUser} from '../redux/authReducer'
+import Footer from './Footer'
 
 const Profile = (props) => {
     const [projects,setProjects] = useState([])
@@ -94,7 +95,7 @@ const Profile = (props) => {
     }
     
     return (
-        <div>
+        <div className="handleCenter">
             <Header2 />
             {editInfo()}
             {/* <div>
@@ -128,6 +129,8 @@ const Profile = (props) => {
                     </div>
                 </div>
             </div>
+            <div className="spacer"></div>
+            <Footer />
         </div>
     )
 }

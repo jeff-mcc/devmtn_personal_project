@@ -30,7 +30,9 @@ body {
   box-shadow: none;
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  width: 100%;
+  max-width: 1000px; }
 
 .userHead {
   height: 80px;
@@ -39,10 +41,26 @@ body {
   box-shadow: 0 3px 3px #9B2E45;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px; }
+
+.handleCenter {
+  display: flex;
+  flex-direction: column;
   align-items: center; }
 
+.handleWidth {
+  width: 100%;
+  max-width: 1000px; }
+
+.spacer {
+  margin-bottom: 80px; }
+
 .userDetails {
-  padding-bottom: 16px; }
+  padding-bottom: 16px;
+  width: 100%;
+  max-width: 1000px; }
 
 .userBox {
   padding-top: 26px;
@@ -96,6 +114,9 @@ body {
 .searchInput {
   width: 120px; }
 
+select {
+  margin-right: 10px; }
+
 .searchFilter {
   text-align: right;
   margin-top: 0;
@@ -103,7 +124,10 @@ body {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 10px;
-  background-color: rgba(155, 46, 69, 0.9); }
+  background-color: rgba(155, 46, 69, 0.9);
+  width: 100%;
+  max-width: 1000px;
+  padding-right: 0; }
 
 .titleHead {
   text-align: center;
@@ -112,7 +136,9 @@ body {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 10px;
-  background-color: rgba(155, 46, 69, 0.9); }
+  background-color: rgba(155, 46, 69, 0.9);
+  width: 100%;
+  max-width: 1000px; }
 
 .projectTitle {
   text-align: center;
@@ -122,7 +148,10 @@ body {
   padding-bottom: 8px;
   padding-right: 10px;
   background-color: rgba(155, 46, 69, 0.9);
-  margin-top: 15px; }
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 15px;
+  padding-right: 0; }
 
 .dropDownMenu {
   text-align: center;
@@ -132,20 +161,23 @@ body {
   padding-bottom: 8px;
   padding-right: 10px;
   background-color: rgba(155, 46, 69, 0.9);
-  padding-left: 20px;
+  width: 100%;
+  max-width: 1000px;
+  padding-right: 0;
   margin-bottom: 20px;
   background-color: #B58981;
   display: flex;
   justify-content: space-between; }
 
 .dataTitle {
-  margin: 0;
+  margin: 0 0 0 20px;
   width: 100%;
   text-align: left; }
 
 .flipBtn {
   text-align: right;
-  font-size: 20px; }
+  font-size: 20px;
+  margin-right: 10px; }
 
 .dropDownData {
   align-items: center;
@@ -187,7 +219,11 @@ svg .rect {
 
 .links {
   text-decoration: none;
-  margin: 0 3vw; }
+  margin: 0 3vw;
+  color: #771b2f; }
+
+.links:visited {
+  color: #771b2f; }
 
 .banner {
   margin-top: 30px; }
@@ -234,6 +270,23 @@ svg .rect {
 .loginBtn {
   background-color: rgba(181, 137, 129, 0.7);
   width: 80px; }
+
+.mainFooter {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0; }
+
+.footDiv {
+  height: 80px;
+  width: 100%;
+  max-width: 1000px;
+  background-color: rgba(140, 84, 76, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; }
 
 @media (min-width: 500px) {
   .graphDetails {

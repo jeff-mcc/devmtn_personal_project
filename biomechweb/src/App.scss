@@ -46,6 +46,8 @@ $val: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 1000px;
 }
 
 %shared-properties{
@@ -77,10 +79,27 @@ body{
   @include variedHeader;
 }
 
+.handleCenter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.handleWidth{
+  width: 100%;
+  max-width: 1000px;
+  // padding-bottom: 80px;
+}
+
+.spacer{
+  margin-bottom: 80px;
+}
+
 .userDetails{
   // padding-top: 16px;
   padding-bottom: 16px;
-  // height: ;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .userBox{
@@ -166,15 +185,14 @@ body{
 
 .folderButton{
   @extend %btn-repeater;
-  // border: none;
-  // background-color: transparent;
-  // cursor: pointer;
-  // height: 100%;
-  // width: 100%;
 }
 
 .searchInput{
   width: 120px;
+}
+
+select{
+  margin-right: 10px;
 }
 
 @mixin secondaryTitle($alignText: right){
@@ -185,10 +203,13 @@ body{
   padding-bottom: 8px;
   padding-right: 10px;
   background-color: rgba($primary-color,0.9);
+  width: 100%;
+  max-width: 1000px;
 }
 
 .searchFilter{
   @include secondaryTitle;
+  padding-right: 0;
 }
 
 .titleHead{
@@ -198,19 +219,22 @@ body{
 .projectTitle{
   @include secondaryTitle($alignText: center);
   margin-top: 15px;
+  padding-right: 0;
 }
 
 .dropDownMenu{
   @include secondaryTitle($alignText: center);
-  padding-left: 20px;
+  // padding-left: 20px;
+  padding-right: 0;
   margin-bottom: 20px;
   background-color: $primary-folder-color;
   display: flex;
   justify-content: space-between;
+  // box-sizing: border-box;
 }
 
 .dataTitle{
-  margin: 0;
+  margin: 0 0 0 20px;
   width: 100%;
   text-align: left;
 }
@@ -219,6 +243,7 @@ body{
   @extend %btn-repeater;
   text-align: right;
   font-size: 20px;
+  margin-right: 10px;
 }
 
 .dropDownData{
@@ -268,10 +293,16 @@ svg .rect {
   margin-bottom: 5px;
 }
 
+$newColor: #771b2f;
+
 .links{
-  // outline: none;
   text-decoration: none;
   margin: 0 3vw;
+  color: $newColor;
+}
+
+.links:visited{
+  color: $newColor;
 }
 
 .banner{
@@ -337,6 +368,28 @@ $maxWidth: 360px;
   @extend %custom-buttons;
   background-color: rgba($primary-folder-color,0.7);
   width: 80px;
+}
+
+$footHeight: 80px;
+$footWidth: 100%;
+
+.mainFooter{
+  height: $footHeight;
+  width: $footWidth;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.footDiv{
+  height: $footHeight;
+  width: $footWidth;
+  max-width: 1000px;
+  background-color: rgba($primary-menu-color,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 @media (min-width: 500px) {

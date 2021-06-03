@@ -4,6 +4,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 import GraphData from './GraphData'
+import Footer from './Footer'
 
 const ProjectData = (props) => {
     const {projectInfo,dataInfo,finishedBool} = useSelector(store=>store.projectInfo)
@@ -91,7 +92,7 @@ const ProjectData = (props) => {
     const editProjectInfo = () => {
         if(editBool){
             return(
-                <div>
+                <div className="handleWidth">
                     <p className="projectTitle">Title: <input maxlength="50" value={title} onChange={e=>setTitle(e.target.value)}/></p>
                     <p>Description:</p>
                     <textarea rows="3" cols="40" maxlength="1000" value={description} onChange={e=>setDesc(e.target.value)}></textarea>
@@ -130,7 +131,7 @@ const ProjectData = (props) => {
             )
         }else{
             return(
-                <div>
+                <div className="handleWidth">
                     <h3 className="projectTitle">{title}</h3>
                     <p>{description}</p>
                     <h6>Categories: {category1}, {category2}</h6>
@@ -180,7 +181,7 @@ const ProjectData = (props) => {
                     }
     
                     return (
-                        <div key={info.data_id}>
+                        <div className="handleWidth" key={info.data_id}>
                             <div className="dropDownMenu">
                                 <h4 className="dataTitle">{info.data_name}</h4><button className="flipBtn" onClick={()=>updateView(idx)}>{buttonFlip()}</button>
                             </div>
@@ -193,7 +194,7 @@ const ProjectData = (props) => {
     }
 
     return (
-        <div>
+        <div className="handleCenter">
             <Header2 />
             {editProjectInfo()}
             {mapData()}
@@ -230,6 +231,8 @@ const ProjectData = (props) => {
                 {/* ) */}
             {/* })} */}
             {renderAddData()}
+            <div className="spacer"></div>
+            <Footer />
         </div>
     )
 }

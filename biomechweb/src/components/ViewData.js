@@ -3,6 +3,7 @@ import axios from 'axios'
 import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 import {useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
+import Footer from './Footer'
 
 const ViewData = (props) => {
     const [search,setSearch] = useState('')
@@ -73,7 +74,7 @@ const ViewData = (props) => {
     }
 
     return(
-        <div>
+        <div className="handleCenter">
             <header className="searchHead">
                 {/* <img />  //website icon that routes the user to the home screen */}
                 <Link className="links" to="/"><h2>BiomechWeb</h2></Link>
@@ -105,6 +106,7 @@ const ViewData = (props) => {
                     </div>
                 )
             })} */}
+            <Footer />
         </div>
     )
 }
