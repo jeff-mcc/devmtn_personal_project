@@ -92,7 +92,7 @@ const ProjectData = (props) => {
         if(editBool){
             return(
                 <div>
-                    <p>Title: <input value={title} onChange={e=>setTitle(e.target.value)}/></p>
+                    <p className="projectTitle">Title: <input value={title} onChange={e=>setTitle(e.target.value)}/></p>
                     <p>Description:</p>
                     <textarea rows="3" cols="40" value={description} onChange={e=>setDesc(e.target.value)}></textarea>
                     <p>Categories: <select value={category1} onChange={e=>setCat1(e.target.value)}>
@@ -131,7 +131,7 @@ const ProjectData = (props) => {
         }else{
             return(
                 <div>
-                    <h3>{title}</h3>
+                    <h3 className="projectTitle">{title}</h3>
                     <p>{description}</p>
                     <h6>Categories: {category1}, {category2}</h6>
                     {renderEdit()}
@@ -168,10 +168,22 @@ const ProjectData = (props) => {
                             )
                         }
                     }
+
+                    const buttonFlip = () => {
+                        if(view[idx]){
+                            const str = "v"
+                            return str
+                        }else{
+                            const str = ">"
+                            return str
+                        }
+                    }
     
                     return (
                         <div key={info.data_id}>
-                            <div><h4>{info.data_name}</h4><button onClick={()=>updateView(idx)}>{">"}</button></div>
+                            <div className="dropDownMenu">
+                                <h4 className="dataTitle">{info.data_name}</h4><button className="flipBtn" onClick={()=>updateView(idx)}>{buttonFlip()}</button>
+                            </div>
                             {renderView()}
                         </div>
                     )

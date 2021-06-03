@@ -147,13 +147,21 @@ body{
   // justify-content: center;
 }
 
-.folderButton{
+%btn-repeater{
   border: none;
   background-color: transparent;
-  /* background-color: ; */
   cursor: pointer;
   height: 100%;
   width: 100%;
+}
+
+.folderButton{
+  @extend %btn-repeater;
+  // border: none;
+  // background-color: transparent;
+  // cursor: pointer;
+  // height: 100%;
+  // width: 100%;
 }
 
 .searchInput{
@@ -172,17 +180,34 @@ body{
 
 .searchFilter{
   @include secondaryTitle;
-  // text-align: right;
-  // margin-top: 0;
-  // height: 20px;
-  // padding-top: 8px;
-  // padding-bottom: 8px;
-  // padding-right: 10px;
-  // background-color: rgba($primary-color,0.9);
 }
 
 .titleHead{
-  @include secondaryTitle($alignText: center)
+  @include secondaryTitle($alignText: center);
+}
+
+.projectTitle{
+  @include secondaryTitle($alignText: center);
+  margin-top: 15px;
+}
+
+.dropDownMenu{
+  @include secondaryTitle($alignText: center);
+  padding-left: 20px;
+  margin-bottom: 20px;
+  background-color: $primary-folder-color;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dataTitle{
+  margin: 0;
+}
+
+.flipBtn{
+  @extend %btn-repeater;
+  text-align: right;
+  font-size: 20px;
 }
 
 .dropDownData{
@@ -191,49 +216,34 @@ body{
   margin: 0 10px;
 }
 
-// .testLabel{
-//   transform: rotate(-90deg) translate(-23vw,-47vw);
-// }
-
 .svg-container {
   max-width: 800px;
-  /* max-height: 550px; */
   display: inline-block;
-  /* flex-direction: column; */
-  /* justify-content: flex-end; */
   position: relative;
   width: 100%;
-  // height: 100%;
   padding-bottom: 75%;
-  // padding-left: 3px;
-  // padding-right: 3px;
   vertical-align: top;
   overflow: hidden;
 }
 
 .svg-content-responsive {
-  /* max-height: 450px; */
   display: inline-block;
   position: absolute;
   top: 0px;
   left: 0;
-  // padding: 0 5px 5px;
 }
 
 svg .rect {
   fill: transparent;
-  // padding: 0 5px 5px;
 }
 
 .graphDetails{
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
   position: absolute;
   left: 0;
-  bottom: 5%;
+  bottom: 3%;
 }
 
 .detailText{
