@@ -1,3 +1,4 @@
+@use "sass:math";
 .App {
   text-align: center; }
 
@@ -14,7 +15,7 @@ h2 {
   margin-bottom: 20px;
   background-color: rgba(181, 137, 129, 0.6); }
 
-.createNew {
+.createNew, .loginFlexBox, .loginBox {
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -181,6 +182,36 @@ svg .rect {
 .links {
   text-decoration: none;
   margin: 0 3vw; }
+
+.loginFlexBox {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(155, 46, 69, 0.7); }
+
+.loginBox {
+  flex-direction: column;
+  height: 88vh;
+  width: 80vw;
+  border: 2px solid #543133;
+  padding-top: 10px;
+  background-color: #F5DCD5;
+  max-width: 360px;
+  min-width: 280px;
+  max-height: 500px;
+  min-height: 350px; }
+
+.loginContainer {
+  width: 80vw;
+  max-width: 360px; }
+
+.loginField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0;
+  max-width: 360px; }
 
 @media (min-width: 500px) {
   .graphDetails {

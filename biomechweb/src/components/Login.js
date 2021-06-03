@@ -49,28 +49,32 @@ const Login = (props) => {
             return(
                 <div>
                     <button onClick={handleLogin}>Log In</button><br/>
-                    <p>No Account? <button onClick={()=>setSignup(!signup)}>Sign up</button></p>
+                    <p>No Account? <button className="textBtn" onClick={()=>setSignup(!signup)}>Sign up</button></p>
                 </div>
             )
         }else{
             return(
-                <div>
-                    <h5>Retype Password: <input type="password" value={password2} onChange={e=>setPassword2(e.target.value)}/></h5>
-                    <h5>First Name: <input value={firstName} onChange={e=>setFirstName(e.target.value)}/></h5>
-                    <h5>Last Name: <input value={lastName} onChange={e=>setLastName(e.target.value)}/></h5>
-                    <h5>Institution: <input value={institution} onChange={e=>setInstitution(e.target.value)}/></h5>
+                <div className="loginContainer">
+                    <h5 className="loginField">Retype Password: <input type="password" value={password2} onChange={e=>setPassword2(e.target.value)}/></h5>
+                    <h5 className="loginField">First Name: <input value={firstName} onChange={e=>setFirstName(e.target.value)}/></h5>
+                    <h5 className="loginField">Last Name: <input value={lastName} onChange={e=>setLastName(e.target.value)}/></h5>
+                    <h5 className="loginField">Institution: <input value={institution} onChange={e=>setInstitution(e.target.value)}/></h5>
                     <button onClick={handleRegister}>Sign Up</button><br/>
-                    <p>Already have an account? <button onClick={()=>setSignup(!signup)}>Log in</button></p>
+                    <p>Already have an account? <button className="textBtn" onClick={()=>setSignup(!signup)}>Log in</button></p>
                 </div>
             )
         }
     }
 
     return(
-        <div>
-            <h5>Email: <input value={email} onChange={e=>setEmail(e.target.value)}/></h5>
-            <h5>Password: <input type="password" value={password} onChange={e=>setPassword(e.target.value)}/></h5>
-            {renderSignup()}
+        <div className="loginFlexBox">
+            <div className="loginBox">
+                <div className="loginContainer">
+                    <h5 className="loginField">Email: <input value={email} onChange={e=>setEmail(e.target.value)}/></h5>
+                    <h5 className="loginField">Password: <input type="password" value={password} onChange={e=>setPassword(e.target.value)}/></h5>
+                </div>
+                {renderSignup()}
+            </div>
         </div>
     )
 }

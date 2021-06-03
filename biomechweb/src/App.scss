@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .App {
   text-align: center;
 }
@@ -31,6 +33,9 @@ $primary-border-color: #543133;
 $primary-menu-color: #8C544C;
 $primary-folder-color: #B58981;
 $folder-size: 80px;
+$val: 100px;
+// $div-width: calc(100vw-#{math.div($val, 2)});
+// $div-height: calc(100vh-#{math.div($val, 2)});
 
 @mixin variedHeader($bottomborder: 0 3px 3px $primary-color){
   height: 80px;
@@ -256,6 +261,50 @@ svg .rect {
   text-decoration: none;
   margin: 0 3vw;
 }
+
+$loginWidth: 80vw;
+$loginHeight: 88vh;
+$maxWidth: 360px;
+// $adjust-position: 10vw;
+// $adjust-top: 6vh;
+
+.loginFlexBox{
+  @extend %display-properties;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba($primary-color,0.7);
+}
+
+.loginBox{
+  @extend %display-properties;
+  flex-direction: column;
+  height: $loginHeight;
+  width: $loginWidth;
+  border: 2px solid $primary-border-color;
+  padding-top: 10px;
+  background-color: $primary-background-color;
+  max-width: $maxWidth;
+  min-width: 280px;
+  max-height: 500px;
+  min-height: 350px;
+}
+
+.loginContainer{
+  width: $loginWidth;
+  max-width: $maxWidth;
+}
+
+.loginField{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0;
+  max-width: $maxWidth;
+}
+
+
 
 @media (min-width: 500px) {
   .graphDetails{
