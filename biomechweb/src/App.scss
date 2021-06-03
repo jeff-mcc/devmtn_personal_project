@@ -139,6 +139,18 @@ body{
   border-bottom: 1px dotted $primary-border-color;
 }
 
+.centerBox{
+  // display: flex;
+  @extend %display-properties;
+  flex-direction: column;
+}
+
+.textBox{
+  max-width: 500px;
+  padding: 20px;
+  text-align: justify;
+}
+
 .institution{
   margin-bottom: 0;
 }

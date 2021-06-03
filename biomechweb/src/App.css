@@ -16,7 +16,7 @@ h2 {
   margin-bottom: 20px;
   background-color: rgba(181, 137, 129, 0.6); }
 
-.userInfo, .createNew, .loginFlexBox, .loginBox {
+.userInfo, .centerBox, .createNew, .loginFlexBox, .loginBox {
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -87,6 +87,14 @@ body {
   max-width: 300px;
   justify-content: space-between;
   border-bottom: 1px dotted #543133; }
+
+.centerBox {
+  flex-direction: column; }
+
+.textBox {
+  max-width: 500px;
+  padding: 20px;
+  text-align: justify; }
 
 .institution {
   margin-bottom: 0; }
