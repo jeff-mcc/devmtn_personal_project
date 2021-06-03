@@ -1,6 +1,7 @@
 @use "sass:math";
 .App {
-  text-align: center; }
+  text-align: center;
+  min-height: 100%; }
 
 h2 {
   margin: 0; }
@@ -15,13 +16,19 @@ h2 {
   margin-bottom: 20px;
   background-color: rgba(181, 137, 129, 0.6); }
 
-.createNew, .loginFlexBox, .loginBox {
+.userInfo, .createNew, .loginFlexBox, .loginBox {
   display: flex;
   align-items: center;
   justify-content: center; }
 
+.userBox, .arrangeTabs, .dropDownData {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+
 body {
-  background-color: rgba(245, 220, 213, 0.8); }
+  background-color: rgba(245, 220, 213, 0.8);
+  min-height: 100%; }
 
 .searchHead {
   height: 80px;
@@ -54,8 +61,10 @@ body {
   width: 100%;
   max-width: 1000px; }
 
-.spacer {
-  margin-bottom: 80px; }
+.content {
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  max-width: 1000px; }
 
 .userDetails {
   padding-bottom: 16px;
@@ -66,11 +75,18 @@ body {
   padding-top: 26px;
   padding-bottom: 16px;
   margin-bottom: 26px;
-  background-color: rgba(181, 137, 129, 0.9); }
+  background-color: rgba(181, 137, 129, 0.9);
+  align-items: center; }
 
 .userInfo {
   margin-top: 0;
-  height: 21px; }
+  margin-bottom: 16px;
+  padding-bottom: 3px;
+  height: 21px;
+  width: 100%;
+  max-width: 300px;
+  justify-content: space-between;
+  border-bottom: 1px dotted #543133; }
 
 .institution {
   margin-bottom: 0; }
@@ -86,11 +102,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly; }
-
-.arrangeTabs, .dropDownData {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; }
 
 .poly {
   fill: #9B2E45; }
@@ -123,11 +134,9 @@ select {
   height: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-right: 10px;
   background-color: rgba(155, 46, 69, 0.9);
   width: 100%;
-  max-width: 1000px;
-  padding-right: 0; }
+  max-width: 1000px; }
 
 .titleHead {
   text-align: center;
@@ -135,7 +144,6 @@ select {
   height: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-right: 10px;
   background-color: rgba(155, 46, 69, 0.9);
   width: 100%;
   max-width: 1000px; }
@@ -146,12 +154,10 @@ select {
   height: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-right: 10px;
   background-color: rgba(155, 46, 69, 0.9);
   width: 100%;
   max-width: 1000px;
-  margin-top: 15px;
-  padding-right: 0; }
+  margin-top: 15px; }
 
 .dropDownMenu {
   text-align: center;
@@ -159,11 +165,9 @@ select {
   height: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-right: 10px;
   background-color: rgba(155, 46, 69, 0.9);
   width: 100%;
   max-width: 1000px;
-  padding-right: 0;
   margin-bottom: 20px;
   background-color: #B58981;
   display: flex;
@@ -275,9 +279,7 @@ svg .rect {
   height: 80px;
   width: 100%;
   display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 0; }
+  justify-content: center; }
 
 .footDiv {
   height: 80px;

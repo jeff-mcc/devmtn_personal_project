@@ -195,43 +195,13 @@ const ProjectData = (props) => {
 
     return (
         <div className="handleCenter">
-            <Header2 />
-            {editProjectInfo()}
-            {mapData()}
-            {/* {dataInfo.map((info,idx)=>{ */}
-                {/* const renderView = () => { */}
-                    {/* if(view[idx]){ */}
-                        {/* const trialData = data.filter(e=>{ */}
-                            {/* return e.data_id === info.data_id */}
-                        {/* }) */}
-                        {/* const renderDelete = () => { */}
-                            {/* if(user){ */}
-                                {/* if(user.user_id===projectInfo.owner_id){ */}
-                                    {/* return ( */}
-                                        {/* <button onClick={()=>deleteData(info.data_id,idx)}>Delete Data</button> */}
-                                    {/* ) */}
-                                {/* } */}
-                            {/* } */}
-                        {/* } */}
-                        {/* return( */}
-                            {/* <div> */}
-                                {/* <p>visible data output</p> */}
-                                {/* <p>{trialData[0].leg_x_p}</p> */}
-                                {/* {renderDelete()} */}
-                            {/* </div> */}
-                        {/* ) */}
-                    {/* } */}
-                {/* } */}
-
-                {/* return ( */}
-                    {/* <div key={info.data_id}> */}
-                        {/* <div><h5>{info.data_name}</h5><button onClick={()=>updateView(idx)}>{">"}</button></div> */}
-                        {/* {renderView()} */}
-                    {/* </div> */}
-                {/* ) */}
-            {/* })} */}
-            {renderAddData()}
-            <div className="spacer"></div>
+            <div className="content">
+                <Header2 />
+                {editProjectInfo()}
+                {mapData()}
+                {renderAddData()}
+                {/* <div className="spacer"></div> */}
+            </div>
             <Footer />
         </div>
     )

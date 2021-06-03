@@ -3,6 +3,7 @@ import {useState} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
 import {setDataInfo,setFinished} from '../redux/projectReducer'
+import Footer from './Footer'
 
 const AddData = (props) => {
     const [name,setName] = useState('')
@@ -46,12 +47,18 @@ const AddData = (props) => {
     }
 
     return (
-        <div>
+        <div className="handleCenter">
+            <div className="content">
             <Header2 />
             <h2 className="banner">Add Data to Your Project</h2>
             <h4>Data Name:</h4>
-            <input maxlength="30" placeholder="i.e. condition 1 trial 1, c1t1, etc." value={name} onChange={(e)=>setName(e.target.value)}/>
-            <button className="addData" onClick={handleClick}>Add Data to Project</button>
+            <div>
+                <input maxlength="30" placeholder="i.e. condition 1 trial 1, c1t1, etc." value={name} onChange={(e)=>setName(e.target.value)}/>
+                <button className="addData" onClick={handleClick}>Add Data to Project</button>
+            </div>
+            {/* <div className="spacer"></div> */}
+            </div>
+            <Footer />
         </div>
     )
 }

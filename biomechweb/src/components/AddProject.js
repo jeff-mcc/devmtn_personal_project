@@ -3,6 +3,7 @@ import Header2 from './Header2'
 import axios from 'axios'
 import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 import {useDispatch} from 'react-redux'
+import Footer from './Footer'
 
 const AddProject = (props) => {
     const [category1,setCat1] = useState('')
@@ -22,7 +23,8 @@ const AddProject = (props) => {
     }
 
     return(
-        <div>
+        <div className="handleCenter">
+            <div className="content">
             <Header2 />
             <h2 className="banner">Create a New Project</h2>
             <h4>Project Title:</h4>
@@ -59,6 +61,8 @@ const AddProject = (props) => {
                 <option value='Arm &#38; Hand'>Arm &#38; Hand</option>
             </select></p>
             <button className="editUser" onClick={handleCreate}>Create Project</button>
+            </div>
+            <Footer />
         </div>
     )
 }

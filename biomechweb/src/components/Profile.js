@@ -75,20 +75,20 @@ const Profile = (props) => {
                         <p className="userInfo">Last Name: <input maxlength="30" value={lastName} onChange={(e)=>setLastName(e.target.value)}/></p>
                         <p className="userInfo institution">Institution: <input maxlength="100" value={institution} onChange={(e)=>setInstitution(e.target.value)}/></p>
                     </div>
-                    <button className="userInfo editUser" onClick={()=>setEditBool(!editBool)}>Cancel</button>
-                    <button className="userInfo editUser" onClick={()=>submitEdit()}>Submit</button>
+                    <button className="editUser" onClick={()=>setEditBool(!editBool)}>Cancel</button>
+                    <button className="editUser" onClick={()=>submitEdit()}>Submit</button>
                 </div>
             )
         }else{
             return(
                 <div className="userDetails">
                     <div className="userBox">
-                        <p className="userInfo">Email: {email}</p>
-                        <p className="userInfo">First Name: {firstName}</p>
-                        <p className="userInfo">Last Name: {lastName}</p>
-                        <p className="userInfo institution">Institution: {institution}</p>
+                        <div className="userInfo"><p>Email: </p>{email}</div>
+                        <div className="userInfo"><p>First Name: </p>{firstName}</div>
+                        <div className="userInfo"><p>Last Name: </p>{lastName}</div>
+                        <div className="userInfo institution"><p>Institution: </p>{institution}</div>
                     </div>
-                    <button className="userInfo editUser" onClick={()=>setEditBool(!editBool)}>Edit Information</button>
+                    <button className="editUser" onClick={()=>setEditBool(!editBool)}>Edit Information</button>
                 </div>
             )
         }
@@ -96,15 +96,9 @@ const Profile = (props) => {
     
     return (
         <div className="handleCenter">
+            <div className="content">
             <Header2 />
             {editInfo()}
-            {/* <div>
-                <p>Email: {user.email}</p>
-                <p>First Name: {user.first_name}</p>
-                <p>Last Name: {user.last_name}</p>
-                <p>Institution: {user.institution}</p>
-            </div>
-            <button onClick={()=>setEditBool(!editBool)}>Edit Information</button> */}
             <h3 className="titleHead">My Projects</h3>
             <div className="arrangeFolders">
                 {projects.map(project=>{
@@ -129,7 +123,8 @@ const Profile = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="spacer"></div>
+            {/* <div className="spacer"></div> */}
+            </div>
             <Footer />
         </div>
     )

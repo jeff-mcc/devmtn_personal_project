@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  min-height: 100%;
 }
 
 h2{
@@ -67,8 +68,15 @@ $val: 100px;
   justify-content: center;
 }
 
+%flex-repeater{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 body{
   background-color: rgba($primary-background-color,0.8);
+  min-height: 100%;
 }
 
 .searchHead{
@@ -83,17 +91,24 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  // height: calc(100vh-80px);
 }
 
 .handleWidth{
   width: 100%;
   max-width: 1000px;
-  // padding-bottom: 80px;
 }
 
-.spacer{
-  margin-bottom: 80px;
+.content{
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  max-width: 1000px;
 }
+
+// .spacer{
+//   // margin-bottom: 80px;
+//   // flex: 1 0 auto;
+// }
 
 .userDetails{
   // padding-top: 16px;
@@ -107,11 +122,21 @@ body{
   padding-bottom: 16px;
   margin-bottom: 26px;
   background-color: rgba($primary-folder-color,0.9);
+  // max-width: 400px;
+  @extend %flex-repeater;
+  align-items: center;
 }
 
 .userInfo{
   margin-top: 0;
+  margin-bottom: 16px;
+  padding-bottom: 3px;
   height: 21px;
+  width: 100%;
+  max-width: 300px;
+  @extend %display-properties;
+  justify-content: space-between;
+  border-bottom: 1px dotted $primary-border-color;
 }
 
 .institution{
@@ -134,12 +159,6 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
-
-%flex-repeater{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 
 .arrangeTabs{
@@ -201,7 +220,7 @@ select{
   height: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-right: 10px;
+  // padding-right: 10px;
   background-color: rgba($primary-color,0.9);
   width: 100%;
   max-width: 1000px;
@@ -209,7 +228,6 @@ select{
 
 .searchFilter{
   @include secondaryTitle;
-  padding-right: 0;
 }
 
 .titleHead{
@@ -219,18 +237,15 @@ select{
 .projectTitle{
   @include secondaryTitle($alignText: center);
   margin-top: 15px;
-  padding-right: 0;
 }
 
 .dropDownMenu{
   @include secondaryTitle($alignText: center);
   // padding-left: 20px;
-  padding-right: 0;
   margin-bottom: 20px;
   background-color: $primary-folder-color;
   display: flex;
   justify-content: space-between;
-  // box-sizing: border-box;
 }
 
 .dataTitle{
@@ -378,8 +393,11 @@ $footWidth: 100%;
   width: $footWidth;
   display: flex;
   justify-content: center;
-  position: fixed;
-  bottom: 0;
+  // flex-shrink: 0;
+  // position: fixed;
+  // bottom: 0;
+  // top: 100vh;
+  // margin-top: -$footHeight;
 }
 
 .footDiv{

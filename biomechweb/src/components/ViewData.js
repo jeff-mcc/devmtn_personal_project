@@ -75,6 +75,7 @@ const ViewData = (props) => {
 
     return(
         <div className="handleCenter">
+            <div className="content">
             <header className="searchHead">
                 {/* <img />  //website icon that routes the user to the home screen */}
                 <Link className="links" to="/"><h2>BiomechWeb</h2></Link>
@@ -99,13 +100,7 @@ const ViewData = (props) => {
                     <option value='Arm &#38; Hand'>Arm &#38; Hand</option>
             </select></p>
             {handleMap()}
-            {/* {data.map((d)=>{
-                return(
-                    <div className="folder" key={d.project_id}>
-                        <button className="folderButton" onClick={()=>clickFolder(d)}>{d.title}</button>
-                    </div>
-                )
-            })} */}
+            </div>
             <Footer />
         </div>
     )
