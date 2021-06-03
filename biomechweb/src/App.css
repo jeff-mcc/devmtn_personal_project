@@ -57,7 +57,7 @@ body {
 .institution {
   margin-bottom: 0; }
 
-.editUser, .loginBtn {
+.editUser, .editProject, .addData, .loginBtn {
   height: 30px;
   border: 1px solid #543133;
   background-color: #B58981;
@@ -139,7 +139,9 @@ body {
   justify-content: space-between; }
 
 .dataTitle {
-  margin: 0; }
+  margin: 0;
+  width: 100%;
+  text-align: left; }
 
 .flipBtn {
   text-align: right;
@@ -175,6 +177,10 @@ svg .rect {
   left: 0;
   bottom: 3%; }
 
+.editProject {
+  margin-bottom: 20px;
+  background-color: rgba(140, 84, 76, 0.9); }
+
 .detailText {
   margin-top: 0;
   margin-bottom: 5px; }
@@ -182,6 +188,12 @@ svg .rect {
 .links {
   text-decoration: none;
   margin: 0 3vw; }
+
+.banner {
+  margin-top: 30px; }
+
+.addData {
+  height: unset; }
 
 .loginFlexBox {
   height: 100vh;

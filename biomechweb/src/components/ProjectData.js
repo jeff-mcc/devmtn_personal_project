@@ -45,7 +45,7 @@ const ProjectData = (props) => {
         if(user){
             if(user.user_id===projectInfo.owner_id){
                 return(
-                    <button onClick={()=>setEditBool(!editBool)}>Edit Project Details</button>
+                    <button className="editProject" onClick={()=>setEditBool(!editBool)}>Edit Project Details</button>
                 )
             }
         }
@@ -59,7 +59,7 @@ const ProjectData = (props) => {
         if(user){
             if(user.user_id===projectInfo.owner_id){
                 return(
-                    <button onClick={handleAddData}>Add Data</button>
+                    <button className="editProject" onClick={handleAddData}>Add Data</button>
                 )
             }
         }
@@ -92,9 +92,9 @@ const ProjectData = (props) => {
         if(editBool){
             return(
                 <div>
-                    <p className="projectTitle">Title: <input value={title} onChange={e=>setTitle(e.target.value)}/></p>
+                    <p className="projectTitle">Title: <input maxlength="50" value={title} onChange={e=>setTitle(e.target.value)}/></p>
                     <p>Description:</p>
-                    <textarea rows="3" cols="40" value={description} onChange={e=>setDesc(e.target.value)}></textarea>
+                    <textarea rows="3" cols="40" maxlength="1000" value={description} onChange={e=>setDesc(e.target.value)}></textarea>
                     <p>Categories: <select value={category1} onChange={e=>setCat1(e.target.value)}>
                         <option value=''>--Category 1--</option>
                         <option value='Running'>Running</option>
@@ -124,8 +124,8 @@ const ProjectData = (props) => {
                         <option value='Shoulder'>Shoulder</option>
                         <option value='Arm &#38; Hand'>Arm &#38; Hand</option>
                     </select></p>
-                    <button onClick={()=>setEditBool(!editBool)}>Cancel</button>
-                    <button onClick={()=>submitEdit()}>Submit</button>
+                    <button className="editProject" onClick={()=>setEditBool(!editBool)}>Cancel</button>
+                    <button className="editProject" onClick={()=>submitEdit()}>Submit</button>
                 </div>
             )
         }else{
@@ -154,7 +154,7 @@ const ProjectData = (props) => {
                                 if(user){
                                     if(user.user_id===projectInfo.owner_id){
                                         return (
-                                            <button className="deleteBtn" onClick={()=>deleteData(info.data_id,idx)}>Delete {info.data_name}</button>
+                                            <button className="editProject" onClick={()=>deleteData(info.data_id,idx)}>Delete {info.data_name}</button>
                                         )
                                     }
                                 }

@@ -109,11 +109,6 @@ body{
 
 .editUser{
   @extend %custom-buttons;
-  // height: 30px;
-  // border: 1px solid $primary-border-color;
-  // background-color: $primary-folder-color;
-  // margin: 0 10px;
-  // margin-bottom: 10px;
 }
 
 .arrangeFolders{
@@ -216,6 +211,8 @@ body{
 
 .dataTitle{
   margin: 0;
+  width: 100%;
+  text-align: left;
 }
 
 .flipBtn{
@@ -260,6 +257,12 @@ svg .rect {
   bottom: 3%;
 }
 
+.editProject{
+  @extend %custom-buttons;
+  margin-bottom: 20px;
+  background-color: rgba($primary-menu-color,0.9);
+}
+
 .detailText{
   margin-top: 0;
   margin-bottom: 5px;
@@ -269,6 +272,15 @@ svg .rect {
   // outline: none;
   text-decoration: none;
   margin: 0 3vw;
+}
+
+.banner{
+  margin-top: 30px;
+}
+
+.addData{
+  @extend %custom-buttons;
+  height: unset;
 }
 
 $loginWidth: 80vw;

@@ -24,11 +24,11 @@ const AddProject = (props) => {
     return(
         <div>
             <Header2 />
-            <h2>Create a New Project</h2>
+            <h2 className="banner">Create a New Project</h2>
             <h4>Project Title:</h4>
-            <input onChange={e=>setTitle(e.target.value)}/>
+            <input maxlength="50" onChange={e=>setTitle(e.target.value)}/>
             <h4>Description:</h4>
-            <textarea rows="6" cols="40" onChange={e=>setDesc(e.target.value)}></textarea>
+            <textarea rows="6" cols="40" maxlength="1000" onChange={e=>setDesc(e.target.value)}></textarea>
             <p>Categories: <select value={category1} onChange={e=>setCat1(e.target.value)}>
                 <option value=''>--Category 1--</option>
                 <option value='Running'>Running</option>
@@ -58,7 +58,7 @@ const AddProject = (props) => {
                 <option value='Shoulder'>Shoulder</option>
                 <option value='Arm &#38; Hand'>Arm &#38; Hand</option>
             </select></p>
-            <button onClick={handleCreate}>Create Project</button>
+            <button className="editUser" onClick={handleCreate}>Create Project</button>
         </div>
     )
 }
