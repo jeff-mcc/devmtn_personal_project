@@ -99,12 +99,21 @@ body{
   margin-bottom: 0;
 }
 
-.editUser{
+%custom-buttons{
   height: 30px;
   border: 1px solid $primary-border-color;
   background-color: $primary-folder-color;
   margin: 0 10px;
   margin-bottom: 10px;
+}
+
+.editUser{
+  @extend %custom-buttons;
+  // height: 30px;
+  // border: 1px solid $primary-border-color;
+  // background-color: $primary-folder-color;
+  // margin: 0 10px;
+  // margin-bottom: 10px;
 }
 
 .arrangeFolders{
@@ -304,7 +313,19 @@ $maxWidth: 360px;
   max-width: $maxWidth;
 }
 
+.textBtn{
+  @extend %btn-repeater;
+  width: unset;
+  padding: 0;
+  font-size: 16px;
+  border-bottom: 1px solid $primary-border-color;
+}
 
+.loginBtn{
+  @extend %custom-buttons;
+  background-color: rgba($primary-folder-color,0.7);
+  width: 80px;
+}
 
 @media (min-width: 500px) {
   .graphDetails{

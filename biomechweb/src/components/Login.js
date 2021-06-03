@@ -48,7 +48,7 @@ const Login = (props) => {
         if(!signup){
             return(
                 <div>
-                    <button onClick={handleLogin}>Log In</button><br/>
+                    <button className="loginBtn" onClick={handleLogin}>Log In</button><br/>
                     <p>No Account? <button className="textBtn" onClick={()=>setSignup(!signup)}>Sign up</button></p>
                 </div>
             )
@@ -59,7 +59,7 @@ const Login = (props) => {
                     <h5 className="loginField">First Name: <input value={firstName} onChange={e=>setFirstName(e.target.value)}/></h5>
                     <h5 className="loginField">Last Name: <input value={lastName} onChange={e=>setLastName(e.target.value)}/></h5>
                     <h5 className="loginField">Institution: <input value={institution} onChange={e=>setInstitution(e.target.value)}/></h5>
-                    <button onClick={handleRegister}>Sign Up</button><br/>
+                    <button className="loginBtn" onClick={handleRegister}>Sign Up</button><br/>
                     <p>Already have an account? <button className="textBtn" onClick={()=>setSignup(!signup)}>Log in</button></p>
                 </div>
             )
