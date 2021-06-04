@@ -16,7 +16,7 @@ h2 {
   margin-bottom: 20px;
   background-color: rgba(181, 137, 129, 0.6); }
 
-.userInfo, .contactInfo, .createNew, .loginFlexBox, .loginBox {
+.imgContainer, .userInfo, .contactInfo, .createNew, .loginFlexBox, .loginBox {
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -52,6 +52,15 @@ body {
   width: 100%;
   max-width: 1000px; }
 
+.openClose {
+  border: none;
+  background-color: transparent;
+  color: transparent;
+  font-size: 24px;
+  position: absolute;
+  top: 26px;
+  right: 16px; }
+
 .handleCenter {
   display: flex;
   flex-direction: column;
@@ -63,6 +72,16 @@ body {
 
 .content {
   min-height: calc(100vh - 80px);
+  width: 100%;
+  max-width: 1000px; }
+
+.imgContainer {
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden; }
+
+.homeImg {
   width: 100%;
   max-width: 1000px; }
 
@@ -328,7 +347,7 @@ svg .rect {
   .menu {
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 70px;
     padding-right: 30px;
     padding-left: 20px;
     text-align: left;
@@ -339,4 +358,6 @@ svg .rect {
     margin-bottom: 20px;
     color: #F5DCD5; }
   .menulinks:visited {
+    color: #F5DCD5; }
+  .openClose {
     color: #F5DCD5; } }
