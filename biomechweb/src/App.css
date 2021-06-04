@@ -16,12 +16,12 @@ h2 {
   margin-bottom: 20px;
   background-color: rgba(181, 137, 129, 0.6); }
 
-.userInfo, .centerBox, .createNew, .loginFlexBox, .loginBox {
+.userInfo, .contactInfo, .createNew, .loginFlexBox, .loginBox {
   display: flex;
   align-items: center;
   justify-content: center; }
 
-.userBox, .arrangeTabs, .dropDownData {
+.userBox, .centerBox, .arrangeTabs, .dropDownData {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; }
@@ -71,14 +71,16 @@ body {
   width: 100%;
   max-width: 1000px; }
 
-.userBox {
+.userBox, .centerBox {
+  align-items: center;
   padding-top: 26px;
   padding-bottom: 16px;
-  margin-bottom: 26px;
-  background-color: rgba(181, 137, 129, 0.9);
-  align-items: center; }
+  margin-bottom: 26px; }
 
-.userInfo {
+.userBox {
+  background-color: rgba(181, 137, 129, 0.9); }
+
+.userInfo, .contactInfo {
   margin-top: 0;
   margin-bottom: 16px;
   padding-bottom: 3px;
@@ -89,11 +91,18 @@ body {
   border-bottom: 1px dotted #543133; }
 
 .centerBox {
-  flex-direction: column; }
+  padding-top: 16px; }
+
+.contactInfo {
+  height: unset;
+  max-width: 400px; }
+
+#me {
+  margin-bottom: 0; }
 
 .textBox {
   max-width: 500px;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   text-align: justify; }
 
 .institution {
@@ -310,3 +319,24 @@ svg .rect {
   .svg-container {
     height: 570px;
     padding-bottom: 0; } }
+
+@media (max-width: 650px) {
+  .userHead {
+    align-items: flex-start; }
+  .homelink {
+    margin-top: 26px; }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-left: 20px;
+    text-align: left;
+    height: 100vh;
+    background-color: #543133;
+    z-index: 99; }
+  .menulinks {
+    margin-bottom: 20px;
+    color: #F5DCD5; }
+  .menulinks:visited {
+    color: #F5DCD5; } }

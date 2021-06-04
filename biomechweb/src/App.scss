@@ -117,17 +117,25 @@ body{
   max-width: 1000px;
 }
 
-.userBox{
+%reuse-userBox{
+  @extend %flex-repeater;
+  align-items: center;
   padding-top: 26px;
   padding-bottom: 16px;
   margin-bottom: 26px;
-  background-color: rgba($primary-folder-color,0.9);
-  // max-width: 400px;
-  @extend %flex-repeater;
-  align-items: center;
 }
 
-.userInfo{
+.userBox{
+  @extend %reuse-userBox;
+  // padding-top: 26px;
+  // padding-bottom: 16px;
+  // margin-bottom: 26px;
+  background-color: rgba($primary-folder-color,0.9);
+  // @extend %flex-repeater;
+  // align-items: center;
+}
+
+%reuse-userInfo{
   margin-top: 0;
   margin-bottom: 16px;
   padding-bottom: 3px;
@@ -139,15 +147,40 @@ body{
   border-bottom: 1px dotted $primary-border-color;
 }
 
+.userInfo{
+  @extend %reuse-userInfo;
+  // margin-top: 0;
+  // margin-bottom: 16px;
+  // padding-bottom: 3px;
+  // height: 21px;
+  // width: 100%;
+  // max-width: 300px;
+  // @extend %display-properties;
+  // justify-content: space-between;
+  // border-bottom: 1px dotted $primary-border-color;
+}
+
 .centerBox{
   // display: flex;
-  @extend %display-properties;
-  flex-direction: column;
+  // @extend %display-properties;
+  // flex-direction: column;
+  @extend %reuse-userBox;
+  padding-top: 16px;
+}
+
+.contactInfo{
+  @extend %reuse-userInfo;
+  height: unset;
+  max-width: 400px;
+}
+
+#me{
+  margin-bottom: 0;
 }
 
 .textBox{
   max-width: 500px;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   text-align: justify;
 }
 
@@ -438,5 +471,34 @@ $footWidth: 100%;
   .svg-container {
     height: 570px;
     padding-bottom: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .userHead{
+    align-items: flex-start;
+  }
+  .homelink{
+    margin-top: 26px;
+  }
+  .menu{
+    display:flex;
+    flex-direction: column;
+    // justify-content: flex-start;
+    // align-items: flex-start;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-left: 20px;
+    text-align: left;
+    height: 100vh;
+    background-color: $primary-border-color;
+    z-index: 99;
+  }
+  .menulinks{
+    margin-bottom: 20px;
+    color: $primary-background-color;
+  }
+  .menulinks:visited{
+    color: $primary-background-color;
   }
 }
