@@ -9,21 +9,6 @@ h2{
   margin: 0;
 }
 
-// @media (prefers-reduced-motion: no-preference) {
-//   .App-logo {
-//     animation: App-logo-spin infinite 20s linear;
-//   }
-// }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// } */
-
 //basic colors to use (HEX) 543133, 9B2E45, F5DCD5, B58981, 8C544C
 //I plan on changing the standard fonts used eventually, possibly Halant and/or Nunito Sans
 
@@ -35,6 +20,8 @@ $primary-menu-color: #8C544C;
 $primary-folder-color: #B58981;
 $folder-size: 80px;
 $val: 100px;
+$footHeight: 80px;
+$footWidth: 100%;
 // $div-width: calc(100vw-#{math.div($val, 2)});
 // $div-height: calc(100vh-#{math.div($val, 2)});
 
@@ -87,14 +74,18 @@ body{
   @include variedHeader;
 }
 
+%corner-position{
+  position: absolute;
+  top: 26px;
+  right: 16px;
+}
+
 .openClose{
   border: none;
   background-color: transparent;
   color: transparent;
   font-size: 24px;
-  position: absolute;
-  top: 26px;
-  right: 16px;
+  @extend %corner-position;
   z-index: 99;
 }
 
@@ -134,10 +125,31 @@ $maxWidthVar: 1000px;
   max-width: $maxWidthVar;
 }
 
-// .spacer{
-//   // margin-bottom: 80px;
-//   // flex: 1 0 auto;
-// }
+%button-properties{
+  width: 35%;
+  height: 6%;
+  max-width: 200px;
+  min-height: 42px;
+  border: 2px solid $primary-border-color;
+  background-color: $primary-color;
+  color: $primary-background-color;
+  position: absolute;
+}
+
+.btnOne{
+  @extend %button-properties;
+  top: calc(50vw + #{$footHeight});
+}
+
+.btnTwo{
+  @extend %button-properties;
+  top: calc(150vw + #{$footHeight});
+}
+
+.btnThree{
+  @extend %button-properties;
+  top: calc(250vw + #{$footHeight});
+}
 
 .userDetails{
   // padding-top: 16px;
@@ -156,12 +168,7 @@ $maxWidthVar: 1000px;
 
 .userBox{
   @extend %reuse-userBox;
-  // padding-top: 26px;
-  // padding-bottom: 16px;
-  // margin-bottom: 26px;
   background-color: rgba($primary-folder-color,0.9);
-  // @extend %flex-repeater;
-  // align-items: center;
 }
 
 %reuse-userInfo{
@@ -178,28 +185,20 @@ $maxWidthVar: 1000px;
 
 .userInfo{
   @extend %reuse-userInfo;
-  // margin-top: 0;
-  // margin-bottom: 16px;
-  // padding-bottom: 3px;
-  // height: 21px;
-  // width: 100%;
-  // max-width: 300px;
-  // @extend %display-properties;
-  // justify-content: space-between;
-  // border-bottom: 1px dotted $primary-border-color;
 }
 
 .centerBox{
-  // display: flex;
-  // @extend %display-properties;
-  // flex-direction: column;
   @extend %reuse-userBox;
   padding-top: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
+  // width: 100%;
 }
 
 .contactInfo{
   @extend %reuse-userInfo;
   height: unset;
+  width: 100%;
   max-width: 400px;
 }
 
@@ -237,15 +236,10 @@ $maxWidthVar: 1000px;
 
 .arrangeTabs{
   @extend %flex-repeater;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: flex-start;
 }
 
 .poly{
   fill: $primary-color;
-  // height: 12px;
-  // width: 50px;
 }
 
 .polySvg{
@@ -263,9 +257,6 @@ $maxWidthVar: 1000px;
   font-size:5em;
   color: rgba($primary-color,0.6);
   @extend %display-properties;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
 }
 
 %btn-repeater{
@@ -461,19 +452,11 @@ $maxWidth: 360px;
   width: 80px;
 }
 
-$footHeight: 80px;
-$footWidth: 100%;
-
 .mainFooter{
   height: $footHeight;
   width: $footWidth;
   display: flex;
   justify-content: center;
-  // flex-shrink: 0;
-  // position: fixed;
-  // bottom: 0;
-  // top: 100vh;
-  // margin-top: -$footHeight;
 }
 
 .footDiv{
@@ -496,6 +479,14 @@ $footWidth: 100%;
   right: 16px;
   top: 14px;
   padding: 0 6px;
+}
+
+.adjBtn{
+  margin-right: 20px;
+}
+
+.searchBtn{
+  margin-right: 10px;
 }
 
 @media (min-width: 500px) {
@@ -552,11 +543,29 @@ $footWidth: 100%;
   .menulinks:visited{
     color: $primary-background-color;
   }
+  .adjBtn{
+    // @extend %corner-position;
+    position: relative;
+    top: 30px;
+    // right: 16px;
+  }
 }
 
 @media (min-width: 651px){
   .showBurger{
     color: transparent;
+  }
+}
+
+@media (min-width: 1000px){
+  .btnOne{
+    top: calc(#{$maxWidthVar} / 2 + #{$footHeight});
+  }
+  .btnTwo{
+    top: calc(#{$maxWidthVar} * 1.5 + #{$footHeight});
+  }
+  .btnThree{
+    top: calc(#{$maxWidthVar} * 2.5 + #{$footHeight});
   }
 }
 
@@ -584,8 +593,4 @@ $footWidth: 100%;
 .break{
   margin-top: 0;
   margin-bottom: 2px;
-}
-
-@keyframes openMenu{
-
 }

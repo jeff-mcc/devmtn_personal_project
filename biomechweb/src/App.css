@@ -53,13 +53,15 @@ body {
   max-width: 1000px; }
 
 .openClose {
+  position: absolute;
+  top: 26px;
+  right: 16px; }
+
+.openClose {
   border: none;
   background-color: transparent;
   color: transparent;
   font-size: 24px;
-  position: absolute;
-  top: 26px;
-  right: 16px;
   z-index: 99; }
 
 .handleCenter {
@@ -86,6 +88,25 @@ body {
   width: 100%;
   max-width: 1000px; }
 
+.btnOne, .btnTwo, .btnThree {
+  width: 35%;
+  height: 6%;
+  max-width: 200px;
+  min-height: 42px;
+  border: 2px solid #543133;
+  background-color: #9B2E45;
+  color: #F5DCD5;
+  position: absolute; }
+
+.btnOne {
+  top: calc(50vw + 80px); }
+
+.btnTwo {
+  top: calc(150vw + 80px); }
+
+.btnThree {
+  top: calc(250vw + 80px); }
+
 .userDetails {
   padding-bottom: 16px;
   width: 100%;
@@ -111,10 +132,13 @@ body {
   border-bottom: 1px dotted #543133; }
 
 .centerBox {
-  padding-top: 16px; }
+  padding-top: 16px;
+  margin-left: 20px;
+  margin-right: 20px; }
 
 .contactInfo {
   height: unset;
+  width: 100%;
   max-width: 400px; }
 
 #me {
@@ -338,6 +362,12 @@ svg .rect {
   top: 14px;
   padding: 0 6px; }
 
+.adjBtn {
+  margin-right: 20px; }
+
+.searchBtn {
+  margin-right: 10px; }
+
 @media (min-width: 500px) {
   .graphDetails {
     bottom: 7%; } }
@@ -374,11 +404,22 @@ svg .rect {
     margin-bottom: 20px;
     color: transparent; }
   .menulinks:visited {
-    color: #F5DCD5; } }
+    color: #F5DCD5; }
+  .adjBtn {
+    position: relative;
+    top: 30px; } }
 
 @media (min-width: 651px) {
   .showBurger {
     color: transparent; } }
+
+@media (min-width: 1000px) {
+  .btnOne {
+    top: calc(1000px / 2 + 80px); }
+  .btnTwo {
+    top: calc(1000px * 1.5 + 80px); }
+  .btnThree {
+    top: calc(1000px * 2.5 + 80px); } }
 
 .open {
   color: #F5DCD5; }
@@ -399,5 +440,3 @@ svg .rect {
 .break {
   margin-top: 0;
   margin-bottom: 2px; }
-
-@keyframes openMenu {}

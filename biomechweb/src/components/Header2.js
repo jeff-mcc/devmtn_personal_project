@@ -13,7 +13,7 @@ const Header2 = () => {
             )
         }else{
             return(
-                <Link to="/login"><button>Login</button></Link>
+                <Link to="/login"><button className="textBtn adjBtn">Login</button></Link>
             )
         }
     }

@@ -81,7 +81,7 @@ const ViewData = (props) => {
                 <Link className="links" to="/"><h2>BiomechWeb</h2></Link>
                 <div>
                     <input className="searchInput" placeholder="Search project title" onChange={e=>setSearch(e.target.value)}/>
-                    <button onClick={()=>handleSearch(search,filter)}>S</button>
+                    <button className="searchBtn" onClick={()=>handleSearch(search,filter)}>S</button>
                 </div>
             </header>
             <p className="searchFilter">Filter by Category: <select value={filter} onChange={e=>handleChange(e.target.value)}>
