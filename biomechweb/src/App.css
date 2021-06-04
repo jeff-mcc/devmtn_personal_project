@@ -59,7 +59,8 @@ body {
   font-size: 24px;
   position: absolute;
   top: 26px;
-  right: 16px; }
+  right: 16px;
+  z-index: 99; }
 
 .handleCenter {
   display: flex;
@@ -326,6 +327,17 @@ svg .rect {
   align-items: center;
   justify-content: space-evenly; }
 
+.showBurger {
+  margin: 0;
+  line-height: 6px;
+  font-size: 32px;
+  color: #771b2f;
+  width: 17px;
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  padding: 0 6px; }
+
 @media (min-width: 500px) {
   .graphDetails {
     bottom: 7%; } }
@@ -352,12 +364,36 @@ svg .rect {
     padding-left: 20px;
     text-align: left;
     height: 100vh;
-    background-color: #543133;
-    z-index: 99; }
+    background-color: transparent;
+    overflow: hidden;
+    z-index: 99;
+    transition: all 0.4s; }
   .menulinks {
     margin-bottom: 20px;
-    color: #F5DCD5; }
+    color: transparent; }
   .menulinks:visited {
-    color: #F5DCD5; }
-  .openClose {
     color: #F5DCD5; } }
+
+@media (min-width: 651px) {
+  .showBurger {
+    color: transparent; } }
+
+.open {
+  color: #F5DCD5; }
+
+.openMenuLinks {
+  color: #F5DCD5; }
+
+.openMenu {
+  background-color: #543133;
+  position: fixed;
+  right: 0; }
+
+.closeBurger {
+  color: transparent; }
+
+.break {
+  margin-top: 0;
+  margin-bottom: 2px; }
+
+@keyframes openMenu {}

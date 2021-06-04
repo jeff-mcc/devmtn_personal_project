@@ -95,6 +95,7 @@ body{
   position: absolute;
   top: 26px;
   right: 16px;
+  z-index: 99;
 }
 
 .handleCenter{
@@ -483,6 +484,18 @@ $footWidth: 100%;
   justify-content: space-evenly;
 }
 
+.showBurger{
+  margin: 0;
+  line-height: 6px;
+  font-size: 32px;
+  color: $newColor;
+  width: 17px;
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  padding: 0 6px;
+}
+
 @media (min-width: 500px) {
   .graphDetails{
     bottom: 7%;
@@ -519,17 +532,53 @@ $footWidth: 100%;
     padding-left: 20px;
     text-align: left;
     height: 100vh;
-    background-color: $primary-border-color;
+    // width: 0%;
+    // background-color: $primary-border-color;
+    background-color: transparent;
+    overflow: hidden;
     z-index: 99;
+    transition: all 0.4s;
   }
   .menulinks{
     margin-bottom: 20px;
-    color: $primary-background-color;
+    // color: $primary-background-color;
+    color: transparent;
   }
   .menulinks:visited{
     color: $primary-background-color;
   }
-  .openClose{
-    color: $primary-background-color;
+}
+
+@media (min-width: 651px){
+  .showBurger{
+    color: transparent;
   }
+}
+
+.open{
+  color: $primary-background-color;
+}
+
+.openMenuLinks{
+  color: $primary-background-color;
+}
+
+.openMenu{
+  background-color: $primary-border-color;
+  position: fixed;
+  right: 0;
+  // width: 50%;
+}
+
+.closeBurger{
+  color: transparent;
+}
+
+.break{
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+@keyframes openMenu{
+
 }
