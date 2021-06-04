@@ -56,9 +56,9 @@ const Login = (props) => {
             return(
                 <div className="loginContainer">
                     <h5 className="loginField">Retype Password: <input type="password" value={password2} onChange={e=>setPassword2(e.target.value)}/></h5>
-                    <h5 className="loginField">First Name: <input maxlength="30" value={firstName} onChange={e=>setFirstName(e.target.value)}/></h5>
-                    <h5 className="loginField">Last Name: <input maxlength="30" value={lastName} onChange={e=>setLastName(e.target.value)}/></h5>
-                    <h5 className="loginField">Institution: <input maxlength="100" value={institution} onChange={e=>setInstitution(e.target.value)}/></h5>
+                    <h5 className="loginField">First Name: <input maxLength="30" value={firstName} onChange={e=>setFirstName(e.target.value)}/></h5>
+                    <h5 className="loginField">Last Name: <input maxLength="30" value={lastName} onChange={e=>setLastName(e.target.value)}/></h5>
+                    <h5 className="loginField">Institution: <input maxLength="100" value={institution} onChange={e=>setInstitution(e.target.value)}/></h5>
                     <button className="loginBtn" onClick={handleRegister}>Sign Up</button><br/>
                     <p>Already have an account? <button className="textBtn" onClick={()=>setSignup(!signup)}>Log in</button></p>
                 </div>
@@ -70,7 +70,7 @@ const Login = (props) => {
         <div className="loginFlexBox">
             <div className="loginBox">
                 <div className="loginContainer">
-                    <h5 className="loginField">Email: <input maxlength="50" value={email} onChange={e=>setEmail(e.target.value)}/></h5>
+                    <h5 className="loginField">Email: <input maxLength="50" value={email} onChange={e=>setEmail(e.target.value)}/></h5>
                     <h5 className="loginField">Password: <input type="password" value={password} onChange={e=>setPassword(e.target.value)}/></h5>
                 </div>
                 {renderSignup()}

@@ -53,7 +53,7 @@ const AddData = (props) => {
             <h2 className="banner">Add Data to Your Project</h2>
             <h4>Data Name:</h4>
             <div>
-                <input maxlength="30" placeholder="i.e. condition 1 trial 1, c1t1, etc." value={name} onChange={(e)=>setName(e.target.value)}/>
+                <input maxLength="30" placeholder="i.e. condition 1 trial 1, c1t1, etc." value={name} onChange={(e)=>setName(e.target.value)}/>
                 <button className="addData" onClick={handleClick}>Add Data to Project</button>
             </div>
             {/* <div className="spacer"></div> */}

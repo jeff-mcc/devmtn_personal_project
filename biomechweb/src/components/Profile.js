@@ -70,10 +70,10 @@ const Profile = (props) => {
             return(
                 <div className="userDetails">
                     <div className="userBox">
-                        <p className="userInfo">Email: <input maxlength="50" value={email} onChange={(e)=>setEmail(e.target.value)}/></p>
-                        <p className="userInfo">First Name: <input maxlength="30" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/></p>
-                        <p className="userInfo">Last Name: <input maxlength="30" value={lastName} onChange={(e)=>setLastName(e.target.value)}/></p>
-                        <p className="userInfo institution">Institution: <input maxlength="100" value={institution} onChange={(e)=>setInstitution(e.target.value)}/></p>
+                        <p className="userInfo">Email: <input maxLength="50" value={email} onChange={(e)=>setEmail(e.target.value)}/></p>
+                        <p className="userInfo">First Name: <input maxLength="30" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/></p>
+                        <p className="userInfo">Last Name: <input maxLength="30" value={lastName} onChange={(e)=>setLastName(e.target.value)}/></p>
+                        <p className="userInfo institution">Institution: <input maxLength="100" value={institution} onChange={(e)=>setInstitution(e.target.value)}/></p>
                     </div>
                     <button className="editUser" onClick={()=>setEditBool(!editBool)}>Cancel</button>
                     <button className="editUser" onClick={()=>submitEdit()}>Submit</button>

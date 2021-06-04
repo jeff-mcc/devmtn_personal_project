@@ -93,9 +93,9 @@ const ProjectData = (props) => {
         if(editBool){
             return(
                 <div className="handleWidth">
-                    <p className="projectTitle">Title: <input maxlength="50" value={title} onChange={e=>setTitle(e.target.value)}/></p>
+                    <p className="projectTitle">Title: <input maxLength="50" value={title} onChange={e=>setTitle(e.target.value)}/></p>
                     <p>Description:</p>
-                    <textarea rows="3" cols="40" maxlength="1000" value={description} onChange={e=>setDesc(e.target.value)}></textarea>
+                    <textarea rows="3" cols="40" maxLength="1000" value={description} onChange={e=>setDesc(e.target.value)}></textarea>
                     <p>Categories: <select value={category1} onChange={e=>setCat1(e.target.value)}>
                         <option value=''>--Category 1--</option>
                         <option value='Running'>Running</option>

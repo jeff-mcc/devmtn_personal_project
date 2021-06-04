@@ -387,11 +387,13 @@ $newColor: #771b2f;
 .links{
   text-decoration: none;
   margin: 0 3vw;
-  color: $newColor;
+  // color: $newColor;
+  color: $primary-background-color;
 }
 
 .links:visited{
-  color: $newColor;
+  // color: $newColor;
+  color: $primary-background-color;
 }
 
 .banner{
@@ -522,6 +524,9 @@ $footWidth: 100%;
   .homelink{
     margin-top: 26px;
   }
+  .profilelink{
+    margin-top: 15px;
+  }
   .menu{
     display:flex;
     flex-direction: column;
@@ -531,12 +536,12 @@ $footWidth: 100%;
     padding-right: 30px;
     padding-left: 20px;
     text-align: left;
-    height: 100vh;
+    height: 0;
     // width: 0%;
     // background-color: $primary-border-color;
     background-color: transparent;
     overflow: hidden;
-    z-index: 99;
+    z-index: 0;
     transition: all 0.4s;
   }
   .menulinks{
@@ -567,6 +572,8 @@ $footWidth: 100%;
   background-color: $primary-border-color;
   position: fixed;
   right: 0;
+  height: 100vh;
+  z-index: 99;
   // width: 50%;
 }
 

@@ -261,10 +261,10 @@ svg .rect {
 .links {
   text-decoration: none;
   margin: 0 3vw;
-  color: #771b2f; }
+  color: #F5DCD5; }
 
 .links:visited {
-  color: #771b2f; }
+  color: #F5DCD5; }
 
 .banner {
   margin-top: 30px; }
@@ -356,6 +356,8 @@ svg .rect {
     align-items: flex-start; }
   .homelink {
     margin-top: 26px; }
+  .profilelink {
+    margin-top: 15px; }
   .menu {
     display: flex;
     flex-direction: column;
@@ -363,10 +365,10 @@ svg .rect {
     padding-right: 30px;
     padding-left: 20px;
     text-align: left;
-    height: 100vh;
+    height: 0;
     background-color: transparent;
     overflow: hidden;
-    z-index: 99;
+    z-index: 0;
     transition: all 0.4s; }
   .menulinks {
     margin-bottom: 20px;
@@ -387,7 +389,9 @@ svg .rect {
 .openMenu {
   background-color: #543133;
   position: fixed;
-  right: 0; }
+  right: 0;
+  height: 100vh;
+  z-index: 99; }
 
 .closeBurger {
   color: transparent; }

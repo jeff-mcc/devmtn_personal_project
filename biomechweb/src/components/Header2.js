@@ -9,7 +9,7 @@ const Header2 = () => {
     const loginCheck = () => {
         if(user){
             return(
-                <Link className="links" to="/profile"><p>{user.first_name} {user.last_name}</p></Link>
+                <Link className="links profilelink" to="/profile"><p>{user.first_name} {user.last_name}</p></Link>
             )
         }else{
             return(
@@ -21,7 +21,7 @@ const Header2 = () => {
     return (
         <header className="userHead">
             {/* <img />  //website icon that routes the user to the home screen */}
-            <Link className="links" to="/"><h2>BiomechWeb</h2></Link>
+            <Link className="links homelink" to="/"><h2>BiomechWeb</h2></Link>
             {loginCheck()}
             {/* <p>{user.first_name} {user.last_name}</p> */}
             {/* <img /> //profile image that links to the user profile */}

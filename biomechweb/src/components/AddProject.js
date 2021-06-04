@@ -28,9 +28,9 @@ const AddProject = (props) => {
             <Header2 />
             <h2 className="banner">Create a New Project</h2>
             <h4>Project Title:</h4>
-            <input maxlength="50" onChange={e=>setTitle(e.target.value)}/>
+            <input maxLength="50" onChange={e=>setTitle(e.target.value)}/>
             <h4>Description:</h4>
-            <textarea rows="6" cols="40" maxlength="1000" onChange={e=>setDesc(e.target.value)}></textarea>
+            <textarea rows="6" cols="40" maxLength="1000" onChange={e=>setDesc(e.target.value)}></textarea>
             <p>Categories: <select value={category1} onChange={e=>setCat1(e.target.value)}>
                 <option value=''>--Category 1--</option>
                 <option value='Running'>Running</option>
