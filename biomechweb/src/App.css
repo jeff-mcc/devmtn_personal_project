@@ -470,4 +470,6 @@ svg .rect {
   fill: #8C544C; }
 
 .line {
+  width: calc(100% - 40px);
+  max-width: 500px;
   border-bottom: 1px dotted #543133; }

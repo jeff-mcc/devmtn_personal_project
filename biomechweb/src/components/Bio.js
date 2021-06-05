@@ -2,6 +2,12 @@ import Header from './Header'
 import Footer from './Footer'
 
 const Bio = () => {
+
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
+    window.onbeforeunload()
+
     return(
         <div className="handleCenter">
             <div className="content">

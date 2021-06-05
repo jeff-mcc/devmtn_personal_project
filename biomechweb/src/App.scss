@@ -211,8 +211,10 @@ $maxWidthVar: 1000px;
   margin-bottom: 0;
 }
 
+$maxWidthTextBox: 500px;
+
 .textBox{
-  max-width: 500px;
+  max-width: $maxWidthTextBox;
   padding: 0 20px 20px 20px;
   text-align: justify;
   margin-bottom: 0;
@@ -646,5 +648,7 @@ $maxWidth: 360px;
 }
 
 .line{
+  width: calc(100% - 40px);
+  max-width: $maxWidthTextBox;
   border-bottom: 1px dotted $primary-border-color;
 }
