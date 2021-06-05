@@ -136,6 +136,10 @@ $maxWidthVar: 1000px;
   position: absolute;
 }
 
+.centerLinks{
+  @extend %display-properties;
+}
+
 .btnOne{
   @extend %button-properties;
   top: calc(50vw + #{$footHeight});
@@ -190,8 +194,9 @@ $maxWidthVar: 1000px;
 .centerBox{
   @extend %reuse-userBox;
   padding-top: 16px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 20px 0px 20px;
+  // margin-left: 20px;
+  // margin-right: 20px;
   // width: 100%;
 }
 
@@ -210,6 +215,7 @@ $maxWidthVar: 1000px;
   max-width: 500px;
   padding: 0 20px 20px 20px;
   text-align: justify;
+  margin-bottom: 0;
 }
 
 .institution{
@@ -463,7 +469,7 @@ $maxWidth: 360px;
   height: $footHeight;
   width: $footWidth;
   max-width: 1000px;
-  background-color: rgba($primary-menu-color,0.9);
+  background-color: rgba($primary-border-color,1);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -481,12 +487,39 @@ $maxWidth: 360px;
   padding: 0 6px;
 }
 
+.centerSearch{
+  @extend %display-properties;
+}
+
 .adjBtn{
   margin-right: 20px;
 }
 
 .searchBtn{
   margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+%icon-sizing{
+  height: 28px;
+  width: 28px;
+}
+
+.iconSearch{
+  @extend %icon-sizing;
+  fill: $primary-background-color;
+}
+
+.iconLogout{
+  @extend %icon-sizing;
+  stroke: $newColor;
+  margin: 0 1.5vw 0 10px;
+}
+
+.profilelink{
+  margin-right: 0;
 }
 
 @media (min-width: 500px) {
@@ -549,6 +582,9 @@ $maxWidth: 360px;
     top: 30px;
     // right: 16px;
   }
+  .adjLogout{
+    margin-top: 15px;
+  }
 }
 
 @media (min-width: 651px){
@@ -593,4 +629,22 @@ $maxWidth: 360px;
 .break{
   margin-top: 0;
   margin-bottom: 2px;
+}
+
+.caret{
+  // fill: $primary-background-color;
+  // fill: $newColor;
+  fill: $primary-border-color;
+}
+
+.aboutIcons{
+  height: 50px;
+  width: 50px;
+  margin: 0 20px 30px;
+  fill: $primary-menu-color;
+  // fill: $newColor;
+}
+
+.line{
+  border-bottom: 1px dotted $primary-border-color;
 }

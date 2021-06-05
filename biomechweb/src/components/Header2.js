@@ -1,6 +1,7 @@
 // import {useState} from 'react'  //might need this in the future, but might use global state instead
 import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {IoLogOutOutline} from 'react-icons/io5'
 
 const Header2 = () => {
     const {user} = useSelector(store=>store.auth)
@@ -9,7 +10,10 @@ const Header2 = () => {
     const loginCheck = () => {
         if(user){
             return(
-                <Link className="links profilelink" to="/profile"><p>{user.first_name} {user.last_name}</p></Link>
+                <div className="centerSearch">
+                    <Link className="links profilelink" to="/profile"><p>{user.first_name} {user.last_name}</p></Link>
+                    <button className="searchBtn adjLogout"><IoLogOutOutline className="iconLogout"/></button>
+                </div>
             )
         }else{
             return(

@@ -4,6 +4,7 @@ import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 import {useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Footer from './Footer'
+import {IoSearchCircleSharp} from "react-icons/io5"
 
 const ViewData = (props) => {
     const [search,setSearch] = useState('')
@@ -79,9 +80,9 @@ const ViewData = (props) => {
             <header className="searchHead">
                 {/* <img />  //website icon that routes the user to the home screen */}
                 <Link className="links" to="/"><h2>BiomechWeb</h2></Link>
-                <div>
+                <div className="centerSearch">
                     <input className="searchInput" placeholder="Search project title" onChange={e=>setSearch(e.target.value)}/>
-                    <button className="searchBtn" onClick={()=>handleSearch(search,filter)}>S</button>
+                    <button className="searchBtn" onClick={()=>handleSearch(search,filter)}><IoSearchCircleSharp className="iconSearch"/></button>
                 </div>
             </header>
             <p className="searchFilter">Filter by Category: <select value={filter} onChange={e=>handleChange(e.target.value)}>

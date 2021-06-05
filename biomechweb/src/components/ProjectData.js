@@ -5,6 +5,8 @@ import axios from 'axios'
 import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
 import GraphData from './GraphData'
 import Footer from './Footer'
+import {IoCaretForwardSharp} from 'react-icons/io5'
+import {IoCaretDownSharp} from 'react-icons/io5'
 
 const ProjectData = (props) => {
     const {projectInfo,dataInfo,finishedBool} = useSelector(store=>store.projectInfo)
@@ -173,10 +175,14 @@ const ProjectData = (props) => {
                     const buttonFlip = () => {
                         if(view[idx]){
                             const str = "v"
-                            return str
+                            return (
+                                <IoCaretDownSharp className="caret"/>
+                            )
                         }else{
-                            const str = ">"
-                            return str
+                            // const str = ">"
+                            return (
+                                <IoCaretForwardSharp className="caret"/>
+                            )
                         }
                     }
     
