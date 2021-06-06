@@ -1,8 +1,8 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import Header2 from './Header2'
 import axios from 'axios'
 import {setProjectInfo,setDataInfo} from '../redux/projectReducer'
-import {useDispatch} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import Footer from './Footer'
 
 const AddProject = (props) => {
@@ -10,7 +10,14 @@ const AddProject = (props) => {
     const [category2,setCat2] = useState('')
     const [title,setTitle] = useState('')
     const [description,setDesc] = useState('')
+    const {user} = useSelector(store=>store.auth)
     const dispatch = useDispatch()
+
+    useEffect(()=>{
+        if(!user){
+            props.history.push('/')
+        }
+    },[user,props.history])
 
     const handleCreate = () => {
         axios.post('/data/folders',{title,description,category1,category2})

@@ -1,5 +1,5 @@
 import Header2 from './Header2'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
 import {setDataInfo,setFinished} from '../redux/projectReducer'
@@ -9,7 +9,14 @@ const AddData = (props) => {
     const [name,setName] = useState('')
     // const [maxVal,setMaxVal] = useState(null)
     const {projectInfo,finishedBool} = useSelector(store=>store.projectInfo)
+    const {user} = useSelector(store=>store.auth)
     const dispatch = useDispatch()
+
+    useEffect(()=>{
+        if(!user){
+            props.history.push('/')
+        }
+    },[user,props.history])
 
     const handleClick = () => {
         const data_name = name;

@@ -32,7 +32,7 @@ const Profile = (props) => {
         }else{
             props.history.push('/login')
         }
-    },[user]) //or user.user_id
+    },[user,props.history]) //or user.user_id
 
     const clickFolder = (project) => {
         // console.log(project)

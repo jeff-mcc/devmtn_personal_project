@@ -32,6 +32,7 @@ module.exports = {
     },
     logout: (req,res)=>{
         req.session.destroy()
+        // console.log(req.session)
         res.sendStatus(200)
     },
     getUser: (req,res)=>{

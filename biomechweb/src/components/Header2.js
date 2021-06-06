@@ -1,18 +1,29 @@
 // import {useState} from 'react'  //might need this in the future, but might use global state instead
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {IoLogOutOutline} from 'react-icons/io5'
+import axios from 'axios'
+import {setUser} from '../redux/authReducer'
 
 const Header2 = () => {
     const {user} = useSelector(store=>store.auth)
-    // console.log(props)
+    const dispatch = useDispatch()
+    // console.log(user)
+
+    const handleLogout = () => {
+        axios.get('/login/logout')
+        .then(()=>{
+            // console.log(res)
+            dispatch(setUser(null))
+        }).catch(err=>console.log(err))
+    }
 
     const loginCheck = () => {
         if(user){
             return(
                 <div className="centerSearch">
                     <Link className="links profilelink" to="/profile"><p>{user.first_name} {user.last_name}</p></Link>
-                    <button className="searchBtn adjLogout"><IoLogOutOutline className="iconLogout"/></button>
+                    <button className="searchBtn adjLogout" onClick={handleLogout}><IoLogOutOutline className="iconLogout"/></button>
                 </div>
             )
         }else{

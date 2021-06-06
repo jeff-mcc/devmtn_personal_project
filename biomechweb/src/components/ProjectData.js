@@ -174,7 +174,7 @@ const ProjectData = (props) => {
 
                     const buttonFlip = () => {
                         if(view[idx]){
-                            const str = "v"
+                            // const str = "v"
                             return (
                                 <IoCaretDownSharp className="caret"/>
                             )
