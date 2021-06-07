@@ -32,8 +32,8 @@ body {
 
 .searchHead {
   height: 80px;
-  background-color: #8C544C;
-  border-bottom: 2px solid #543133;
+  background-color: #543133;
+  border-bottom: 2px solid #8C544C;
   box-shadow: none;
   display: flex;
   justify-content: space-between;
@@ -43,8 +43,8 @@ body {
 
 .userHead {
   height: 80px;
-  background-color: #8C544C;
-  border-bottom: 2px solid #543133;
+  background-color: #543133;
+  border-bottom: 2px solid #8C544C;
   box-shadow: 0 3px 3px #9B2E45;
   display: flex;
   justify-content: space-between;
@@ -86,7 +86,11 @@ body {
 
 .homeImg {
   width: 100%;
-  max-width: 1000px; }
+  height: 100vw;
+  max-width: 1000px;
+  max-height: 1000px;
+  background-position: center center;
+  background-size: auto; }
 
 .btnOne, .btnTwo, .btnThree {
   width: 35%;
@@ -355,7 +359,7 @@ svg .rect {
   margin: 0;
   line-height: 6px;
   font-size: 32px;
-  color: #771b2f;
+  color: #B58981;
   width: 17px;
   position: absolute;
   right: 16px;
@@ -363,7 +367,9 @@ svg .rect {
   padding: 0 6px; }
 
 .adjBtn {
-  margin-right: 20px; }
+  margin-right: 20px;
+  color: #B58981;
+  border-bottom: 1px solid #F5DCD5; }
 
 .searchBtn {
   margin-right: 10px;
@@ -447,7 +453,7 @@ svg .rect {
   color: #F5DCD5; }
 
 .openMenu {
-  background-color: #543133;
+  background-color: #8C544C;
   position: fixed;
   right: 0;
   height: 100vh;

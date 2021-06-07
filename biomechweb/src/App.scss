@@ -27,9 +27,9 @@ $footWidth: 100%;
 
 @mixin variedHeader($bottomborder: 0 3px 3px $primary-color){
   height: 80px;
-  background-color: $primary-menu-color;
+  background-color: $primary-border-color;
   // color: $primary-background-color;
-  border-bottom: 2px solid $primary-border-color;
+  border-bottom: 2px solid $primary-menu-color;
   box-shadow: $bottomborder;
   display: flex;
   justify-content: space-between;
@@ -122,7 +122,11 @@ $maxWidthVar: 1000px;
 
 .homeImg{
   width: $widthVar;
+  height: 100vw;
   max-width: $maxWidthVar;
+  max-height: $maxWidthVar;
+  background-position: center center;
+  background-size:auto;
 }
 
 %button-properties{
@@ -481,7 +485,7 @@ $maxWidth: 360px;
   margin: 0;
   line-height: 6px;
   font-size: 32px;
-  color: $newColor;
+  color: $primary-folder-color;
   width: 17px;
   position: absolute;
   right: 16px;
@@ -495,6 +499,8 @@ $maxWidth: 360px;
 
 .adjBtn{
   margin-right: 20px;
+  color: $primary-folder-color;
+  border-bottom: 1px solid $primary-background-color;
 }
 
 .searchBtn{
@@ -616,7 +622,7 @@ $maxWidth: 360px;
 }
 
 .openMenu{
-  background-color: $primary-border-color;
+  background-color: $primary-menu-color;
   position: fixed;
   right: 0;
   height: 100vh;
