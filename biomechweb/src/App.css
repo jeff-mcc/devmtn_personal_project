@@ -16,7 +16,7 @@ h2 {
   margin-bottom: 20px;
   background-color: rgba(181, 137, 129, 0.6); }
 
-.imgContainer, .centerLinks, .userInfo, .contactInfo, .createNew, .loginFlexBox, .loginBox, .centerSearch {
+.imgContainer, .centerLinks, .userInfo, .contactInfo, .createNew, .loginFlexBox, .loginBox, .centerSearch, .headLogo {
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -103,13 +103,13 @@ body {
   position: absolute; }
 
 .btnOne {
-  top: calc(50vw + 80px); }
+  top: calc(70vw + 80px); }
 
 .btnTwo {
-  top: calc(150vw + 80px); }
+  top: calc(170vw + 80px); }
 
 .btnThree {
-  top: calc(250vw + 80px); }
+  top: calc(270vw + 80px); }
 
 .userDetails {
   padding-bottom: 16px;
@@ -391,6 +391,20 @@ svg .rect {
 .profilelink {
   margin-right: 0; }
 
+.homelink {
+  text-shadow: 1px 0 0 #543133, -1px 0 0 #543133, 0 1px 0 #543133, 0 -1px 0 #543133, 1px 1px 0 #543133, -1px 1px 0 #543133, 1px -1px 0 #543133, -1px -1px 0 #543133;
+  z-index: 50; }
+
+.svg-logo {
+  height: 80px;
+  width: 63px;
+  position: absolute;
+  top: -26px;
+  left: calc(3vw + 40px); }
+
+.headLogo {
+  position: relative; }
+
 @media (min-width: 500px) {
   .graphDetails {
     bottom: 7%; } }
@@ -404,11 +418,13 @@ svg .rect {
     height: 570px;
     padding-bottom: 0; } }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .userHead {
     align-items: flex-start; }
   .homelink {
     margin-top: 26px; }
+  .svg-logo {
+    top: 0; }
   .profilelink {
     margin-top: 15px; }
   .menu {
@@ -434,17 +450,17 @@ svg .rect {
   .adjLogout {
     margin-top: 15px; } }
 
-@media (min-width: 651px) {
+@media (min-width: 701px) {
   .showBurger {
     color: transparent; } }
 
 @media (min-width: 1000px) {
   .btnOne {
-    top: calc(1000px / 2 + 80px); }
+    top: calc(1000px * 0.7 + 80px); }
   .btnTwo {
-    top: calc(1000px * 1.5 + 80px); }
+    top: calc(1000px * 1.7 + 80px); }
   .btnThree {
-    top: calc(1000px * 2.5 + 80px); } }
+    top: calc(1000px * 2.7 + 80px); } }
 
 .open {
   color: #F5DCD5; }
@@ -479,8 +495,3 @@ svg .rect {
   width: calc(100% - 40px);
   max-width: 500px;
   border-bottom: 1px dotted #543133; }
-
-.svg-logo {
-  height: 100px;
-  width: 100px;
-  z-index: 99; }

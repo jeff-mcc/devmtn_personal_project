@@ -146,17 +146,17 @@ $maxWidthVar: 1000px;
 
 .btnOne{
   @extend %button-properties;
-  top: calc(50vw + #{$footHeight});
+  top: calc(70vw + #{$footHeight});
 }
 
 .btnTwo{
   @extend %button-properties;
-  top: calc(150vw + #{$footHeight});
+  top: calc(170vw + #{$footHeight});
 }
 
 .btnThree{
   @extend %button-properties;
-  top: calc(250vw + #{$footHeight});
+  top: calc(270vw + #{$footHeight});
 }
 
 .userDetails{
@@ -530,6 +530,27 @@ $maxWidth: 360px;
   margin-right: 0;
 }
 
+.homelink{
+  text-shadow: 1px 0 0 $primary-border-color, -1px 0 0 $primary-border-color, 0 1px 0 $primary-border-color, 0 -1px 0 $primary-border-color, 1px 1px 0 $primary-border-color, -1px 1px 0 $primary-border-color, 1px -1px 0 $primary-border-color, -1px -1px 0 $primary-border-color;
+  z-index: 50;
+  // margin-top: 26px;
+}
+
+.svg-logo{
+  height: 80px;
+  width: 63px;
+  position: absolute;
+  top: -26px;
+  left: calc(3vw + 40px); 
+  //-34vw;
+  // z-index: 1;
+}
+
+.headLogo{
+  @extend %display-properties;
+  position: relative;
+}
+
 @media (min-width: 500px) {
   .graphDetails{
     bottom: 7%;
@@ -549,12 +570,16 @@ $maxWidth: 360px;
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .userHead{
     align-items: flex-start;
   }
   .homelink{
     margin-top: 26px;
+    // margin-bottom: 26px;
+  }
+  .svg-logo{
+    top: 0;
   }
   .profilelink{
     margin-top: 15px;
@@ -595,7 +620,7 @@ $maxWidth: 360px;
   }
 }
 
-@media (min-width: 651px){
+@media (min-width: 701px){
   .showBurger{
     color: transparent;
   }
@@ -603,14 +628,17 @@ $maxWidth: 360px;
 
 @media (min-width: 1000px){
   .btnOne{
-    top: calc(#{$maxWidthVar} / 2 + #{$footHeight});
+    top: calc(#{$maxWidthVar} * 0.7 + #{$footHeight});
   }
   .btnTwo{
-    top: calc(#{$maxWidthVar} * 1.5 + #{$footHeight});
+    top: calc(#{$maxWidthVar} * 1.7 + #{$footHeight});
   }
   .btnThree{
-    top: calc(#{$maxWidthVar} * 2.5 + #{$footHeight});
+    top: calc(#{$maxWidthVar} * 2.7 + #{$footHeight});
   }
+  // .svg-logo{
+
+  // }
 }
 
 .open{
@@ -657,10 +685,4 @@ $maxWidth: 360px;
   width: calc(100% - 40px);
   max-width: $maxWidthTextBox;
   border-bottom: 1px dotted $primary-border-color;
-}
-
-.svg-logo{
-  height: 100px;
-  width: 100px;
-  z-index: 99;
 }

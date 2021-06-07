@@ -5,12 +5,12 @@ import React from 'react'
 const GearLogo = () => {
     const ref = useD3(
         (svg)=>{
-            let angle = 0;
+            // let angle = 0;
             // let frameAngle = 0;
 
             const toothRadius = 1.5;
             const holeRadius = 4;
-            const speed = 0.08;
+            // const speed = 0.08;
 
             const gears = [
                 {fill: "#9B2E45", teeth: 12, radius: 18, origin: [-26.5,-22.5]},
@@ -50,27 +50,31 @@ const GearLogo = () => {
             // const graphic = () => {
                 // const svgCreate = () => d3.create("svg")
                 svg
-                .attr("viewBox", [ -50, -50, 100, 100])
+                .attr("viewBox", [ -46, -53, 63, 80])
                 .attr("stroke", "#B58981")
                 .attr("stroke-width", 1) // 1/640
-                .style("max-width", "100px")
+                // .style("max-width", "110px")
                 .style("display", "block")
                 .style("margin", "auto");
 
                 const frame = svg.append("g");
 
+                // const path = 
                 frame.selectAll("path")
                     .data(gears)
                     .join("path")
                         .attr("fill",d=>d.fill)
                         .attr("d",gear)
-                        .attr("transform", d => `translate(${d.origin}) rotate(${(angle / d.radius) % 360})`);
+                        .attr("transform", d => `translate(${d.origin})`);
 
-                const update = async (angle) => {
-                    await (angle += speed);
-                    console.log(angle)
-                }
-                // update(angle)
+                // const update = async () => {
+                    // while (true) {
+                        // angle += speed;
+                        // await path.attr("transform", d => `rotate(${(angle / d.radius) % 360})`)
+                    // }
+                    // console.log(angle)
+                // }
+                // update()
 
                 // const graphic = () => {
                 //     return Object.assign(svg.node(),{update(angle,frameAngle){
