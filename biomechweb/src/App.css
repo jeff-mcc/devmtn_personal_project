@@ -479,3 +479,8 @@ svg .rect {
   width: calc(100% - 40px);
   max-width: 500px;
   border-bottom: 1px dotted #543133; }
+
+.svg-logo {
+  height: 100px;
+  width: 100px;
+  z-index: 99; }

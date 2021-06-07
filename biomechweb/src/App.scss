@@ -658,3 +658,9 @@ $maxWidth: 360px;
   max-width: $maxWidthTextBox;
   border-bottom: 1px dotted $primary-border-color;
 }
+
+.svg-logo{
+  height: 100px;
+  width: 100px;
+  z-index: 99;
+}

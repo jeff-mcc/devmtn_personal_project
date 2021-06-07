@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom'
 import {useState} from 'react'
+import GearLogo from './GearLogo'
 
 const Header = () => {
     const [menuBool,setMenuBool] = useState(false)
@@ -12,6 +13,7 @@ const Header = () => {
     return(
         <header className="userHead">
             <Link className="links homelink" to="/"><h2>BiomechWeb</h2></Link>
+            <GearLogo />
             <div className={menuBool ? "menu openMenu" : "menu"}>
                 <button className={menuBool ? "openClose open" : "openClose"} onClick={handleBool}>X</button>
                 <div className={menuBool ? "showBurger closeBurger" : "showBurger"}>_<p className="break"></p>_<p className="break"></p>_</div>
