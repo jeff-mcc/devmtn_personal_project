@@ -551,6 +551,11 @@ $maxWidth: 360px;
   position: relative;
 }
 
+// .adjLogo{
+//   position: absolute;
+//   top: 0;
+// }
+
 @media (min-width: 500px) {
   .graphDetails{
     bottom: 7%;
@@ -574,12 +579,18 @@ $maxWidth: 360px;
   .userHead{
     align-items: flex-start;
   }
+  .searchHead{
+    align-items: flex-start;
+  }
   .homelink{
     margin-top: 26px;
     // margin-bottom: 26px;
   }
   .svg-logo{
     top: 0;
+  }
+  .centerSearch{
+    margin-top: 25px;
   }
   .profilelink{
     margin-top: 15px;

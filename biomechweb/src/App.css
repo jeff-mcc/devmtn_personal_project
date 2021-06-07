@@ -421,10 +421,14 @@ svg .rect {
 @media (max-width: 700px) {
   .userHead {
     align-items: flex-start; }
+  .searchHead {
+    align-items: flex-start; }
   .homelink {
     margin-top: 26px; }
   .svg-logo {
     top: 0; }
+  .centerSearch {
+    margin-top: 25px; }
   .profilelink {
     margin-top: 15px; }
   .menu {

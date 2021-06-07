@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {IoLogOutOutline} from 'react-icons/io5'
 import axios from 'axios'
 import {setUser} from '../redux/authReducer'
+import GearLogo from './GearLogo'
 
 const Header2 = () => {
     const {user} = useSelector(store=>store.auth)
@@ -36,7 +37,10 @@ const Header2 = () => {
     return (
         <header className="userHead">
             {/* <img />  //website icon that routes the user to the home screen */}
-            <Link className="links homelink" to="/"><h2>BiomechWeb</h2></Link>
+            <div className="headLogo">
+                <Link className="links homelink" to="/"><h2>BiomechWeb</h2></Link>
+                <GearLogo />
+            </div>
             {loginCheck()}
             {/* <p>{user.first_name} {user.last_name}</p> */}
             {/* <img /> //profile image that links to the user profile */}
