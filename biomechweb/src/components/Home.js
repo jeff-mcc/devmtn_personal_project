@@ -13,7 +13,7 @@ const Home = () => {
                     <div className="imgWrapper"><img className="imgThree" src="https://storage.googleapis.com/biomechweb/thisisengineering-raeng-4w0XkDe2Ee8-unsplash.jpg" alt="prosthetic"></img><h1 className="textHome">Upload your own data so others can see what you have done</h1></div>
                     <Link className="centerLinks" to="/data" ><button className="btnOne" >View Data</button></Link>
                     <Link className="centerLinks" to="/login" ><button className="btnTwo" >Sign Up</button></Link>
-                    <Link className="centerLinks" to="/profile" ><button className="btnThree" >Contribute Data</button></Link>
+                    <Link className="centerLinks" to="/profile" ><button className="btnThree" >Contribute</button></Link>
                 </div>
             </div>
             <Footer />

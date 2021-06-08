@@ -12,7 +12,11 @@ h2{
 //basic colors to use (HEX) 543133, 9B2E45, F5DCD5, B58981, 8C544C
 //I plan on changing the standard fonts used eventually, possibly Halant and/or Nunito Sans
 
-$font-stack: Helvetica,sans-serif;
+// font-family: 'Poppins', sans-serif;
+// font-family: 'PT Serif', serif;
+
+$font-Pop: 'Poppins', sans-serif;
+$font-PT: 'PT Serif', serif;
 $primary-color: #9B2E45;
 $primary-background-color: #F5DCD5;
 $primary-border-color: #543133;
@@ -22,6 +26,7 @@ $folder-size: 80px;
 $val: 100px;
 $footHeight: 80px;
 $footWidth: 100%;
+$maxWidthTextBox: 500px;
 // $div-width: calc(100vw-#{math.div($val, 2)});
 // $div-height: calc(100vh-#{math.div($val, 2)});
 
@@ -64,6 +69,7 @@ $footWidth: 100%;
 body{
   background-color: rgba($primary-background-color,0.8);
   min-height: 100%;
+  font-family: $font-PT;
 }
 
 .searchHead{
@@ -85,6 +91,7 @@ body{
   background-color: transparent;
   color: transparent;
   font-size: 24px;
+  // font-family: $font-Pop;
   @extend %corner-position;
   z-index: 99;
 }
@@ -159,6 +166,12 @@ $maxWidthVar: 1000px;
   @include VariedImg($topAdjust: -20%);
 }
 
+.familyImg{
+  width: calc(100vw - 90px);
+  max-width: $maxWidthTextBox;
+  margin-top: 30px;
+}
+
 %button-properties{
   width: 35%;
   height: 6%;
@@ -167,6 +180,8 @@ $maxWidthVar: 1000px;
   border: 2px solid $primary-border-color;
   background-color: $primary-color;
   color: $primary-background-color;
+  font-family: $font-Pop;
+  font-size: 18px;
   position: absolute;
 }
 
@@ -183,6 +198,7 @@ $maxWidthVar: 1000px;
   z-index: 50;
   font-size: 6vw;
   color: $primary-background-color;
+  font-family: $font-Pop;
   width: 90%;
   max-width: 600px;
   text-shadow: 2px 0 0 $primary-border-color, -2px 0 0 $primary-border-color, 0 2px 0 $primary-border-color, 0 -2px 0 $primary-border-color, 1px 1px 0 $primary-border-color, -1px 1px 0 $primary-border-color, 1px -1px 0 $primary-border-color, -1px -1px 0 $primary-border-color;
@@ -262,8 +278,6 @@ $maxWidthVar: 1000px;
   margin-bottom: 0;
 }
 
-$maxWidthTextBox: 500px;
-
 .textBox{
   max-width: $maxWidthTextBox;
   padding: 0 20px 20px 20px;
@@ -324,6 +338,7 @@ $maxWidthTextBox: 500px;
   cursor: pointer;
   height: 100%;
   width: 100%;
+  font-family: $font-PT;
 }
 
 .folderButton{
@@ -542,6 +557,7 @@ $maxWidth: 360px;
 
 .centerSearch{
   @extend %display-properties;
+  height: 80px;
 }
 
 .adjBtn{
@@ -579,6 +595,7 @@ $maxWidth: 360px;
 
 .homelink{
   text-shadow: 1px 0 0 $primary-border-color, -1px 0 0 $primary-border-color, 0 1px 0 $primary-border-color, 0 -1px 0 $primary-border-color, 1px 1px 0 $primary-border-color, -1px 1px 0 $primary-border-color, 1px -1px 0 $primary-border-color, -1px -1px 0 $primary-border-color;
+  font-family: $font-Pop;
   z-index: 50;
   // margin-top: 26px;
 }
@@ -587,8 +604,9 @@ $maxWidth: 360px;
   height: 80px;
   width: 63px;
   position: absolute;
-  top: -26px;
+  top: -23px;
   left: calc(3vw + 40px); 
+
   //-34vw;
   // z-index: 1;
 }
@@ -630,7 +648,8 @@ $maxWidth: 360px;
     align-items: flex-start;
   }
   .homelink{
-    margin-top: 26px;
+    // margin-top: 26px;
+    margin-top: 23px;
     // margin-bottom: 26px;
   }
   .svg-logo{
@@ -640,7 +659,7 @@ $maxWidth: 360px;
   //   // margin-top: 25px;
   // }
   .profilelink{
-    margin-top: 15px;
+    // margin-top: 10px;
   }
   .menu{
     display:flex;
@@ -662,6 +681,7 @@ $maxWidth: 360px;
   .menulinks{
     margin-bottom: 20px;
     // color: $primary-background-color;
+    font-family: $font-Pop;
     color: transparent;
   }
   .menulinks:visited{
@@ -674,7 +694,7 @@ $maxWidth: 360px;
     // right: 16px;
   }
   .adjLogout{
-    margin-top: 15px;
+    // margin-top: 15px;
   }
 }
 

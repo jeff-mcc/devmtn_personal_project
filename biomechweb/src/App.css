@@ -28,7 +28,8 @@ h2 {
 
 body {
   background-color: rgba(245, 220, 213, 0.8);
-  min-height: 100%; }
+  min-height: 100%;
+  font-family: "PT Serif", serif; }
 
 .searchHead {
   height: 80px;
@@ -111,6 +112,11 @@ body {
   width: 100%;
   max-width: 1000px; }
 
+.familyImg {
+  width: calc(100vw - 90px);
+  max-width: 500px;
+  margin-top: 30px; }
+
 .btnOne, .btnTwo, .btnThree {
   width: 35%;
   height: 6%;
@@ -119,6 +125,8 @@ body {
   border: 2px solid #543133;
   background-color: #9B2E45;
   color: #F5DCD5;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
   position: absolute; }
 
 .btnOne {
@@ -128,6 +136,7 @@ body {
   z-index: 50;
   font-size: 6vw;
   color: #F5DCD5;
+  font-family: "Poppins", sans-serif;
   width: 90%;
   max-width: 600px;
   text-shadow: 2px 0 0 #543133, -2px 0 0 #543133, 0 2px 0 #543133, 0 -2px 0 #543133, 1px 1px 0 #543133, -1px 1px 0 #543133, 1px -1px 0 #543133, -1px -1px 0 #543133;
@@ -217,7 +226,8 @@ body {
   background-color: transparent;
   cursor: pointer;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  font-family: "PT Serif", serif; }
 
 .searchInput {
   width: 120px; }
@@ -398,6 +408,9 @@ svg .rect {
   top: 14px;
   padding: 0 6px; }
 
+.centerSearch {
+  height: 80px; }
+
 .adjBtn {
   margin-right: 20px;
   color: #B58981;
@@ -425,13 +438,14 @@ svg .rect {
 
 .homelink {
   text-shadow: 1px 0 0 #543133, -1px 0 0 #543133, 0 1px 0 #543133, 0 -1px 0 #543133, 1px 1px 0 #543133, -1px 1px 0 #543133, 1px -1px 0 #543133, -1px -1px 0 #543133;
+  font-family: "Poppins", sans-serif;
   z-index: 50; }
 
 .svg-logo {
   height: 80px;
   width: 63px;
   position: absolute;
-  top: -26px;
+  top: -23px;
   left: calc(3vw + 40px); }
 
 .headLogo {
@@ -456,11 +470,9 @@ svg .rect {
   .searchHead {
     align-items: flex-start; }
   .homelink {
-    margin-top: 26px; }
+    margin-top: 23px; }
   .svg-logo {
     top: 0; }
-  .profilelink {
-    margin-top: 15px; }
   .menu {
     display: flex;
     flex-direction: column;
@@ -475,14 +487,13 @@ svg .rect {
     transition: all 0.4s; }
   .menulinks {
     margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
     color: transparent; }
   .menulinks:visited {
     color: #F5DCD5; }
   .adjBtn {
     position: relative;
-    top: 30px; }
-  .adjLogout {
-    margin-top: 15px; } }
+    top: 30px; } }
 
 @media (min-width: 701px) {
   .showBurger {
