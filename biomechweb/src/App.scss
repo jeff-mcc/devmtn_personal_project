@@ -113,20 +113,50 @@ $maxWidthVar: 1000px;
 .imgContainer{
   @extend %display-properties;
   flex-direction: column;
+  // flex-shrink: 0;
   width: $widthVar;
   max-width: $maxWidthVar;
-  // height: 300vw;
-  // max-height: 3000px;
+  height: 300vw;
+  max-height: 3000px;
   overflow: hidden;
+  // position: relative;
 }
 
-.homeImg{
-  width: $widthVar;
-  height: 100vw;
+.imgWrapper{
+  width:$widthVar;
   max-width: $maxWidthVar;
+  height:$widthVar;
+  max-height: $maxWidthVar;    
+  overflow:hidden;
+  position:relative;
+  @extend %display-properties;
+}
+
+@mixin VariedImg($topAdjust: 0px){
+  position: absolute;
+  // left: 0;
+  top: $topAdjust;
+  width: $widthVar;
+  max-width: $maxWidthVar;
+}
+
+.imgOne{
+  // @include VariedImg;
+  // max-width: unset;
+  // left: unset;
+  // right: -10%;
+  height: $widthVar;
   max-height: $maxWidthVar;
-  background-position: center center;
-  background-size:auto;
+  // object-position: 50% 50%;
+  object-fit: cover;
+}
+
+.imgTwo{
+  @include VariedImg($topAdjust: -25%);
+}
+
+.imgThree{
+  @include VariedImg($topAdjust: -20%);
 }
 
 %button-properties{
@@ -147,6 +177,23 @@ $maxWidthVar: 1000px;
 .btnOne{
   @extend %button-properties;
   top: calc(70vw + #{$footHeight});
+}
+
+.textHome{
+  z-index: 50;
+  font-size: 6vw;
+  color: $primary-background-color;
+  width: 90%;
+  max-width: 600px;
+  text-shadow: 2px 0 0 $primary-border-color, -2px 0 0 $primary-border-color, 0 2px 0 $primary-border-color, 0 -2px 0 $primary-border-color, 1px 1px 0 $primary-border-color, -1px 1px 0 $primary-border-color, 1px -1px 0 $primary-border-color, -1px -1px 0 $primary-border-color;
+  position: absolute;
+  // top: calc(50vw + #{$footHeight})
+}
+
+@media (min-width: 810px){
+  .textHome{
+    font-size: 49px;
+  }
 }
 
 .btnTwo{
@@ -589,9 +636,9 @@ $maxWidth: 360px;
   .svg-logo{
     top: 0;
   }
-  .centerSearch{
-    // margin-top: 25px;
-  }
+  // .centerSearch{
+  //   // margin-top: 25px;
+  // }
   .profilelink{
     margin-top: 15px;
   }
@@ -696,4 +743,9 @@ $maxWidth: 360px;
   width: calc(100% - 40px);
   max-width: $maxWidthTextBox;
   border-bottom: 1px dotted $primary-border-color;
+}
+
+.addBorder{
+  border-top: 1px dotted $primary-menu-color;
+  padding-top: 20px;
 }

@@ -71,14 +71,16 @@ const ProjectData = (props) => {
             if(user.user_id===projectInfo.owner_id){
                 if(dataInfo.length===0){
                     return(
-                        <div>
+                        <div className="addBorder">
                             <button className="editProject" onClick={handleDeleteProject}>Delete Project</button>
                             <button className="editProject" onClick={handleAddData}>Add Data</button>
                         </div>
                     )
                 }else{
                     return(
-                        <button className="editProject" onClick={handleAddData}>Add Data</button>
+                        <div className="addBorder">
+                            <button className="editProject" onClick={handleAddData}>Add Data</button>
+                        </div>
                     )
                 } 
             }
