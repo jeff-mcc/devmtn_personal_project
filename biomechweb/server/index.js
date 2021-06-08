@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
+const path = require('path')
 
 const {CONNECTION_STRING,SESSION_SECRET,SERVER_PORT} = process.env;
 
@@ -58,3 +59,9 @@ app.delete('/data/folders/:project_id',projCtrl.deleteProject)
 //User:
 // '/user/profile'  get was unnecessary because profile info retrieved from database during login
 app.put('/user/edit',userCtrl.editUser)
+
+app.use(express.static(__dirname + '/../build'))
+
+app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname,'../build/index.html'))
+})
