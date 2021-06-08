@@ -272,6 +272,7 @@ $maxWidthVar: 1000px;
   height: unset;
   width: 100%;
   max-width: 400px;
+  margin-bottom: 25px;
 }
 
 #me{
@@ -768,4 +769,21 @@ $maxWidth: 360px;
 .addBorder{
   border-top: 1px dotted $primary-menu-color;
   padding-top: 20px;
+}
+
+.contactLink{
+  justify-content: flex-start;
+}
+
+.contactLinkedIn{
+  text-decoration: none;
+  color: $primary-color;
+}
+
+.contactLinkedIn:visited{
+  color: $primary-color;
+}
+
+.marginSet{
+  margin: 0;
 }

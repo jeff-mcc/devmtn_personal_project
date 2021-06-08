@@ -183,7 +183,8 @@ body {
 .contactInfo {
   height: unset;
   width: 100%;
-  max-width: 400px; }
+  max-width: 400px;
+  margin-bottom: 25px; }
 
 #me {
   margin-bottom: 0; }
@@ -544,3 +545,16 @@ svg .rect {
 .addBorder {
   border-top: 1px dotted #8C544C;
   padding-top: 20px; }
+
+.contactLink {
+  justify-content: flex-start; }
+
+.contactLinkedIn {
+  text-decoration: none;
+  color: #9B2E45; }
+
+.contactLinkedIn:visited {
+  color: #9B2E45; }
+
+.marginSet {
+  margin: 0; }
