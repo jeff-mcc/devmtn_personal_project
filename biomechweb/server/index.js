@@ -52,6 +52,7 @@ app.put(`/data/folders/data/trial`,dataCtrl.updateTrial)
 app.get('/data/folders',projCtrl.getProjects)
 app.get('/data/folders/:user_id',projCtrl.getUserProjects)
 app.post('/data/folders',projCtrl.addProject)
+app.delete('/data/folders/:project_id',projCtrl.deleteProject)
 // '/data/folders?query=query'  endpoint completed for search and for filtering categories, and connected on the front end
 
 //User:

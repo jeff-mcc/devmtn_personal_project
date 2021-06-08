@@ -71,5 +71,19 @@ module.exports = {
             console.log(err)
             res.status(500).send(err)
         })
+    },
+    deleteProject: (req,res)=>{
+        const db = req.app.get('db')
+        let {project_id} = req.params;
+        project_id = +project_id;
+        // const {user} = req.session;
+        // const owner_id = user.user_id;
+        db.project.delete_project(project_id)
+        .then(()=>{
+            res.sendStatus(200)
+        }).catch(err=>{
+            console.log(err)
+            res.status(500).send(err)
+        })
     }
 }

@@ -385,7 +385,7 @@ svg .rect {
   fill: #F5DCD5; }
 
 .iconLogout {
-  stroke: #771b2f;
+  stroke: #B58981;
   margin: 0 1.5vw 0 10px; }
 
 .profilelink {
@@ -427,8 +427,6 @@ svg .rect {
     margin-top: 26px; }
   .svg-logo {
     top: 0; }
-  .centerSearch {
-    margin-top: 25px; }
   .profilelink {
     margin-top: 15px; }
   .menu {

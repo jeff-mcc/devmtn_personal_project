@@ -522,7 +522,7 @@ $maxWidth: 360px;
 
 .iconLogout{
   @extend %icon-sizing;
-  stroke: $newColor;
+  stroke: $primary-folder-color;
   margin: 0 1.5vw 0 10px;
 }
 
@@ -590,7 +590,7 @@ $maxWidth: 360px;
     top: 0;
   }
   .centerSearch{
-    margin-top: 25px;
+    // margin-top: 25px;
   }
   .profilelink{
     margin-top: 15px;

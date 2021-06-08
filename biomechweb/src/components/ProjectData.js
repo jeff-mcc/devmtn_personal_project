@@ -12,6 +12,7 @@ const ProjectData = (props) => {
     const {projectInfo,dataInfo,finishedBool} = useSelector(store=>store.projectInfo)
     const {user} = useSelector(store=>store.auth)
     let viewArray = [];
+    // console.log(dataInfo)
     if(dataInfo){
         for (let i=0;i<dataInfo.length;i++){
             viewArray.push(false)
@@ -58,12 +59,28 @@ const ProjectData = (props) => {
         props.history.push("/add/data")
     }
 
+    const handleDeleteProject = () => {
+        axios.delete(`/data/folders/${projectInfo.project_id}`)
+        .then(()=>{
+            props.history.push('/profile')
+        }).catch(err=>console.log(err))
+    }
+
     const renderAddData = () => {
         if(user){
             if(user.user_id===projectInfo.owner_id){
-                return(
-                    <button className="editProject" onClick={handleAddData}>Add Data</button>
-                )
+                if(dataInfo.length===0){
+                    return(
+                        <div>
+                            <button className="editProject" onClick={handleDeleteProject}>Delete Project</button>
+                            <button className="editProject" onClick={handleAddData}>Add Data</button>
+                        </div>
+                    )
+                }else{
+                    return(
+                        <button className="editProject" onClick={handleAddData}>Add Data</button>
+                    )
+                } 
             }
         }
     }
